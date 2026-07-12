@@ -514,6 +514,35 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
 .scard-dark .slink { color: var(--champagne); }
 .scard-dark .slink:hover { color: var(--champagne-licht); }
 
+/* ---------- Luchthavenkaarten (airport-taxi.html) ---------- */
+.acard-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.acode {
+  font-family: var(--font-kop);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--champagne-donker);
+}
+.scard-dark .acode { color: var(--champagne); }
+.aland {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tekst-zacht);
+  background: var(--creme);
+  border: 1px solid var(--lijn);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.scard-dark .aland { background: var(--groen-2); border-color: rgba(214, 192, 138, 0.25); color: var(--champagne-licht); }
+.aprice { margin-top: 14px; font-size: 0.86rem; color: var(--tekst-zacht); }
+.aprice strong { color: var(--champagne-donker); font-family: var(--font-kop); font-size: 1.05rem; }
+.scard-dark .aprice { color: rgba(247, 245, 239, 0.65); }
+.scard-dark .aprice strong { color: var(--champagne-licht); }
+
+.main-nav a.is-current { color: var(--champagne-licht); background: rgba(214, 192, 138, 0.1); }
+
 /* ==========================================================
    Spotlight met foto-achtergrond
    ========================================================== */
@@ -526,6 +555,14 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
     var(--zwart);
   color: var(--creme);
   padding: 92px 0;
+}
+
+/* FOTO: vervang deze Unsplash-URL door een eigen foto (bijv. img/airport.jpg) */
+.spotlight-airport {
+  background:
+    linear-gradient(100deg, rgba(24, 22, 20, 0.94) 32%, rgba(24, 22, 20, 0.66) 68%, rgba(24, 22, 20, 0.45)),
+    url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=68") center 45% / cover no-repeat,
+    var(--zwart);
 }
 
 .spotlight-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 52px; align-items: center; }

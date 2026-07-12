@@ -129,8 +129,9 @@ document.querySelectorAll(".tarrow").forEach((knop) => {
   const wrap = document.getElementById("stepsWrap");
   const track = document.getElementById("stepsTrack");
   const fill = document.getElementById("stepsFill");
+  if (!wrap || !track || !fill) return;
   const steps = [...track.querySelectorAll(".step")];
-  if (!wrap || !steps.length) return;
+  if (!steps.length) return;
 
   function zetVoortgang(pct) {
     fill.style.width = Math.min(100, Math.max(0, pct)) + "%";

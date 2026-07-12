@@ -12,6 +12,8 @@ const bsteps = document.querySelectorAll(".bstep");
 const blineFill = document.getElementById("blineFill");
 const bookingTitle = document.getElementById("bookingTitle");
 
+if (form) {
+
 function toonStap(n) {
   panels.forEach((p) => p.classList.toggle("is-active", p.dataset.panel === String(n)));
   bsteps.forEach((s) => {
@@ -105,6 +107,8 @@ document.querySelectorAll("[data-boek]").forEach((link) => {
     document.getElementById("boeken").scrollIntoView({ behavior: "smooth", block: "center" });
   });
 });
+
+}
 
 /* ==========================================================
    Swipe-tracks: pijltjes

@@ -543,6 +543,50 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
 
 .main-nav a.is-current { color: var(--champagne-licht); background: rgba(214, 192, 138, 0.1); }
 
+/* ---------- Over ons ---------- */
+.hero-compact { padding: 64px 0 72px; }
+.hero-copy-center { max-width: 760px; margin: 0 auto; text-align: center; }
+.hero-copy-center .hero-sub { margin-left: auto; margin-right: auto; }
+.hero-ctas-center { justify-content: center; }
+
+.section-cream2 { background: var(--creme-2); }
+
+.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+.about-tekst { color: var(--tekst-zacht); margin-top: 16px; max-width: 540px; }
+.about-grid h2 { margin-bottom: 4px; }
+
+.about-card {
+  background: var(--groen);
+  border-radius: var(--radius);
+  padding: 30px 28px;
+  box-shadow: var(--schaduw);
+}
+.about-card h3 {
+  color: var(--champagne);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-family: var(--font-body);
+}
+.check-list { list-style: none; display: grid; gap: 13px; }
+.check-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: rgba(247, 245, 239, 0.85);
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+.check-list .cmark { background: var(--champagne); color: #221A05; margin-top: 1px; }
+
+.lost-cta { margin-top: 6px; }
+
+@media (max-width: 920px) {
+  .about-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
 /* ==========================================================
    Spotlight met foto-achtergrond
    ========================================================== */

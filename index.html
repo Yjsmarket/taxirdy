@@ -3,55 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amsterdam Pro Taxi | Boek je taxi vooraf, wij regelen de rest</title>
-  <meta name="description" content="Amsterdam Pro Taxi bemiddelt met gelicenseerde taxibedrijven voor ritten die je van tevoren vastlegt, naar Schiphol, naar een evenement, of voor een dierbare die je niet wilt laten wachten. Vaste prijsafspraak vooraf, 24/7 bereikbaar.">
+  <title>Zakelijke Taxi Amsterdam | Taxi Vooraf Reserveren, 24/7 | Amsterdam Pro Taxi</title>
+  <meta name="description" content="Taxi vooraf reserveren in Amsterdam: zakelijke taxi, Schiphol-vervoer met vluchtmonitoring en ritten voor wie je dierbaar is. Vaste prijsafspraak, persoonlijke bevestiging via WhatsApp, 24/7 bereikbaar.">
+  <meta property="og:title" content="Zakelijke Taxi Amsterdam | Taxi Vooraf Reserveren | Amsterdam Pro Taxi">
+  <meta property="og:description" content="Reserveer je taxi vooraf en weet zeker dat hij er staat. Zakelijke ritten, Schiphol en ritten voor wie je dierbaar is. Vaste prijsafspraak, 24/7.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": "Amsterdam Pro Taxi",
+    "description": "Taxi vooraf reserveren in Amsterdam. Zakelijke taxi, Schiphol-vervoer met vluchtmonitoring en ritten voor wie je dierbaar is, via een netwerk van gelicenseerde taxibedrijven.",
+    "telephone": "+31202101637",
+    "areaServed": { "@type": "City", "name": "Amsterdam" },
+    "availableLanguage": "nl",
+    "provider": { "@type": "LocalBusiness", "name": "Amsterdam Pro Taxi", "telephone": "+31202101637" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Hoe reserveer ik een taxi vooraf in Amsterdam?", "acceptedAnswer": { "@type": "Answer", "text": "Via WhatsApp, telefoon (020 210 1637) of het boekingsformulier op deze pagina, met datum, tijd, ophaaladres en bestemming. Je ontvangt een persoonlijke bevestiging met een vaste prijsafspraak." } },
+      { "@type": "Question", "name": "Rijden jullie zelf, of wie zit er achter het stuur?", "acceptedAnswer": { "@type": "Answer", "text": "Amsterdam Pro Taxi bemiddelt de rit naar een gelicenseerd taxibedrijf uit ons netwerk. Zo garanderen we professionele, gescreende chauffeurs zonder dat je zelf hoeft te vergelijken." } },
+      { "@type": "Question", "name": "Wat als mijn vlucht vertraging heeft?", "acceptedAnswer": { "@type": "Answer", "text": "We volgen je vluchtgegevens bij Schiphol-ritten, dus de pickup schuift automatisch mee. Je hoeft zelf niets aan te passen." } },
+      { "@type": "Question", "name": "Kan ik een zakelijke taxi op factuur boeken?", "acceptedAnswer": { "@type": "Answer", "text": "Neem contact op via WhatsApp of telefoon, dan bespreken we de mogelijkheden voor zakelijke ritten en afspraken voor je bedrijf." } },
+      { "@type": "Question", "name": "Kan ik een taxi reserveren voor iemand anders?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Boek de rit vooraf namens een familielid of dierbare. Jij ontvangt de bevestiging, zij een taxi die er gewoon staat." } },
+      { "@type": "Question", "name": "Wat kost een rit?", "acceptedAnswer": { "@type": "Answer", "text": "Dat hangt af van bestemming, tijdstip en het type dienst. Via WhatsApp of het formulier krijg je vooraf een duidelijke prijsafspraak, geen verrassingen achteraf." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
+  <!-- ===================== HEADER ===================== -->
   <header class="site-header" id="top">
-    <div class="container header-inner">
+    <div class="shell header-inner">
       <a href="#top" class="logo" aria-label="Amsterdam Pro Taxi, naar boven">
-        <span class="logo-main">Amsterdam</span>
-        <span class="logo-sub">Pro Taxi</span>
+        <span class="logo-mark" aria-hidden="true">APT</span>
+        <span class="logo-text">Amsterdam<em>Pro Taxi</em></span>
       </a>
-
       <nav class="main-nav" id="mainNav" aria-label="Hoofdnavigatie">
-        <ul class="nav-list">
-          <li class="nav-item has-dropdown">
-            <button class="nav-link dropdown-toggle" type="button" aria-expanded="false" aria-controls="dienstenDropdown">
-              Diensten
-              <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <ul class="dropdown" id="dienstenDropdown">
-              <li><a href="#airport">Airport / Schiphol-vervoer</a></li>
-              <li><a href="#zakelijk">Zakelijke ritten</a></li>
-              <li><a href="#evenementen">Evenementen &amp; bijzondere gelegenheden</a></li>
-              <li><a href="#familie">Familie &amp; dierbaren</a></li>
-              <li><a href="#tours">Tours &amp; sightseeing</a></li>
-              <li><a href="#prive-chauffeur">Priv&eacute;-chauffeur</a></li>
-              <li><a href="#schoolvervoer">Schoolvervoer</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#vloot">Vloot</a></li>
-          <li class="nav-item"><a class="nav-link" href="#routes">Route's</a></li>
-          <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
+        <a href="#diensten">Diensten</a>
+        <a href="#tarieven">Tarieven</a>
+        <a href="#vergelijk">Vergelijk</a>
+        <a href="#hoe-het-werkt">Hoe het werkt</a>
+        <a href="#faq">FAQ</a>
+        <a href="tel:+31202101637" class="nav-phone">020 210 1637</a>
       </nav>
-
       <div class="header-actions">
-        <a class="header-phone" href="tel:+31202101637">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          020 210 1637
+        <a class="header-phone" href="tel:+31202101637" aria-label="Bel 020 210 1637">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>020 210 1637</span>
         </a>
-        <a class="btn btn-gold btn-header" href="https://wa.me/31202101637?text=Hoi%20Amsterdam%20Pro%20Taxi!%20Ik%20wil%20graag%20een%20rit%20reserveren." target="_blank" rel="noopener">Reserveer via WhatsApp</a>
+        <a class="btn btn-champagne btn-s" href="#boeken" data-boek>Reserveer nu</a>
         <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu openen">
-          <span></span><span></span><span></span>
+          <span></span><span></span>
         </button>
       </div>
     </div>
@@ -59,451 +72,525 @@
 
   <main>
 
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <p class="eyebrow">Vooraf reserveren, altijd zekerheid</p>
-        <h1>Boek je taxi vooraf.<br>Wij regelen de rest.</h1>
-        <p class="hero-sub">Amsterdam Pro Taxi bemiddelt met gelicenseerde taxibedrijven voor ritten die je van tevoren vastlegt, naar Schiphol, naar een evenement, of voor een dierbare die je niet wilt laten wachten. Geen gedoe, geen verrassingen, gewoon een taxi die er staat wanneer je 'm nodig hebt.</p>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-deco" aria-hidden="true"></div>
+    <div class="shell hero-grid">
+      <div class="hero-copy reveal">
+        <p class="badge-pill"><span class="dot" aria-hidden="true"></span>Amsterdam &amp; omstreken · 24/7</p>
+        <h1>Taxi <span class="hl">vooraf reserveren</span> in Amsterdam. Gegarandeerd er.</h1>
+        <p class="hero-sub">Amsterdam Pro Taxi regelt <strong>zakelijke taxi's</strong>, Schiphol-vervoer met vluchtmonitoring en ritten voor wie je dierbaar is. Vooraf vastgelegd met een vaste prijsafspraak en een persoonlijke bevestiging, zodat niemand zich zorgen hoeft te maken.</p>
         <div class="hero-ctas">
-          <a class="btn btn-gold btn-lg" href="https://wa.me/31202101637?text=Hoi%20Amsterdam%20Pro%20Taxi!%20Ik%20wil%20graag%20een%20rit%20reserveren." target="_blank" rel="noopener">Reserveer nu via WhatsApp</a>
-          <a class="btn btn-outline btn-lg" href="#diensten">Bekijk onze diensten</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/31202101637?text=Hoi%20Amsterdam%20Pro%20Taxi!%20Ik%20wil%20graag%20een%20rit%20reserveren." target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12.05 2a9.95 9.95 0 0 0-8.6 14.92L2 22l5.23-1.37A9.95 9.95 0 1 0 12.05 2zm0 18.19c-1.5 0-2.98-.4-4.27-1.16l-.3-.18-3.1.81.83-3.02-.2-.31a8.26 8.26 0 1 1 7.04 3.86z"/></svg>
+            Reserveer via WhatsApp
+          </a>
+          <a class="btn btn-ghost-light" href="tel:+31202101637">Bel 020 210 1637</a>
         </div>
-        <p class="hero-trust">Vaste prijsafspraak vooraf &middot; Gelicenseerde chauffeurs &middot; 24/7 bereikbaar</p>
+        <ul class="hero-chips" aria-label="Waar je op kunt rekenen">
+          <li>Vaste prijsafspraak</li>
+          <li>Vooraf bevestigd</li>
+          <li>Vluchtmonitoring</li>
+          <li>Gelicenseerde chauffeurs</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- ===== USP-balk ===== -->
-    <section class="usp-bar" aria-label="Waarom Amsterdam Pro Taxi">
-      <div class="container usp-grid">
-        <div class="usp">
-          <span class="usp-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 11 3.83A2 2 0 0 0 9.59 3.24L4 3a1 1 0 0 0-1 1l.24 5.59A2 2 0 0 0 3.83 11l9.58 9.59a2 2 0 0 0 2.83 0l4.35-4.35a2 2 0 0 0 0-2.83z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>
-          </span>
-          <h3>Prijszekerheid vooraf</h3>
-          <p>Je weet vooraf wat je betaalt, geen verrassingen achteraf.</p>
+      <!-- Boekingswidget -->
+      <div class="booking reveal" id="boeken">
+        <div class="booking-head">
+          <div class="booking-steps" aria-hidden="true">
+            <span class="bstep is-active" data-bstep="1">1</span>
+            <span class="bline"><span class="bline-fill" id="blineFill"></span></span>
+            <span class="bstep" data-bstep="2">2</span>
+          </div>
+          <p class="booking-title" id="bookingTitle">Stap 1 · Jouw rit</p>
         </div>
-        <div class="usp">
-          <span class="usp-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 15.5 11 17.5 15 13.5"/></svg>
-          </span>
-          <h3>Gegarandeerde reservering</h3>
-          <p>Eenmaal geboekt, staat je taxi er, ook op drukke momenten.</p>
-        </div>
-        <div class="usp">
-          <span class="usp-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-          </span>
-          <h3>Vluchtmonitoring</h3>
-          <p>Bij Schiphol-ritten volgen we je vlucht, zodat vertraging nooit een probleem is.</p>
-        </div>
-        <div class="usp">
-          <span class="usp-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-          </span>
-          <h3>Gelicenseerde chauffeurs</h3>
-          <p>We werken uitsluitend met gescreende, gelicenseerde taxibedrijven.</p>
+        <form id="boekingForm" novalidate>
+          <div class="bpanels" id="bpanels">
+            <fieldset class="bpanel is-active" data-panel="1">
+              <legend class="sr-only">Stap 1: rit</legend>
+              <div class="bfield">
+                <label for="f-ophaal">Ophaaladres</label>
+                <input type="text" id="f-ophaal" name="ophaaladres" placeholder="Straat en huisnummer" autocomplete="street-address" required>
+              </div>
+              <div class="bfield">
+                <label for="f-bestemming">Bestemming</label>
+                <input type="text" id="f-bestemming" name="bestemming" placeholder="Schiphol of ander adres" required>
+              </div>
+              <div class="bfield">
+                <label for="f-datumtijd">Datum en tijd</label>
+                <input type="datetime-local" id="f-datumtijd" name="datumtijd" required>
+              </div>
+              <button type="button" class="btn btn-green btn-block" id="naarStap2">Volgende stap</button>
+            </fieldset>
+            <fieldset class="bpanel" data-panel="2">
+              <legend class="sr-only">Stap 2: gegevens</legend>
+              <div class="brow">
+                <div class="bfield">
+                  <label for="f-naam">Naam</label>
+                  <input type="text" id="f-naam" name="naam" autocomplete="name" required>
+                </div>
+                <div class="bfield">
+                  <label for="f-dienst">Type dienst</label>
+                  <select id="f-dienst" name="dienst">
+                    <option value="Zakelijke taxi">Zakelijke taxi</option>
+                    <option value="Airport/Schiphol">Airport/Schiphol</option>
+                    <option value="Familie/dierbare">Familie/dierbare</option>
+                    <option value="Evenement">Evenement</option>
+                    <option value="Tour">Tour</option>
+                    <option value="Priv&eacute;-chauffeur (uur/dag)">Priv&eacute;-chauffeur (uur/dag)</option>
+                    <option value="Schoolvervoer">Schoolvervoer</option>
+                    <option value="Anders">Anders</option>
+                  </select>
+                </div>
+              </div>
+              <div class="brow">
+                <div class="bfield">
+                  <label for="f-personen">Personen</label>
+                  <select id="f-personen" name="personen">
+                    <option value="1">1 persoon</option><option value="2">2 personen</option><option value="3">3 personen</option><option value="4">4 personen</option><option value="5">5 personen</option><option value="6">6 personen</option><option value="7">7 personen</option><option value="8">8 personen</option>
+                  </select>
+                </div>
+                <div class="bfield">
+                  <label for="f-koffers">Koffers</label>
+                  <select id="f-koffers" name="koffers">
+                    <option value="0">0 koffers</option><option value="1">1 koffer</option><option value="2">2 koffers</option><option value="3">3 koffers</option><option value="4">4 koffers</option><option value="5">5+ koffers</option>
+                  </select>
+                </div>
+              </div>
+              <div class="bfield">
+                <span class="blabel">Voertuig</span>
+                <div class="vkeuze" role="radiogroup" aria-label="Voertuig">
+                  <label class="vopt"><input type="radio" name="voertuig" value="Sedan (tot 4 pers.)" checked>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><path d="M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3"/><circle cx="7" cy="16.5" r="1.7"/><circle cx="17" cy="16.5" r="1.7"/></svg>
+                    <span>Sedan</span><small>tot 4 pers.</small></label>
+                  <label class="vopt"><input type="radio" name="voertuig" value="Bus (tot 8 pers.)">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="10" rx="2"/><path d="M3 11h18M9 6v5M15 6v5"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg>
+                    <span>Bus</span><small>tot 8 pers.</small></label>
+                  <label class="vopt"><input type="radio" name="voertuig" value="Premium">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.1 4.9L19 8.5l-3.8 3.4L16.2 17 12 14.3 7.8 17l1-5.1L5 8.5l4.9-.6z"/></svg>
+                    <span>Premium</span><small>op aanvraag</small></label>
+                </div>
+              </div>
+              <div class="bfield">
+                <label for="f-vlucht">Vluchtnummer <span class="opt">(optioneel)</span></label>
+                <input type="text" id="f-vlucht" name="vlucht" placeholder="bijv. KL 1234">
+              </div>
+              <div class="bfield">
+                <label for="f-opm">Opmerkingen <span class="opt">(optioneel)</span></label>
+                <textarea id="f-opm" name="opmerkingen" rows="2"></textarea>
+              </div>
+              <div class="brow brow-acties">
+                <button type="button" class="btn btn-ghost-dark" id="terugStap1">Terug</button>
+                <button type="submit" class="btn btn-whatsapp btn-grow">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12.05 2a9.95 9.95 0 0 0-8.6 14.92L2 22l5.23-1.37A9.95 9.95 0 1 0 12.05 2zm0 18.19c-1.5 0-2.98-.4-4.27-1.16l-.3-.18-3.1.81.83-3.02-.2-.31a8.26 8.26 0 1 1 7.04 3.86z"/></svg>
+                  Verstuur via WhatsApp
+                </button>
+              </div>
+            </fieldset>
+          </div>
+        </form>
+        <p class="booking-note">Je opent WhatsApp met alle gegevens ingevuld. Wij bevestigen persoonlijk met een vaste prijsafspraak.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEITEN ===================== -->
+  <section class="facts" aria-label="Feiten">
+    <div class="shell facts-grid">
+      <div class="fact reveal"><strong>24/7</strong><span>Bereikbaar, ook 's nachts en op feestdagen</span></div>
+      <div class="fact reveal"><strong>100%</strong><span>Vooraf bevestigd, geen twijfel op de dag zelf</span></div>
+      <div class="fact reveal"><strong>Vast</strong><span>Prijsafspraak vooraf, geen meter die doorloopt</span></div>
+      <div class="fact reveal"><strong>Live</strong><span>Vluchtmonitoring bij alle Schiphol-ritten</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Amsterdam Centrum</span><i>·</i><span>Schiphol T1 T2 T3</span><i>·</i><span>Zuidas</span><i>·</i><span>De Pijp</span><i>·</i><span>Amsterdam Zuid</span><i>·</i><span>Jordaan</span><i>·</i><span>Amsterdam West</span><i>·</i><span>IJburg</span><i>·</i><span>Amsterdam Noord</span><i>·</i><span>Amstelveen</span><i>·</i><span>Zuidoost</span><i>·</i><span>Hoofddorp</span><i>·</i><span>Haarlem</span><i>·</i>
+      <span>Amsterdam Centrum</span><i>·</i><span>Schiphol T1 T2 T3</span><i>·</i><span>Zuidas</span><i>·</i><span>De Pijp</span><i>·</i><span>Amsterdam Zuid</span><i>·</i><span>Jordaan</span><i>·</i><span>Amsterdam West</span><i>·</i><span>IJburg</span><i>·</i><span>Amsterdam Noord</span><i>·</i><span>Amstelveen</span><i>·</i><span>Zuidoost</span><i>·</i><span>Hoofddorp</span><i>·</i><span>Haarlem</span><i>·</i>
+    </div>
+  </div>
+
+  <!-- ===================== DIENSTEN ===================== -->
+  <section class="section" id="diensten">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="eyebrow">Onze diensten</p>
+        <h2>De juiste rit, <span class="hl-green">vooraf vastgelegd</span>.</h2>
+        <p class="section-sub">Van zakelijke taxi tot Schiphol en een rit voor wie je dierbaar is. Swipe door de diensten en reserveer direct.</p>
+      </div>
+    </div>
+    <div class="track-wrap">
+      <div class="track" id="dienstenTrack" tabindex="0" aria-label="Diensten, horizontaal scrollen">
+
+        <article class="scard reveal">
+          <span class="snum">01</span>
+          <h3>Zakelijke taxi</h3>
+          <p class="slead">Zakelijke ritten waar je op kan rekenen.</p>
+          <p>Voor klantbezoeken, meetings of een rit naar het vliegveld voor een zakenreis. Gepland vooraf, zodat het nooit een risico wordt in je agenda.</p>
+          <ul class="stags"><li>Vooraf bevestigd</li><li>Vaste prijsafspraak</li><li>24/7</li></ul>
+          <a class="slink" href="#boeken" data-boek data-dienst="Zakelijke taxi">Reserveer zakelijk <span aria-hidden="true">&rarr;</span></a>
+        </article>
+
+        <article class="scard reveal">
+          <span class="snum">02</span>
+          <h3>Airport / Schiphol</h3>
+          <p class="slead">Schiphol-vervoer met vluchtmonitoring.</p>
+          <p>Vroege vlucht of aankomst na middernacht, je taxi staat klaar. We volgen je vluchtgegevens, dus bij vertraging schuift de pickup automatisch mee.</p>
+          <ul class="stags"><li>Vluchtmonitoring</li><li>Pickup schuift mee</li><li>Vaste prijs</li></ul>
+          <a class="slink" href="#boeken" data-boek data-dienst="Airport/Schiphol" data-bestemming="Schiphol">Reserveer Schiphol <span aria-hidden="true">&rarr;</span></a>
+        </article>
+
+        <article class="scard scard-dark reveal">
+          <span class="snum">03</span>
+          <h3>Familie &amp; dierbaren</h3>
+          <p class="slead">Zekerheid voor wie je dierbaar is.</p>
+          <p>Gaat een familielid ergens naartoe en wil je zeker weten dat het geregeld is? Boek de rit vooraf namens hen. Jij hebt gemoedsrust, zij een taxi die er gewoon staat.</p>
+          <ul class="stags"><li>Jij krijgt de bevestiging</li><li>Vooraf geregeld</li></ul>
+          <a class="slink" href="#boeken" data-boek data-dienst="Familie/dierbare">Boek voor een dierbare <span aria-hidden="true">&rarr;</span></a>
+        </article>
+
+        <article class="scard reveal">
+          <span class="snum">04</span>
+          <h3>Evenementen</h3>
+          <p class="slead">Voor evenementen, zonder gedoe achteraf.</p>
+          <p>Naar een concert, feest of bijzondere avond? Boek je terugrit al vooraf, zodat je aan het einde van de avond niet hoeft te zoeken naar vervoer.</p>
+          <ul class="stags"><li>Terugrit vooraf</li><li>Ook 's nachts</li></ul>
+          <a class="slink" href="#boeken" data-boek data-dienst="Evenement">Reserveer je avond <span aria-hidden="true">&rarr;</span></a>
+        </article>
+
+        <article class="scard reveal">
+          <span class="snum">05</span>
+          <h3>Tours &amp; sightseeing</h3>
+          <p class="slead">Tours door en rond Amsterdam.</p>
+          <p>Een dagje Amsterdam verkennen, of een tochtje naar omliggende steden. Met een chauffeur die de weg kent en het tempo bepaalt dat bij je past.</p>
+          <ul class="stags"><li>Eigen tempo</li><li>Ook buiten de stad</li></ul>
+          <a class="slink" href="#boeken" data-boek data-dienst="Tour">Plan een tour <span aria-hidden="true">&rarr;</span></a>
+        </article>
+
+        <article class="scard reveal">
+          <span class="snum">06</span>
+          <h3>Priv&eacute;-chauffeur</h3>
+          <p class="slead">Priv&eacute;-chauffeur, per uur of per dag.</p>
+          <p>Een chauffeur tot je beschikking voor een dagdeel, een hele dag, of meerdere afspraken achter elkaar. Zonder dat je steeds opnieuw hoeft te boeken.</p>
+          <ul class="stags"><li>Per uur of dag</li><li>Meerdere stops</li></ul>
+          <a class="slink" href="#boeken" data-boek data-dienst="Priv&eacute;-chauffeur (uur/dag)">Vraag beschikbaarheid <span aria-hidden="true">&rarr;</span></a>
+        </article>
+
+        <article class="scard reveal">
+          <span class="snum">07</span>
+          <h3>Schoolvervoer</h3>
+          <p class="slead">Vast en veilig schoolvervoer.</p>
+          <p>Kinderen die dagelijks opgehaald en gebracht moeten worden. Met vaste, vertrouwde chauffeurs en heldere afspraken over tijden en route.</p>
+          <ul class="stags"><li>Vaste chauffeurs</li><li>Heldere afspraken</li></ul>
+          <a class="slink" href="#boeken" data-boek data-dienst="Schoolvervoer">Bespreek schoolvervoer <span aria-hidden="true">&rarr;</span></a>
+        </article>
+
+      </div>
+      <div class="track-nav shell">
+        <p class="swipe-hint" aria-hidden="true">Swipe voor meer <span>&rarr;</span></p>
+        <div class="track-arrows">
+          <button type="button" class="tarrow" data-track="dienstenTrack" data-dir="-1" aria-label="Vorige diensten">&larr;</button>
+          <button type="button" class="tarrow" data-track="dienstenTrack" data-dir="1" aria-label="Volgende diensten">&rarr;</button>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===== Diensten ===== -->
-    <section class="section section-light" id="diensten">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow eyebrow-dark">Onze diensten</p>
-          <h2>Voor elke rit die je vooraf wilt vastleggen</h2>
+  <!-- ===================== SPOTLIGHT (foto-achtergrond) ===================== -->
+  <!-- FOTO: vervang de Unsplash-achtergrond in styles.css (.spotlight) door een eigen foto, bijv. img/spotlight.jpg -->
+  <section class="spotlight" id="dierbaren">
+    <div class="shell spotlight-grid">
+      <div class="spotlight-copy reveal">
+        <p class="eyebrow eyebrow-champagne">Voor wie je liefhebt</p>
+        <h2 class="on-dark">Jij boekt. Zij stappen <span class="hl">zorgeloos</span> in.</h2>
+        <p>Een dochter die laat thuiskomt na een avond uit. Een vader met een afspraak in het ziekenhuis. Een zoon die op Schiphol landt. Reserveer de rit vooraf namens hen: jij ontvangt de bevestiging en de prijsafspraak, zij hoeven alleen in te stappen.</p>
+        <a class="btn btn-whatsapp" href="https://wa.me/31202101637?text=Hoi%20Amsterdam%20Pro%20Taxi!%20Ik%20wil%20graag%20een%20rit%20reserveren%20voor%20een%20familielid." target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12.05 2a9.95 9.95 0 0 0-8.6 14.92L2 22l5.23-1.37A9.95 9.95 0 1 0 12.05 2zm0 18.19c-1.5 0-2.98-.4-4.27-1.16l-.3-.18-3.1.81.83-3.02-.2-.31a8.26 8.26 0 1 1 7.04 3.86z"/></svg>
+          Regel het voor hen
+        </a>
+      </div>
+      <div class="spotlight-cards">
+        <div class="spot-card reveal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-9.3-8.5C.9 9.2 2.4 5.7 5.8 5.1c1.9-.3 3.8.5 4.9 2 .3.4.9.4 1.2 0 1.1-1.5 3-2.3 4.9-2 3.4.6 4.9 4.1 3.1 7.4C19 16.6 12 21 12 21z"/></svg>
+          <p><strong>Na een avond uit</strong>Terugrit staat al vast voordat de avond begint.</p>
         </div>
-        <div class="services-grid">
-
-          <article class="service-card" id="airport">
-            <h3>Airport / Schiphol-vervoer</h3>
-            <p class="service-lead">Schiphol-vervoer met vluchtmonitoring.</p>
-            <p>Vroege vlucht of aankomst na middernacht, je taxi staat klaar. We volgen je vluchtgegevens, dus bij vertraging schuift de pickup automatisch mee.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Airport/Schiphol">Meer info &amp; reserveren <span aria-hidden="true">&rarr;</span></a>
-          </article>
-
-          <article class="service-card" id="zakelijk">
-            <h3>Zakelijke ritten</h3>
-            <p class="service-lead">Zakelijke ritten waar je op kan rekenen.</p>
-            <p>Voor klantbezoeken, meetings of een rit naar het vliegveld voor een zakenreis, gepland vooraf, zodat het nooit een risico wordt in je agenda.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Zakelijke rit">Meer info &amp; reserveren <span aria-hidden="true">&rarr;</span></a>
-          </article>
-
-          <article class="service-card" id="evenementen">
-            <h3>Evenementen &amp; bijzondere gelegenheden</h3>
-            <p class="service-lead">Voor evenementen, zonder gedoe achteraf.</p>
-            <p>Naar een concert, feest of bijzondere avond? Boek je terugrit al vooraf, zodat je aan het einde van de avond niet hoeft te zoeken naar vervoer.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Evenement">Meer info &amp; reserveren <span aria-hidden="true">&rarr;</span></a>
-          </article>
-
-          <article class="service-card" id="familie">
-            <h3>Familie &amp; dierbaren</h3>
-            <p class="service-lead">Zekerheid voor wie je dierbaar is.</p>
-            <p>Gaat een familielid ergens naartoe en wil je zeker weten dat het geregeld is? Boek de rit vooraf namens hen, jij hebt gemoedsrust, zij een taxi die er gewoon staat.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Familie/dierbare">Meer info &amp; reserveren <span aria-hidden="true">&rarr;</span></a>
-          </article>
-
-          <article class="service-card" id="tours">
-            <h3>Tours &amp; sightseeing</h3>
-            <p class="service-lead">Tours door en rond Amsterdam.</p>
-            <p>Een dagje Amsterdam verkennen, of een tochtje naar omliggende steden, met een chauffeur die de weg kent en het tempo bepaalt dat bij je past.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Tour">Meer info &amp; reserveren <span aria-hidden="true">&rarr;</span></a>
-          </article>
-
-          <article class="service-card" id="prive-chauffeur">
-            <h3>Priv&eacute;-chauffeur</h3>
-            <p class="service-lead">Priv&eacute;-chauffeur, per uur of per dag.</p>
-            <p>Een chauffeur tot je beschikking voor een dagdeel, een hele dag, of meerdere afspraken achter elkaar, zonder dat je steeds opnieuw hoeft te boeken.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Priv&eacute;-chauffeur (uur/dag)">Meer info &amp; reserveren <span aria-hidden="true">&rarr;</span></a>
-          </article>
-
-          <article class="service-card" id="schoolvervoer">
-            <h3>Schoolvervoer</h3>
-            <p class="service-lead">Vast en veilig schoolvervoer.</p>
-            <p>Kinderen die dagelijks opgehaald en gebracht moeten worden, met vaste, vertrouwde chauffeurs en heldere afspraken over tijden en route.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Schoolvervoer">Meer info &amp; reserveren <span aria-hidden="true">&rarr;</span></a>
-          </article>
-
+        <div class="spot-card reveal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M12 13v4M10 15h4"/></svg>
+          <p><strong>Naar het ziekenhuis</strong>Op tijd bij de afspraak, zonder stress vooraf.</p>
+        </div>
+        <div class="spot-card reveal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          <p><strong>Aankomst op Schiphol</strong>Wij volgen de vlucht, de taxi staat er bij landing.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===== Vergelijkingstabel ===== -->
-    <section class="section section-cream" id="vergelijking">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow eyebrow-dark">Het verschil</p>
-          <h2>Waarom vooraf boeken het verschil maakt</h2>
-        </div>
-        <div class="compare-wrap">
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th scope="col">Kenmerk</th>
-                <th scope="col" class="col-apt">Amsterdam Pro Taxi</th>
-                <th scope="col">Gemiddelde straattaxi/app</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Prijs</th>
-                <td class="col-apt" data-label="Amsterdam Pro Taxi">Vooraf afgesproken, geen verrassingen</td>
-                <td data-label="Gemiddelde straattaxi/app">Meter of dynamische prijs, kan oplopen</td>
-              </tr>
-              <tr>
-                <th scope="row">Reservering</th>
-                <td class="col-apt" data-label="Amsterdam Pro Taxi">Gegarandeerd vooraf vastgelegd</td>
-                <td data-label="Gemiddelde straattaxi/app">Vaak pas op het laatste moment beschikbaar</td>
-              </tr>
-              <tr>
-                <th scope="row">Vluchtmonitoring (Schiphol)</th>
-                <td class="col-apt" data-label="Amsterdam Pro Taxi">Ja, automatisch</td>
-                <td data-label="Gemiddelde straattaxi/app">Zelden</td>
-              </tr>
-              <tr>
-                <th scope="row">Chauffeurs</th>
-                <td class="col-apt" data-label="Amsterdam Pro Taxi">Gelicenseerd en gescreend via ons partnernetwerk</td>
-                <td data-label="Gemiddelde straattaxi/app">Wisselend</td>
-              </tr>
-              <tr>
-                <th scope="row">Bereikbaarheid</th>
-                <td class="col-apt" data-label="Amsterdam Pro Taxi">24/7, ook 's nachts en op feestdagen</td>
-                <td data-label="Gemiddelde straattaxi/app">Beperkt buiten spitsuren</td>
-              </tr>
-              <tr>
-                <th scope="row">Bevestiging</th>
-                <td class="col-apt" data-label="Amsterdam Pro Taxi">Persoonlijke bevestiging via WhatsApp</td>
-                <td data-label="Gemiddelde straattaxi/app">Vaak alleen een automatische melding</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <!-- ===================== HOE HET WERKT ===================== -->
+  <section class="section" id="hoe-het-werkt">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="eyebrow">Hoe het werkt</p>
+        <h2>Drie stappen. <span class="hl-green">Nul onzekerheid</span>.</h2>
       </div>
-    </section>
-
-    <!-- ===== Hoe het werkt ===== -->
-    <section class="section section-navy" id="hoe-het-werkt">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Zo simpel is het</p>
-          <h2 class="on-dark">Hoe het werkt</h2>
-        </div>
-        <div class="steps-grid">
-          <div class="step">
-            <span class="step-num">1</span>
+      <div class="steps" id="stepsWrap">
+        <div class="steps-line" aria-hidden="true"><span class="steps-line-fill" id="stepsFill"></span></div>
+        <div class="steps-track" id="stepsTrack">
+          <div class="step" data-step="0">
+            <span class="step-dot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
             <h3>Reserveer vooraf</h3>
             <p>Via WhatsApp, telefoon of het formulier, met datum, tijd en bestemming.</p>
           </div>
-          <div class="step">
-            <span class="step-num">2</span>
+          <div class="step" data-step="1">
+            <span class="step-dot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
             <h3>Persoonlijke bevestiging</h3>
-            <p>Je krijgt een bevestiging van je rit, geen twijfel of onzekerheid vooraf.</p>
+            <p>Je krijgt een bevestiging van je rit met de vaste prijsafspraak. Geen twijfel vooraf.</p>
           </div>
-          <div class="step">
-            <span class="step-num">3</span>
+          <div class="step" data-step="2">
+            <span class="step-dot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><path d="M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3"/><circle cx="7" cy="16.5" r="1.7"/><circle cx="17" cy="16.5" r="1.7"/></svg></span>
             <h3>Chauffeur staat klaar</h3>
-            <p>Op het afgesproken moment, met de prijsafspraak die je vooraf hebt gemaakt.</p>
+            <p>Op het afgesproken moment, precies zoals vooraf vastgelegd.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===== Vloot & chauffeurs ===== -->
-    <section class="section section-light" id="vloot">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow eyebrow-dark">Vloot &amp; chauffeurs</p>
-          <h2>Het juiste voertuig voor elke rit</h2>
-        </div>
-        <div class="fleet-grid">
-          <article class="fleet-card">
-            <!-- PLACEHOLDER: vervang door echte foto in img/, bijv. img/business-sedan.jpg -->
-            <div class="fleet-photo" role="img" aria-label="Foto placeholder Business Sedan">[FOTO VOERTUIG]</div>
-            <h3>Business Sedan</h3>
-          </article>
-          <article class="fleet-card">
-            <!-- PLACEHOLDER: vervang door echte foto in img/, bijv. img/van-groepsvervoer.jpg -->
-            <div class="fleet-photo" role="img" aria-label="Foto placeholder Van / groepsvervoer">[FOTO VOERTUIG]</div>
-            <h3>Van / groepsvervoer</h3>
-          </article>
-          <article class="fleet-card">
-            <!-- PLACEHOLDER: vervang door echte foto in img/, bijv. img/premium.jpg -->
-            <div class="fleet-photo" role="img" aria-label="Foto placeholder Premium">[FOTO VOERTUIG]</div>
-            <h3>Premium</h3>
-          </article>
-        </div>
-        <p class="fleet-note">Alle chauffeurs rijden voor gelicenseerde taxibedrijven binnen ons netwerk en zijn bekend met zowel zakelijke als persoonlijke ritten.</p>
+  <!-- ===================== TARIEVEN / VLOOT ===================== -->
+  <section class="section section-green" id="tarieven">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="eyebrow eyebrow-champagne">Vloot &amp; tarieven</p>
+        <h2 class="on-dark">Vaste prijzen, <span class="hl">geen meter</span>.</h2>
+        <p class="section-sub on-dark-sub">Kies je voertuig en zie de vaste prijsafspraak per route. Andere bestemming? Via WhatsApp krijg je direct een prijs.</p>
       </div>
-    </section>
+      <div class="vtabs reveal" role="tablist" aria-label="Voertuigen">
+        <button class="vtab is-active" role="tab" aria-selected="true" data-vt="sedan">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><path d="M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3"/><circle cx="7" cy="16.5" r="1.7"/><circle cx="17" cy="16.5" r="1.7"/></svg>
+          Sedan <small>tot 4 personen</small>
+        </button>
+        <button class="vtab" role="tab" aria-selected="false" data-vt="bus">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="10" rx="2"/><path d="M3 11h18M9 6v5M15 6v5"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg>
+          Bus <small>tot 8 personen</small>
+        </button>
+        <button class="vtab" role="tab" aria-selected="false" data-vt="premium">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.1 4.9L19 8.5l-3.8 3.4L16.2 17 12 14.3 7.8 17l1-5.1L5 8.5l4.9-.6z"/></svg>
+          Premium <small>op aanvraag</small>
+        </button>
+      </div>
 
-    <!-- ===== Route's ===== -->
-    <section class="section section-cream" id="routes">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow eyebrow-dark">Route's</p>
-          <h2>Populaire routes</h2>
-        </div>
-        <!--
-          SJABLOON: deze route-kaarten kunnen herhaald worden voor meer steden/wijken
-          zodra die bekend zijn. Kopieer een <article class="route-card"> en pas
-          titel, tekst en de data-attributen (data-ophaal / data-bestemming) aan.
-          Geef elke kaart een unieke, eigen tekst (geen kopieerwerk tussen kaarten).
-        -->
-        <div class="routes-grid">
-          <article class="route-card">
-            <h3><span>Amsterdam Centrum</span> <span class="route-arrow" aria-hidden="true">&rarr;</span> <span>Schiphol</span></h3>
-            <p>De meest geboekte route. Reserveer vooraf en je hoeft je geen zorgen te maken over drukte of vertraging.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Airport/Schiphol" data-ophaal="Amsterdam Centrum" data-bestemming="Schiphol">Reserveer deze route <span aria-hidden="true">&rarr;</span></a>
-          </article>
-          <article class="route-card">
-            <h3><span>Amsterdam West</span> <span class="route-arrow" aria-hidden="true">&rarr;</span> <span>Schiphol</span></h3>
-            <p>Vaste prijsafspraak, ook vanuit de buitenwijken, geen verrassingen over de afstand.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Airport/Schiphol" data-ophaal="Amsterdam West" data-bestemming="Schiphol">Reserveer deze route <span aria-hidden="true">&rarr;</span></a>
-          </article>
-          <article class="route-card">
-            <h3><span>Amsterdam Zuidoost</span> <span class="route-arrow" aria-hidden="true">&rarr;</span> <span>Schiphol</span></h3>
-            <p>Ideaal voor vroege vluchten: boek de avond ervoor en sta niet met stress te wachten.</p>
-            <a class="service-link js-boek" href="#boeken" data-dienst="Airport/Schiphol" data-ophaal="Amsterdam Zuidoost" data-bestemming="Schiphol">Reserveer deze route <span aria-hidden="true">&rarr;</span></a>
-          </article>
-        </div>
+      <!-- PLACEHOLDERS: vul hieronder de echte tarieven in, [€ ..] vervangen -->
+      <div class="vpanel is-active reveal" data-vp="sedan">
+        <div class="fleet-visual"><span>[FOTO VOERTUIG · SEDAN]</span></div>
+        <table class="prijs-tabel">
+          <thead><tr><th scope="col">Route</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Amsterdam Centrum &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam West &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam Zuidoost &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam Noord &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amstelveen &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+          </tbody>
+        </table>
       </div>
-    </section>
+      <div class="vpanel" data-vp="bus">
+        <div class="fleet-visual"><span>[FOTO VOERTUIG · BUS]</span></div>
+        <table class="prijs-tabel">
+          <thead><tr><th scope="col">Route</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Amsterdam Centrum &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam West &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam Zuidoost &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam Noord &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amstelveen &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vpanel" data-vp="premium">
+        <div class="fleet-visual"><span>[FOTO VOERTUIG · PREMIUM]</span></div>
+        <table class="prijs-tabel">
+          <thead><tr><th scope="col">Route</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Amsterdam Centrum &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam West &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam Zuidoost &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam Noord &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amstelveen &rarr; Schiphol</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tarief-note reveal">Alle chauffeurs rijden voor gelicenseerde taxibedrijven binnen ons netwerk en zijn bekend met zowel zakelijke als persoonlijke ritten. Andere route? <a href="https://wa.me/31202101637?text=Hoi!%20Wat%20kost%20een%20rit%20naar..." target="_blank" rel="noopener">Vraag direct een prijs via WhatsApp</a>.</p>
+    </div>
+  </section>
 
-    <!-- ===== Reviews ===== -->
-    <section class="section section-light" id="reviews">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow eyebrow-dark">Reviews</p>
-          <h2>Wat klanten van ons vinden</h2>
+  <!-- ===================== VERGELIJK ===================== -->
+  <section class="section" id="vergelijk">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="eyebrow">Vergelijk</p>
+        <h2>Waarom <span class="hl-green">vooraf boeken</span> het verschil maakt.</h2>
+      </div>
+    </div>
+    <div class="track-wrap">
+      <div class="track track-compare" id="vergelijkTrack" tabindex="0" aria-label="Vergelijking, horizontaal scrollen">
+        <div class="ccard reveal">
+          <h3>Prijs</h3>
+          <div class="crow crow-wij"><span class="cmark" aria-hidden="true">&check;</span><div><strong>Amsterdam Pro Taxi</strong><p>Vooraf afgesproken, geen verrassingen</p></div></div>
+          <div class="crow"><span class="cmark cmark-x" aria-hidden="true">&times;</span><div><strong>Straattaxi / taxi-app</strong><p>Meter of dynamische prijs, kan oplopen</p></div></div>
         </div>
-        <div class="review-badge">
-          <div class="stars" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p>Nieuw op <strong>[PLATFORM INVULLEN]</strong>, deel als eerste je ervaring.</p>
+        <div class="ccard reveal">
+          <h3>Reservering</h3>
+          <div class="crow crow-wij"><span class="cmark" aria-hidden="true">&check;</span><div><strong>Amsterdam Pro Taxi</strong><p>Gegarandeerd vooraf vastgelegd</p></div></div>
+          <div class="crow"><span class="cmark cmark-x" aria-hidden="true">&times;</span><div><strong>Straattaxi / taxi-app</strong><p>Vaak pas op het laatste moment beschikbaar</p></div></div>
+        </div>
+        <div class="ccard reveal">
+          <h3>Vluchtmonitoring</h3>
+          <div class="crow crow-wij"><span class="cmark" aria-hidden="true">&check;</span><div><strong>Amsterdam Pro Taxi</strong><p>Ja, automatisch bij Schiphol-ritten</p></div></div>
+          <div class="crow"><span class="cmark cmark-x" aria-hidden="true">&times;</span><div><strong>Straattaxi / taxi-app</strong><p>Zelden</p></div></div>
+        </div>
+        <div class="ccard reveal">
+          <h3>Chauffeurs</h3>
+          <div class="crow crow-wij"><span class="cmark" aria-hidden="true">&check;</span><div><strong>Amsterdam Pro Taxi</strong><p>Gelicenseerd en gescreend via ons partnernetwerk</p></div></div>
+          <div class="crow"><span class="cmark cmark-x" aria-hidden="true">&times;</span><div><strong>Straattaxi / taxi-app</strong><p>Wisselend</p></div></div>
+        </div>
+        <div class="ccard reveal">
+          <h3>Bereikbaarheid</h3>
+          <div class="crow crow-wij"><span class="cmark" aria-hidden="true">&check;</span><div><strong>Amsterdam Pro Taxi</strong><p>24/7, ook 's nachts en op feestdagen</p></div></div>
+          <div class="crow"><span class="cmark cmark-x" aria-hidden="true">&times;</span><div><strong>Straattaxi / taxi-app</strong><p>Beperkt buiten spitsuren</p></div></div>
+        </div>
+        <div class="ccard reveal">
+          <h3>Bevestiging</h3>
+          <div class="crow crow-wij"><span class="cmark" aria-hidden="true">&check;</span><div><strong>Amsterdam Pro Taxi</strong><p>Persoonlijke bevestiging via WhatsApp</p></div></div>
+          <div class="crow"><span class="cmark cmark-x" aria-hidden="true">&times;</span><div><strong>Straattaxi / taxi-app</strong><p>Vaak alleen een automatische melding</p></div></div>
         </div>
       </div>
-    </section>
+      <div class="track-nav shell">
+        <p class="swipe-hint" aria-hidden="true">Swipe voor meer <span>&rarr;</span></p>
+        <div class="track-arrows">
+          <button type="button" class="tarrow" data-track="vergelijkTrack" data-dir="-1" aria-label="Vorige vergelijking">&larr;</button>
+          <button type="button" class="tarrow" data-track="vergelijkTrack" data-dir="1" aria-label="Volgende vergelijking">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== FAQ ===== -->
-    <section class="section section-cream" id="faq">
-      <div class="container container-narrow">
-        <div class="section-head">
-          <p class="eyebrow eyebrow-dark">Veelgestelde vragen</p>
-          <h2>Alles wat je wilt weten</h2>
-        </div>
-        <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false">
-              Rijden jullie zelf, of wie zit er achter het stuur?
-              <span class="faq-icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-a"><p>Amsterdam Pro Taxi bemiddelt de rit naar een gelicenseerd taxibedrijf uit ons netwerk. Zo garanderen we professionele, gescreende chauffeurs zonder dat je zelf hoeft te vergelijken.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false">
-              Hoe ver van tevoren moet ik reserveren?
-              <span class="faq-icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-a"><p>Hoe eerder hoe zekerder, maar voor de meeste ritten is enkele uren tot een dag van tevoren voldoende. Voor evenementen of drukke periodes raden we aan eerder te boeken.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false">
-              Wat als mijn vlucht vertraging heeft?
-              <span class="faq-icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-a"><p>We volgen je vluchtgegevens bij Schiphol-ritten, dus de pickup schuift automatisch mee, je hoeft zelf niets aan te passen.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false">
-              Wat kost een rit?
-              <span class="faq-icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-a"><p>Dat hangt af van bestemming, tijdstip en het type dienst. Via WhatsApp of het formulier krijg je vooraf een duidelijke prijsafspraak, geen verrassingen achteraf.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false">
-              Kan ik een rit annuleren of wijzigen?
-              <span class="faq-icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-a"><p>Ja, neem zo snel mogelijk contact op via WhatsApp of telefoon, dan stemmen we het af met de chauffeur.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false">
-              Is het veilig om mijn kinderen alleen te laten vervoeren?
-              <span class="faq-icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-a"><p>Voor schoolvervoer werken we met vaste, vertrouwde chauffeurs en heldere afspraken vooraf, geen wisselende, onbekende ritten.</p></div>
-          </div>
-        </div>
+  <!-- ===================== REVIEWS ===================== -->
+  <section class="reviews" id="reviews">
+    <div class="shell review-strip reveal">
+      <div class="stars" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </div>
-    </section>
+      <p>Nieuw op <strong>[PLATFORM INVULLEN]</strong>. Deel als eerste je ervaring.</p>
+    </div>
+  </section>
 
-    <!-- ===== Boekingsformulier ===== -->
-    <section class="section section-light" id="boeken">
-      <div class="container container-narrow">
-        <div class="section-head">
-          <p class="eyebrow eyebrow-dark">Reserveren</p>
-          <h2>Reserveer je rit vooraf</h2>
-          <p class="section-sub">Vul het formulier in en verstuur het via WhatsApp. Je krijgt een persoonlijke bevestiging met een vaste prijsafspraak.</p>
-        </div>
-        <form id="boekingForm" class="booking-form" novalidate>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="f-naam">Naam <span class="req" aria-hidden="true">*</span></label>
-              <input type="text" id="f-naam" name="naam" autocomplete="name" required>
-            </div>
-            <div class="form-field">
-              <label for="f-dienst">Type dienst <span class="req" aria-hidden="true">*</span></label>
-              <select id="f-dienst" name="dienst" required>
-                <option value="Airport/Schiphol">Airport/Schiphol</option>
-                <option value="Zakelijke rit">Zakelijke rit</option>
-                <option value="Evenement">Evenement</option>
-                <option value="Tour">Tour</option>
-                <option value="Priv&eacute;-chauffeur (uur/dag)">Priv&eacute;-chauffeur (uur/dag)</option>
-                <option value="Schoolvervoer">Schoolvervoer</option>
-                <option value="Familie/dierbare">Familie/dierbare</option>
-                <option value="Anders">Anders</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="f-ophaal">Ophaaladres <span class="req" aria-hidden="true">*</span></label>
-              <input type="text" id="f-ophaal" name="ophaaladres" required>
-            </div>
-            <div class="form-field">
-              <label for="f-bestemming">Bestemming <span class="req" aria-hidden="true">*</span></label>
-              <input type="text" id="f-bestemming" name="bestemming" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="f-datumtijd">Datum + tijd <span class="req" aria-hidden="true">*</span></label>
-              <input type="datetime-local" id="f-datumtijd" name="datumtijd" required>
-            </div>
-            <div class="form-field">
-              <label for="f-personen">Aantal personen</label>
-              <input type="number" id="f-personen" name="personen" min="1" max="50" inputmode="numeric">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="f-vlucht">Vluchtnummer (indien van toepassing)</label>
-              <input type="text" id="f-vlucht" name="vlucht">
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="f-opmerkingen">Opmerkingen</label>
-            <textarea id="f-opmerkingen" name="opmerkingen" rows="4"></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold btn-lg btn-submit">Verstuur naar WhatsApp &rarr;</button>
-        </form>
+  <!-- ===================== FAQ ===================== -->
+  <section class="section section-tight" id="faq">
+    <div class="shell shell-narrow">
+      <div class="section-head reveal">
+        <p class="eyebrow">Veelgestelde vragen</p>
+        <h2>Alles over <span class="hl-green">vooraf reserveren</span>.</h2>
       </div>
-    </section>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Hoe reserveer ik een taxi vooraf in Amsterdam?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>Via WhatsApp, telefoon (020 210 1637) of het formulier bovenaan deze pagina, met datum, tijd, ophaaladres en bestemming. Je ontvangt een persoonlijke bevestiging met een vaste prijsafspraak.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Rijden jullie zelf, of wie zit er achter het stuur?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>Amsterdam Pro Taxi bemiddelt de rit naar een gelicenseerd taxibedrijf uit ons netwerk. Zo garanderen we professionele, gescreende chauffeurs zonder dat je zelf hoeft te vergelijken.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Wat als mijn vlucht vertraging heeft?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>We volgen je vluchtgegevens bij Schiphol-ritten, dus de pickup schuift automatisch mee. Je hoeft zelf niets aan te passen.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Kan ik een zakelijke taxi op factuur boeken?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>Neem contact op via WhatsApp of telefoon, dan bespreken we de mogelijkheden en afspraken voor zakelijke ritten voor je bedrijf.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Kan ik een taxi reserveren voor iemand anders?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>Ja. Boek de rit vooraf namens een familielid of dierbare. Jij ontvangt de bevestiging, zij een taxi die er gewoon staat.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Wat kost een rit?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>Dat hangt af van bestemming, tijdstip en het type dienst. Via WhatsApp of het formulier krijg je vooraf een duidelijke prijsafspraak, geen verrassingen achteraf.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Kan ik een rit annuleren of wijzigen?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p>Ja, neem zo snel mogelijk contact op via WhatsApp of telefoon, dan stemmen we het af met de chauffeur.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== CTA-band ===== -->
-    <section class="cta-band" id="contact">
-      <div class="container cta-inner">
-        <div>
-          <p class="eyebrow">Vooraf reserveren, altijd zekerheid</p>
-          <h2 class="on-dark">Boek je taxi vooraf. Wij regelen de rest.</h2>
-        </div>
-        <div class="cta-actions">
-          <a class="btn btn-gold btn-lg" href="https://wa.me/31202101637?text=Hoi%20Amsterdam%20Pro%20Taxi!%20Ik%20wil%20graag%20een%20rit%20reserveren." target="_blank" rel="noopener">Reserveer via WhatsApp</a>
-          <a class="btn btn-outline btn-lg" href="tel:+31202101637">Bel 020 210 1637</a>
-        </div>
+  <!-- ===================== CTA ===================== -->
+  <section class="cta" id="contact">
+    <div class="shell cta-inner reveal">
+      <div>
+        <p class="eyebrow eyebrow-champagne">Klaar om te reserveren?</p>
+        <h2 class="on-dark">Leg je rit nu vast.<br>Dan is het <span class="hl">geregeld</span>.</h2>
       </div>
-    </section>
+      <div class="cta-actions">
+        <a class="btn btn-whatsapp btn-l" href="https://wa.me/31202101637?text=Hoi%20Amsterdam%20Pro%20Taxi!%20Ik%20wil%20graag%20een%20rit%20reserveren." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12.05 2a9.95 9.95 0 0 0-8.6 14.92L2 22l5.23-1.37A9.95 9.95 0 1 0 12.05 2zm0 18.19c-1.5 0-2.98-.4-4.27-1.16l-.3-.18-3.1.81.83-3.02-.2-.31a8.26 8.26 0 1 1 7.04 3.86z"/></svg>
+          Reserveer via WhatsApp
+        </a>
+        <a class="btn btn-champagne btn-l" href="#boeken" data-boek>Gebruik het formulier</a>
+      </div>
+    </div>
+  </section>
 
   </main>
 
-  <!-- ===== Footer ===== -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="shell footer-grid">
       <div class="footer-brand">
-        <a href="#top" class="logo" aria-label="Amsterdam Pro Taxi, naar boven">
-          <span class="logo-main">Amsterdam</span>
-          <span class="logo-sub">Pro Taxi</span>
+        <a href="#top" class="logo logo-footer" aria-label="Amsterdam Pro Taxi, naar boven">
+          <span class="logo-mark" aria-hidden="true">APT</span>
+          <span class="logo-text">Amsterdam<em>Pro Taxi</em></span>
         </a>
-        <p class="footer-tagline">Boek je taxi vooraf. Wij regelen de rest.</p>
+        <p class="footer-tagline">Taxi vooraf reserveren in Amsterdam. Zakelijk, Schiphol, of voor wie je dierbaar is.</p>
         <p class="footer-note">Amsterdam Pro Taxi bemiddelt ritten via een netwerk van gelicenseerde taxibedrijven.</p>
       </div>
-      <div class="footer-col">
+      <nav class="footer-col" aria-label="Diensten">
         <h4>Diensten</h4>
-        <ul>
-          <li><a href="#airport">Airport / Schiphol-vervoer</a></li>
-          <li><a href="#zakelijk">Zakelijke ritten</a></li>
-          <li><a href="#evenementen">Evenementen &amp; bijzondere gelegenheden</a></li>
-          <li><a href="#familie">Familie &amp; dierbaren</a></li>
-          <li><a href="#tours">Tours &amp; sightseeing</a></li>
-          <li><a href="#prive-chauffeur">Priv&eacute;-chauffeur</a></li>
-          <li><a href="#schoolvervoer">Schoolvervoer</a></li>
-        </ul>
-      </div>
+        <a href="#diensten">Zakelijke taxi Amsterdam</a>
+        <a href="#diensten">Taxi Schiphol</a>
+        <a href="#dierbaren">Rit voor een dierbare</a>
+        <a href="#diensten">Evenementenvervoer</a>
+        <a href="#diensten">Tours &amp; sightseeing</a>
+        <a href="#diensten">Priv&eacute;-chauffeur</a>
+        <a href="#diensten">Schoolvervoer</a>
+      </nav>
       <div class="footer-col">
         <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+31202101637">020 210 1637</a></li>
-          <li><a href="https://wa.me/31202101637" target="_blank" rel="noopener">WhatsApp: 020 210 1637</a></li>
-          <li><span class="placeholder">[E-MAILADRES INVULLEN]</span></li>
-        </ul>
-        <h4>Reserveren</h4>
-        <ul>
-          <li><a href="#boeken">Boekingsformulier</a></li>
-          <li><a href="#faq">Veelgestelde vragen</a></li>
-        </ul>
+        <a href="tel:+31202101637">020 210 1637</a>
+        <a href="https://wa.me/31202101637" target="_blank" rel="noopener">WhatsApp: 020 210 1637</a>
+        <span class="footer-ph">[E-MAILADRES INVULLEN]</span>
+        <h4>Direct</h4>
+        <a href="#boeken" data-boek>Boekingsformulier</a>
+        <a href="#tarieven">Tarieven</a>
+        <a href="#faq">FAQ</a>
       </div>
     </div>
-    <div class="container footer-bottom">
-      <p>&copy; <span id="jaar">2026</span> Amsterdam Pro Taxi</p>
+    <div class="shell footer-bottom">
+      <p>&copy; <span id="jaar">2026</span> Amsterdam Pro Taxi · Taxi vooraf reserveren &amp; zakelijke taxi in Amsterdam</p>
     </div>
   </footer>
+
+  <!-- Zwevende WhatsApp-knop -->
+  <a class="wa-float" href="https://wa.me/31202101637?text=Hoi%20Amsterdam%20Pro%20Taxi!%20Ik%20wil%20graag%20een%20rit%20reserveren." target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12.05 2a9.95 9.95 0 0 0-8.6 14.92L2 22l5.23-1.37A9.95 9.95 0 1 0 12.05 2zm0 18.19c-1.5 0-2.98-.4-4.27-1.16l-.3-.18-3.1.81.83-3.02-.2-.31a8.26 8.26 0 1 1 7.04 3.86z"/></svg>
+  </a>
 
   <script src="js/main.js"></script>
 </body>

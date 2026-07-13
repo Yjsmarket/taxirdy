@@ -669,6 +669,61 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
   .tour-builder-grid { grid-template-columns: 1fr; gap: 30px; }
 }
 
+/* ---------- Vloot ---------- */
+.frow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+.frow:last-of-type { margin-bottom: 0; }
+.frow-omgekeerd .frow-photo { order: 2; }
+.frow-omgekeerd .frow-body { order: 1; }
+
+.frow-photo {
+  height: 300px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.frow-body h3 { font-size: 1.7rem; font-weight: 700; color: var(--zwart); margin: 6px 0 10px; }
+.frow-body > p:not(.snum) { color: var(--tekst-zacht); max-width: 460px; }
+
+.fspecs { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
+.fspecs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--groen-3);
+  background: #EDF3EC;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.fspecs svg { flex: 0 0 auto; }
+
+.frow-acties { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.frow-acties .slink { padding-top: 0; margin-top: 0; }
+
+.fleet-zin {
+  margin-top: 48px;
+  text-align: center;
+  color: var(--tekst-zacht);
+  font-size: 0.92rem;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 920px) {
+  .frow { grid-template-columns: 1fr; gap: 20px; margin-bottom: 44px; }
+  .frow-omgekeerd .frow-photo { order: 0; }
+  .frow-omgekeerd .frow-body { order: 1; }
+  .frow-photo { height: 210px; }
+}
+
 @media (max-width: 640px) {
   /* 2 om 2 wordt swipen op mobiel */
   .tours-grid {

@@ -8,6 +8,11 @@ Nog aan te leveren door de klant:
 - premium.jpg     -> foto Premium voertuig
 - logo.svg/png    -> eigen logo (nu een tekst-wordmark "APT / Amsterdam Pro Taxi" in de header)
 
+Vloot-pagina (vloot.html) - zodra deze bestanden bestaan verschijnen ze automatisch:
+- fleet-sedan.jpg    -> foto Business Sedan
+- fleet-bus.jpg      -> foto taxibus / groepsvervoer
+- fleet-premium.jpg  -> foto premium voertuig
+
 Tours-pagina (tours.html) - zodra deze bestanden bestaan verschijnen ze automatisch:
 - tour-zaanse-schans.jpg   -> foto molens Zaanse Schans
 - tour-giethoorn.jpg       -> foto kanalen Giethoorn

@@ -587,6 +587,105 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
   .about-grid { grid-template-columns: 1fr; gap: 30px; }
 }
 
+/* ---------- Tours ---------- */
+/* FOTO: vervang deze Unsplash-URL door een eigen grachtenfoto (bijv. img/grachten.jpg) */
+.hero-tours {
+  background:
+    linear-gradient(180deg, rgba(13, 35, 26, 0.88), rgba(13, 35, 26, 0.72)),
+    url("https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=1800&q=68") center 55% / cover no-repeat,
+    var(--groen);
+}
+
+.tours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.tour-card {
+  background: var(--wit);
+  border: 1px solid var(--lijn);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tour-card:hover { transform: translateY(-4px); box-shadow: var(--schaduw); }
+
+.tour-photo {
+  position: relative;
+  height: 220px;
+  background: repeating-linear-gradient(45deg, rgba(214, 192, 138, 0.08), rgba(214, 192, 138, 0.08) 14px, transparent 14px, transparent 28px), var(--groen-2);
+}
+.tour-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tour-photo-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--champagne);
+  z-index: 0;
+}
+.tour-photo img { z-index: 1; }
+
+.tour-chip {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: var(--champagne);
+  color: #221A05;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.tour-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+.tour-body h3 { font-size: 1.3rem; font-weight: 700; color: var(--zwart); margin-bottom: 8px; }
+.tour-body p { font-size: 0.92rem; color: var(--tekst-zacht); margin-bottom: 18px; }
+.tour-body .btn { margin-top: auto; align-self: flex-start; }
+
+/* Tour-builder */
+.tour-builder-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; align-items: start; }
+.builder-intro { color: rgba(247, 245, 239, 0.75); margin-top: 16px; max-width: 480px; }
+.tour-builder-grid h2 { margin-bottom: 4px; }
+.check-list-tour { margin-top: 24px; }
+
+@media (max-width: 920px) {
+  .tour-builder-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 640px) {
+  /* 2 om 2 wordt swipen op mobiel */
+  .tours-grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 84vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    padding-bottom: 14px;
+    scrollbar-width: none;
+  }
+  .tours-grid::-webkit-scrollbar { display: none; }
+  .tours-grid .tour-card { scroll-snap-align: start; }
+  .tour-photo { height: 180px; }
+}
+
 /* ==========================================================
    Spotlight met foto-achtergrond
    ========================================================== */

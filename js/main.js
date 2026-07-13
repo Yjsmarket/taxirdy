@@ -111,6 +111,80 @@ document.querySelectorAll("[data-boek]").forEach((link) => {
 }
 
 /* ==========================================================
+   Eigen tour samenstellen (tours.html)
+   ========================================================== */
+const tourForm = document.getElementById("tourForm");
+if (tourForm) {
+  const stopsWrap = document.getElementById("tourStops");
+  const maxStops = 6;
+
+  document.getElementById("stopToevoegen").addEventListener("click", () => {
+    const aantal = stopsWrap.querySelectorAll("input").length;
+    if (aantal >= maxStops) return;
+    const veld = document.createElement("div");
+    veld.className = "bfield";
+    const label = document.createElement("label");
+    label.textContent = `Stop ${aantal + 1}`;
+    const input = document.createElement("input");
+    input.type = "text";
+    input.name = "stop";
+    input.placeholder = "bijv. Volendam";
+    label.appendChild(input);
+    veld.appendChild(label);
+    stopsWrap.appendChild(veld);
+    input.focus();
+  });
+
+  /* Tourdatum: niet in het verleden */
+  const datumVeld = document.getElementById("t-datum");
+  datumVeld.min = new Date().toISOString().slice(0, 10);
+
+  tourForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let eersteFout = null;
+    ["naam", "start", "datum"].forEach((name) => {
+      const veld = this.querySelector(`[name='${name}']`);
+      if (!veld.value.trim()) {
+        veld.classList.add("veld-fout");
+        if (!eersteFout) eersteFout = veld;
+      } else {
+        veld.classList.remove("veld-fout");
+      }
+    });
+    const stops = [...this.querySelectorAll("[name='stop']")].map((s) => s.value.trim()).filter(Boolean);
+    const eersteStop = this.querySelector("[name='stop']");
+    if (!stops.length) {
+      eersteStop.classList.add("veld-fout");
+      if (!eersteFout) eersteFout = eersteStop;
+    } else {
+      eersteStop.classList.remove("veld-fout");
+    }
+    if (eersteFout) { eersteFout.focus(); eersteFout.reportValidity(); return; }
+
+    const v = (name) => this.querySelector(`[name='${name}']`)?.value.trim();
+    const route = [v("start"), ...stops].join(" → ");
+
+    const regels = [
+      `Hoi Amsterdam Pro Taxi! Ik wil graag een eigen tour samenstellen.`,
+      `Naam: ${v("naam")}`,
+      `Route: ${route}`,
+      `Datum: ${v("datum")}`,
+      `Aantal personen: ${v("personen")}`,
+      `Duur: ${v("duur")}`,
+      v("opmerkingen") ? `Wensen: ${v("opmerkingen")}` : "",
+    ].filter(Boolean);
+
+    const bericht = encodeURIComponent(regels.join("\n"));
+    window.open(`https://wa.me/${WHATSAPP_NUMMER}?text=${bericht}`, "_blank", "noopener");
+  });
+
+  tourForm.querySelectorAll("[required]").forEach((veld) => {
+    veld.addEventListener("input", () => veld.classList.remove("veld-fout"));
+  });
+}
+
+/* ==========================================================
    Swipe-tracks: pijltjes
    ========================================================== */
 document.querySelectorAll(".tarrow").forEach((knop) => {

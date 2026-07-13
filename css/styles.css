@@ -707,6 +707,14 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
 .frow-acties { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .frow-acties .slink { padding-top: 0; margin-top: 0; }
 
+/* ---------- Diensten-pagina ---------- */
+.dienst-sectie { padding: 64px 0; }
+.dienst-sectie .frow { margin-bottom: 0; align-items: start; }
+.dienst-knop { margin-top: 20px; width: 100%; }
+.seo-slot h2 { margin: 6px 0 16px; }
+.seo-slot p { color: var(--tekst-zacht); }
+.seo-slot strong { color: var(--tekst); }
+
 .fleet-zin {
   margin-top: 48px;
   text-align: center;

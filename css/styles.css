@@ -95,6 +95,14 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
 .btn-ghost-dark:hover { box-shadow: inset 0 0 0 1.5px var(--groen-3); color: var(--groen-3); }
 
 .btn-s { padding: 11px 20px; font-size: 0.86rem; }
+
+.btn-bel {
+  background: transparent;
+  color: var(--creme);
+  box-shadow: inset 0 0 0 1.5px rgba(214, 192, 138, 0.45);
+}
+.btn-bel svg { color: var(--champagne); }
+.btn-bel:hover { box-shadow: inset 0 0 0 1.5px var(--champagne-licht); color: var(--champagne-licht); }
 .btn-l { padding: 16px 32px; font-size: 1rem; }
 .btn-block { width: 100%; }
 .btn-grow { flex: 1; }
@@ -1053,7 +1061,6 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
 @media (max-width: 1080px) {
   .main-nav { display: none; }
   .nav-toggle { display: flex; }
-  .header-phone span { display: none; }
 
   .main-nav.open {
     display: flex;
@@ -1092,6 +1099,11 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
   .hero-ctas .btn { flex: 1 1 100%; }
 
   .booking { padding: 20px 16px 16px; }
+
+  .btn-bel span { display: none; }
+  .btn-bel { padding: 11px 13px; }
+  .header-actions { gap: 8px; }
+  .header-actions .btn-champagne.btn-s { padding: 11px 15px; font-size: 0.82rem; }
 
   /* 2 blokken naast elkaar op mobiel */
   .facts-grid { grid-template-columns: 1fr 1fr; gap: 14px 12px; }

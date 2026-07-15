@@ -886,6 +886,8 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
 .vpanel.is-active { display: grid; animation: panelIn 0.3s ease; }
 
 .fleet-visual {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -893,6 +895,14 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
   border-radius: var(--radius);
   border: 1.5px dashed rgba(214, 192, 138, 0.4);
   background: repeating-linear-gradient(45deg, rgba(214, 192, 138, 0.05), rgba(214, 192, 138, 0.05) 14px, transparent 14px, transparent 28px), var(--groen-2);
+}
+.fleet-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 .fleet-visual span { font-size: 0.84rem; font-weight: 600; letter-spacing: 0.08em; color: var(--champagne); }
 

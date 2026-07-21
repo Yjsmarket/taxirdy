@@ -249,6 +249,38 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
   pointer-events: none;
 }
 
+/* ---------- Homepage banner met foto-achtergrond ---------- */
+/* FOTO: vervang de Unsplash-URL door een eigen foto, bijv. url("../img/hero.jpg") */
+.hero-home {
+  background:
+    linear-gradient(104deg, rgba(8, 17, 13, 0.94) 0%, rgba(11, 28, 21, 0.82) 42%, rgba(13, 35, 26, 0.5) 72%, rgba(13, 35, 26, 0.35) 100%),
+    url("https://images.unsplash.com/photo-1558551649-e44c8f992010?auto=format&fit=crop&w=1920&q=70") center 42% / cover no-repeat,
+    var(--groen);
+}
+.hero-home::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 120px;
+  background: linear-gradient(180deg, transparent, var(--groen));
+  pointer-events: none;
+}
+.hero-home .hero-deco {
+  background: radial-gradient(680px 420px at 92% 8%, rgba(214, 192, 138, 0.22), transparent 60%);
+}
+.hero-home .badge-pill {
+  background: rgba(13, 35, 26, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.hero-home h1 { font-size: clamp(2.4rem, 5.4vw, 4.1rem); text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35); }
+.hero-home .hero-sub { color: rgba(247, 245, 239, 0.9); }
+.hero-home .hero-chips li {
+  background: rgba(13, 35, 26, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
 .hero-grid {
   position: relative;
   display: grid;

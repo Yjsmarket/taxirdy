@@ -396,6 +396,10 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><path d="M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3"/><circle cx="7" cy="16.5" r="1.7"/><circle cx="17" cy="16.5" r="1.7"/></svg>
           Sedan <small>tot 4 personen</small>
         </button>
+        <button class="vtab" role="tab" aria-selected="false" data-vt="elektrisch">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Elektrisch <small>Tesla, tot 4 personen</small>
+        </button>
         <button class="vtab" role="tab" aria-selected="false" data-vt="bus">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="10" rx="2"/><path d="M3 11h18M9 6v5M15 6v5"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg>
           Bus <small>tot 8 personen</small>
@@ -406,56 +410,55 @@
         </button>
       </div>
 
-      <!-- PLACEHOLDERS: vul hieronder de echte tarieven in, [€ ..] vervangen -->
       <div class="vpanel is-active reveal" data-vp="sedan">
         <div class="fleet-visual"><img src="img/fleet-sedan.jpg" alt="Mercedes-Benz E-Klasse sedan" loading="lazy" onerror="this.remove()"><span>[FOTO VOERTUIG · SEDAN]</span></div>
         <table class="prijs-tabel">
-          <thead><tr><th scope="col">Vanuit Amsterdam naar</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
+          <thead><tr><th scope="col">Vanuit Amsterdam naar Schiphol</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Schiphol Airport</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Eindhoven Airport</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Rotterdam The Hague</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Brussel Zaventem</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Charleroi</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">D&uuml;sseldorf</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Weeze</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Frankfurt</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam Centrum</th><td>&euro; 55</td><td>&euro; 105</td></tr>
+            <tr><th scope="row">Amsterdam West</th><td>&euro; 50</td><td>&euro; 95</td></tr>
+            <tr><th scope="row">Amsterdam Zuidoost</th><td>&euro; 50</td><td>&euro; 95</td></tr>
+            <tr><th scope="row">Amstelveen</th><td>&euro; 45</td><td>&euro; 85</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vpanel" data-vp="elektrisch">
+        <div class="fleet-visual"><img src="img/fleet-tesla.jpg" alt="Tesla elektrische taxi" loading="lazy" onerror="this.remove()"><span>[FOTO VOERTUIG · TESLA]</span></div>
+        <table class="prijs-tabel">
+          <thead><tr><th scope="col">Vanuit Amsterdam naar Schiphol</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Amsterdam Centrum</th><td>&euro; 55</td><td>&euro; 105</td></tr>
+            <tr><th scope="row">Amsterdam West</th><td>&euro; 50</td><td>&euro; 95</td></tr>
+            <tr><th scope="row">Amsterdam Zuidoost</th><td>&euro; 50</td><td>&euro; 95</td></tr>
+            <tr><th scope="row">Amstelveen</th><td>&euro; 45</td><td>&euro; 85</td></tr>
           </tbody>
         </table>
       </div>
       <div class="vpanel" data-vp="bus">
         <div class="fleet-visual"><img src="img/fleet-bus.jpg" alt="Mercedes-Benz V-Klasse taxibus" loading="lazy" onerror="this.remove()"><span>[FOTO VOERTUIG · BUS]</span></div>
         <table class="prijs-tabel">
-          <thead><tr><th scope="col">Vanuit Amsterdam naar</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
+          <thead><tr><th scope="col">Vanuit Amsterdam naar Schiphol</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Schiphol Airport</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Eindhoven Airport</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Rotterdam The Hague</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Brussel Zaventem</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Charleroi</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">D&uuml;sseldorf</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Weeze</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Frankfurt</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam Centrum</th><td>&euro; 80</td><td>&euro; 155</td></tr>
+            <tr><th scope="row">Amsterdam West</th><td>&euro; 75</td><td>&euro; 145</td></tr>
+            <tr><th scope="row">Amsterdam Zuidoost</th><td>&euro; 80</td><td>&euro; 155</td></tr>
+            <tr><th scope="row">Amstelveen</th><td>&euro; 70</td><td>&euro; 135</td></tr>
           </tbody>
         </table>
       </div>
       <div class="vpanel" data-vp="premium">
         <div class="fleet-visual"><img src="img/fleet-premium.jpg" alt="Mercedes-Benz S-Klasse premium" loading="lazy" onerror="this.remove()"><span>[FOTO VOERTUIG · PREMIUM]</span></div>
         <table class="prijs-tabel">
-          <thead><tr><th scope="col">Vanuit Amsterdam naar</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
+          <thead><tr><th scope="col">Vanuit Amsterdam naar Schiphol</th><th scope="col">Enkele rit</th><th scope="col">Retour</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Schiphol Airport</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Eindhoven Airport</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Rotterdam The Hague</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Brussel Zaventem</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Charleroi</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">D&uuml;sseldorf</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Weeze</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
-            <tr><th scope="row">Frankfurt</th><td>[&euro; ..]</td><td>[&euro; ..]</td></tr>
+            <tr><th scope="row">Amsterdam Centrum</th><td>&euro; 90</td><td>&euro; 175</td></tr>
+            <tr><th scope="row">Amsterdam West</th><td>&euro; 85</td><td>&euro; 165</td></tr>
+            <tr><th scope="row">Amsterdam Zuidoost</th><td>&euro; 85</td><td>&euro; 165</td></tr>
+            <tr><th scope="row">Amstelveen</th><td>&euro; 80</td><td>&euro; 155</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="tarief-note reveal">Alle luchthaventransfers worden gereden door gelicenseerde taxibedrijven binnen ons netwerk. Andere luchthaven of ophaallocatie? <a href="https://wa.me/31202101637?text=Hoi!%20Wat%20kost%20een%20airport%20taxi%20naar..." target="_blank" rel="noopener">Vraag direct een vaste prijs via WhatsApp</a>.</p>
+      <p class="tarief-note reveal">Richtprijzen vanuit Amsterdam naar Schiphol, retour is de heenprijs dubbel min &euro; 5. Andere luchthaven (Eindhoven, Brussel, D&uuml;sseldorf, Frankfurt) of ophaallocatie? <a href="https://wa.me/31202101637?text=Hoi!%20Wat%20kost%20een%20airport%20taxi%20naar..." target="_blank" rel="noopener">Vraag direct een vaste prijs via WhatsApp</a>.</p>
     </div>
   </section>
 

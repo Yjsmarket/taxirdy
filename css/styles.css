@@ -963,6 +963,9 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; color: var(--zwart
   z-index: 1;
 }
 .fleet-visual span { font-size: 0.84rem; font-weight: 600; letter-spacing: 0.08em; color: var(--champagne); }
+/* Placeholder-tekst alleen tonen als er geen foto is (onerror verwijdert de img) */
+.fleet-visual:has(img) span,
+.tour-photo:has(img) .tour-photo-fallback { display: none; }
 
 .prijs-tabel { width: 100%; border-collapse: collapse; background: var(--wit); border-radius: var(--radius); overflow: hidden; font-size: 0.92rem; }
 .prijs-tabel thead th {

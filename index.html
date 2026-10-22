@@ -6,6 +6,8 @@
 <title>Fixed Ride | Privé chauffeur Amsterdam, vooraf gereserveerd</title>
 <meta name="description" content="Fixed Ride: privé chauffeur in Amsterdam, gespecialiseerd in vooraf reserveren. Vaste prijs, vluchtmonitoring en gelicentieerde chauffeurs. Reserveer online, bel of app ons.">
 <meta name="theme-color" content="#0A120F">
+<link rel="icon" href="img/logo/fixed-ride-badge.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/logo/fixed-ride-badge.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -74,7 +76,7 @@
 
   .nav { display: flex; align-items: center; gap: 18px; padding: 18px 0; }
   .merk { display: inline-flex; align-items: center; gap: 11px; font-weight: 700; font-size: 19px; letter-spacing: -0.02em; color: var(--wit); }
-  .merk i { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--goud); color: var(--ink); font-style: normal; font-family: var(--f-serif); font-size: 22px; }
+  .merk img { height: 38px; width: auto; display: block; }
   .merk .serif { color: var(--goud); font-size: 22px; margin-left: -4px; }
   .nav-links { display: flex; gap: 2px; margin-left: auto; }
   .nav-links a { padding: 9px 14px; border-radius: var(--pill); font-size: 14.5px; font-weight: 500; color: var(--zacht-donker); transition: color .2s, background .2s; }
@@ -90,6 +92,7 @@
 
   .hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; padding: 40px 0 44px; }
   .hero-tekst { display: grid; gap: 24px; justify-items: start; }
+  .hero-logo { height: 104px; width: auto; display: block; margin-left: -6px; }
   .hero h1 { font-size: clamp(42px, 5.8vw, 78px); color: var(--wit); text-wrap: balance; }
   .hero h1 .serif { color: var(--goud); font-size: 1.08em; }
   .hero-sub { max-width: 540px; font-size: 18px; color: var(--zacht-donker); }
@@ -445,6 +448,7 @@
     .nav-links { display: none; }
     .nav-acties { margin-left: auto; }
     .hero-grid { grid-template-columns: 1fr; gap: 36px; padding: 24px 0 32px; }
+    .hero-logo { height: 78px; }
     .hero-beeld { padding-bottom: 0; }
     .hero-beeld .rit { position: relative; left: auto; width: calc(100% - 24px); margin: -64px auto 0; }
     .concierge { grid-template-columns: 1fr; gap: 16px; padding: 18px; }
@@ -536,7 +540,7 @@
       <canvas class="wegen" id="wegen" aria-hidden="true"></canvas>
       <div class="wrap">
         <header class="nav">
-          <a class="merk" href="#top" aria-label="Fixed Ride, naar boven"><i>F</i>Fixed <span class="serif">Ride</span></a>
+          <a class="merk" href="#top" aria-label="Fixed Ride, naar boven">Fixed <span class="serif">Ride</span></a>
           <nav class="nav-links" aria-label="Hoofdmenu">
             <a href="#diensten">Diensten</a><a href="#werkwijze">Werkwijze</a><a href="#vloot">Vloot &amp; prijzen</a><a href="#vragen">Vragen</a>
           </nav>
@@ -549,6 +553,7 @@
 
         <div class="hero-grid">
           <div class="hero-tekst">
+            <img class="hero-logo" src="img/logo/fixed-ride-logo-animatie.svg" alt="" width="149" height="104">
             <span class="tag">Privé chauffeur · gespecialiseerd in vooraf reserveren</span>
             <h1 id="t-hero">Uw rit staat vast. <span class="serif">Lang voordat u vertrekt.</span></h1>
             <p class="hero-sub">Fixed Ride is <b>gespecialiseerd in vooraf gereserveerde ritten</b>. Daarom weet u vooraf precies hoe laat u wordt opgehaald, <b>wat het kost</b> en wie uw chauffeur is.</p>
@@ -778,7 +783,7 @@
   <div class="wrap">
     <div class="voet">
       <div>
-        <a class="merk" href="#top"><i>F</i>Fixed <span class="serif">Ride</span></a>
+        <a class="merk" href="#top"><img src="img/logo/fixed-ride-logo-licht.svg" alt="" width="54" height="38">Fixed <span class="serif">Ride</span></a>
         <p>Privé chauffeur in Amsterdam. Gespecialiseerd in vooraf reserveren, altijd een vaste prijs.</p>
       </div>
       <div><h4>Diensten</h4><ul><li><a href="#diensten">Luchthaven</a></li><li><a href="#diensten">Zakelijk</a></li><li><a href="#diensten">Chauffeur per uur</a></li><li><a href="#diensten">Privé tours</a></li></ul></div>

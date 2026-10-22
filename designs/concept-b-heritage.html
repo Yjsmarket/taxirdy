@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixed Ride — Concept B · Heritage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --groen: #0E241B;
+    --groen-2: #163527;
+    --groen-3: #24533E;
+    --champagne: #C9AE74;
+    --champagne-licht: #E6D3A6;
+    --creme: #F5F1E8;
+    --creme-2: #ECE6D8;
+    --wit: #FFFDF8;
+    --tekst: #1C1B17;
+    --tekst-zacht: #6A665B;
+    --lijn: #DCD4C2;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Manrope", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--creme); color: var(--tekst); font-family: var(--sans); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .shell { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.02; letter-spacing: -0.01em; }
+  em { font-style: italic; color: var(--groen-3); }
+  .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--champagne); }
+  .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+
+  /* Topbalk + header */
+  .topbalk { background: var(--groen); color: rgba(245, 241, 232, 0.72); font-size: 12px; letter-spacing: 0.04em; }
+  .topbalk .shell { display: flex; justify-content: space-between; padding-top: 9px; padding-bottom: 9px; }
+  .topbalk a:hover { color: var(--champagne-licht); }
+  .header { position: sticky; top: 0; z-index: 50; background: rgba(245, 241, 232, 0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--lijn); }
+  .header .shell { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 28px; }
+  .logo { font-family: var(--serif); font-size: 26px; font-weight: 500; letter-spacing: 0.04em; color: var(--groen); }
+  .logo i { color: var(--champagne); }
+  .nav { display: flex; gap: 34px; font-size: 14px; font-weight: 500; color: var(--tekst-zacht); }
+  .nav a:hover { color: var(--groen); }
+  .acties { display: flex; gap: 10px; align-items: center; }
+  .knop { display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 24px; border-radius: 999px; font-size: 14px; font-weight: 600; transition: transform .2s, background .2s, box-shadow .2s; white-space: nowrap; }
+  .knop svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+  .knop:hover { transform: translateY(-1px); }
+  .knop-groen { background: var(--groen); color: var(--creme); }
+  .knop-groen:hover { box-shadow: 0 14px 30px rgba(14, 36, 27, 0.25); }
+  .knop-lijn { border: 1px solid var(--lijn); background: var(--wit); color: var(--groen); }
+  .knop-lijn:hover { border-color: var(--groen); }
+  .knop-champagne { background: var(--champagne); color: var(--groen); }
+  .knop-champagne:hover { background: var(--champagne-licht); }
+  .knop-licht { border: 1px solid rgba(245, 241, 232, 0.25); color: var(--creme); }
+  .knop-licht:hover { border-color: var(--champagne); }
+
+  /* Hero */
+  .hero { padding: 80px 0 110px; }
+  .hero .shell { display: grid; grid-template-columns: 1fr 1.08fr; gap: 64px; align-items: center; }
+  .hero h1 { font-size: clamp(52px, 6.6vw, 96px); color: var(--groen); margin: 26px 0 28px; }
+  .hero-sub { font-size: 18px; color: var(--tekst-zacht); max-width: 470px; }
+  .hero-knoppen { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+  .hero-beeld { position: relative; }
+  .hero-beeld .foto { border-radius: 220px 220px 24px 24px; overflow: hidden; aspect-ratio: 4 / 4.6; background: var(--groen); }
+  .hero-beeld img { width: 100%; height: 100%; object-fit: cover; object-position: 38% center; }
+  .zegel { position: absolute; left: -36px; bottom: 56px; background: var(--wit); border-radius: 18px; padding: 20px 24px; box-shadow: 0 24px 60px rgba(14, 36, 27, 0.16); display: flex; gap: 16px; align-items: center; }
+  .zegel .rond { width: 46px; height: 46px; border-radius: 50%; background: var(--groen); color: var(--champagne); display: grid; place-items: center; font-family: var(--serif); font-size: 22px; font-style: italic; }
+  .zegel b { display: block; font-size: 14px; color: var(--groen); }
+  .zegel span { font-size: 13px; color: var(--tekst-zacht); }
+
+  /* Reserveerkaart */
+  .reserveer-wrap { margin-top: -50px; position: relative; z-index: 5; }
+  .reserveer { background: var(--wit); border-radius: 24px; box-shadow: 0 30px 80px rgba(14, 36, 27, 0.12); padding: 28px; display: grid; grid-template-columns: 1.3fr 1.3fr 1fr 0.8fr auto; gap: 14px; align-items: end; }
+  .reserveer h3 { grid-column: 1 / -1; font-size: 28px; color: var(--groen); }
+  .veld label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tekst-zacht); margin-bottom: 8px; }
+  .veld input { width: 100%; height: 52px; border: 1px solid var(--lijn); border-radius: 12px; background: var(--creme); padding: 0 16px; font: 500 15px var(--sans); color: var(--tekst); outline: none; transition: border-color .2s; }
+  .veld input:focus { border-color: var(--groen-3); }
+  .reserveer .knop { height: 52px; border: 0; cursor: pointer; }
+
+  /* Beloftes */
+  .beloftes { padding: 90px 0 30px; }
+  .beloftes .shell { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; }
+  .belofte .ic { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--champagne); display: grid; place-items: center; margin-bottom: 18px; }
+  .belofte .ic svg { width: 19px; height: 19px; stroke: var(--groen); fill: none; stroke-width: 1.5; }
+  .belofte h3 { font-size: 23px; color: var(--groen); margin-bottom: 6px; }
+  .belofte p { font-size: 14px; color: var(--tekst-zacht); }
+
+  section { padding: 120px 0; }
+  .kop { text-align: center; max-width: 720px; margin: 0 auto 70px; }
+  .kop h2 { font-size: clamp(40px, 4.8vw, 66px); color: var(--groen); margin: 20px 0 18px; }
+  .kop p { color: var(--tekst-zacht); font-size: 17px; }
+
+  /* Diensten */
+  .diensten-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+  .dienst { grid-column: span 2; background: var(--wit); border: 1px solid var(--lijn); border-radius: 22px; padding: 34px; display: flex; flex-direction: column; min-height: 290px; transition: transform .3s, box-shadow .3s; }
+  .dienst:hover { transform: translateY(-4px); box-shadow: 0 24px 50px rgba(14, 36, 27, 0.08); }
+  .dienst.groot { grid-column: span 3; }
+  .dienst.donker { background: var(--groen); color: var(--creme); border-color: var(--groen); }
+  .dienst .nr { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--champagne); }
+  .dienst h3 { font-size: 32px; color: var(--groen); margin: auto 0 10px; padding-top: 40px; }
+  .dienst.donker h3 { color: var(--creme); }
+  .dienst p { font-size: 14.5px; color: var(--tekst-zacht); }
+  .dienst.donker p { color: rgba(245, 241, 232, 0.7); }
+  .dienst .meer { margin-top: 20px; font-size: 13px; font-weight: 600; color: var(--groen-3); }
+  .dienst.donker .meer { color: var(--champagne); }
+
+  /* Ervaring (groen) */
+  .ervaring { background: var(--groen); color: var(--creme); border-radius: 36px; margin: 0 16px; }
+  .ervaring .kop h2 { color: var(--creme); }
+  .ervaring .kop h2 em { color: var(--champagne); }
+  .ervaring .kop p { color: rgba(245, 241, 232, 0.68); }
+  .stappen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .stap { border-top: 1px solid rgba(201, 174, 116, 0.4); padding-top: 30px; }
+  .stap .nr { font-family: var(--serif); font-size: 15px; letter-spacing: 0.2em; color: var(--champagne); }
+  .stap h3 { font-size: 32px; margin: 16px 0 12px; }
+  .stap p { color: rgba(245, 241, 232, 0.68); font-size: 15px; }
+
+  /* Vloot */
+  .vloot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .auto { background: var(--wit); border: 1px solid var(--lijn); border-radius: 22px; overflow: hidden; }
+  .auto .foto { aspect-ratio: 4 / 3; overflow: hidden; background: var(--groen); }
+  .auto img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s; }
+  .auto:hover img { transform: scale(1.05); }
+  .auto-tekst { padding: 22px 24px 26px; }
+  .auto .klasse { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--champagne); }
+  .auto h3 { font-size: 28px; color: var(--groen); margin: 6px 0 8px; }
+  .auto p { font-size: 13.5px; color: var(--tekst-zacht); }
+
+  /* Review */
+  .review { background: var(--creme-2); }
+  .review .shell { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+  .review h2 { font-size: clamp(38px, 4.2vw, 58px); color: var(--groen); margin-top: 18px; }
+  .review blockquote { font-family: var(--serif); font-size: clamp(26px, 2.8vw, 36px); font-style: italic; color: var(--groen); line-height: 1.3; }
+  .review cite { display: block; margin-top: 20px; font-style: normal; font-size: 14px; color: var(--tekst-zacht); }
+  .placeholder { display: inline-block; margin-top: 14px; font-size: 11px; letter-spacing: 0.12em; font-weight: 600; color: var(--groen-3); border: 1px dashed var(--groen-3); border-radius: 6px; padding: 4px 10px; }
+
+  /* CTA */
+  .cta { padding: 0 16px 16px; }
+  .cta-kaart { background: var(--groen) url("../img/fleet-premium.jpg") right center / cover; border-radius: 36px; overflow: hidden; position: relative; }
+  .cta-kaart::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--groen) 30%, rgba(14, 36, 27, 0.4) 75%, rgba(14, 36, 27, 0.2)); }
+  .cta-kaart .shell { position: relative; padding-top: 110px; padding-bottom: 110px; color: var(--creme); }
+  .cta h2 { font-size: clamp(44px, 5.6vw, 80px); max-width: 12ch; margin: 22px 0 36px; }
+  .cta h2 em { color: var(--champagne); }
+  .cta-knoppen { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  footer { padding: 54px 0 110px; font-size: 13px; color: var(--tekst-zacht); }
+  footer .shell { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; align-items: center; }
+
+  .mobiel-balk { display: none; }
+
+  @media (max-width: 1040px) {
+    .nav { display: none; }
+    .hero .shell { grid-template-columns: 1fr; }
+    .hero-beeld .foto { aspect-ratio: 4 / 3.4; border-radius: 160px 160px 24px 24px; }
+    .zegel { left: 16px; bottom: 16px; }
+    .reserveer-wrap { margin-top: 0; }
+    .reserveer { grid-template-columns: 1fr 1fr; }
+    .reserveer .knop { grid-column: 1 / -1; justify-content: center; }
+    .beloftes .shell { grid-template-columns: 1fr 1fr; }
+    .dienst, .dienst.groot { grid-column: span 3; }
+    .vloot-grid { grid-template-columns: 1fr 1fr; }
+    .review .shell { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    .shell { padding: 0 20px; }
+    .topbalk { display: none; }
+    .acties .knop-lijn, .acties .knop-wa { display: none; }
+    .acties .knop { height: 42px; padding: 0 18px; }
+    .hero { padding: 48px 0 60px; }
+    section { padding: 84px 0; }
+    .reserveer { grid-template-columns: 1fr; padding: 22px; }
+    .beloftes .shell, .stappen, .vloot-grid { grid-template-columns: 1fr; }
+    .dienst, .dienst.groot { grid-column: 1 / -1; min-height: 0; }
+    .ervaring, .cta-kaart { border-radius: 26px; }
+    .cta-kaart::before { background: linear-gradient(180deg, rgba(14, 36, 27, 0.75), var(--groen) 70%); }
+    .mobiel-balk { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 8px; position: fixed; inset: auto 12px calc(12px + env(safe-area-inset-bottom)); z-index: 60; background: var(--groen); border-radius: 999px; padding: 6px; box-shadow: 0 16px 40px rgba(14, 36, 27, 0.35); }
+    .mobiel-balk a { height: 46px; border-radius: 999px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--creme); }
+    .mobiel-balk svg { width: 16px; height: 16px; stroke: var(--champagne); fill: none; stroke-width: 1.7; }
+    .mobiel-balk .hoofd { background: var(--champagne); color: var(--groen); }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbalk">
+  <div class="shell">
+    <span>Uitsluitend vooraf gereserveerd · Vaste prijs · 24/7 bereikbaar</span>
+    <span><a href="tel:+31202101637">020 210 1637</a> &nbsp;·&nbsp; <a href="https://wa.me/31202101637">WhatsApp</a></span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="shell">
+    <a href="#" class="logo">Fixed <i>Ride</i></a>
+    <nav class="nav">
+      <a href="#diensten">Diensten</a>
+      <a href="#ervaring">Werkwijze</a>
+      <a href="#vloot">Vloot</a>
+      <a href="#">Over ons</a>
+    </nav>
+    <div class="acties">
+      <a href="tel:+31202101637" class="knop knop-lijn"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Bellen</a>
+      <a href="https://wa.me/31202101637" class="knop knop-lijn knop-wa"><svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"/></svg>WhatsApp</a>
+      <a href="#reserveren" class="knop knop-groen">Reserveren</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="shell">
+    <div>
+      <span class="eyebrow">Privé chauffeur Amsterdam</span>
+      <h1>Uw chauffeur, <em>vooraf</em> geregeld.</h1>
+      <p class="hero-sub">Fixed Ride rijdt uitsluitend op reservering. Daardoor staat elke rit vast: het tijdstip, de prijs en de chauffeur die op u wacht.</p>
+      <div class="hero-knoppen">
+        <a href="#reserveren" class="knop knop-groen">Rit reserveren →</a>
+        <a href="https://wa.me/31202101637" class="knop knop-lijn"><svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"/></svg>Vraag het via WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-beeld">
+      <div class="foto"><img src="../img/fleet-premium.jpg" alt="Mercedes S-Klasse van Fixed Ride"></div>
+      <div class="zegel"><div class="rond">F</div><div><b>Vaste prijs, vooraf</b><span>Geen meter. Geen verrassingen.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="reserveer-wrap" id="reserveren">
+  <div class="shell">
+    <form class="reserveer" onsubmit="return false">
+      <h3>Reserveer uw rit</h3>
+      <div class="veld"><label>Ophaaladres</label><input placeholder="Straat, hotel of luchthaven"></div>
+      <div class="veld"><label>Bestemming</label><input placeholder="Waar mogen wij u brengen?"></div>
+      <div class="veld"><label>Datum</label><input type="date"></div>
+      <div class="veld"><label>Tijd</label><input type="time" value="09:00"></div>
+      <button class="knop knop-groen">Prijs aanvragen</button>
+    </form>
+  </div>
+</div>
+
+<div class="beloftes">
+  <div class="shell">
+    <div class="belofte"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M7 7h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8"/></svg></div><h3>Vaste prijs</h3><p>U kent het bedrag voordat u instapt.</p></div>
+    <div class="belofte"><div class="ic"><svg viewBox="0 0 24 24"><path d="M2 16l20-8-6 12-3-5-5 2z"/></svg></div><h3>Vlucht gevolgd</h3><p>Vertraging? Uw chauffeur schuift mee.</p></div>
+    <div class="belofte"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div><h3>Gelicentieerd</h3><p>Alleen chauffeurs met vergunning.</p></div>
+    <div class="belofte"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>Persoonlijk</h3><p>Een mens aan de lijn, geen menu.</p></div>
+  </div>
+</div>
+
+<section id="diensten">
+  <div class="shell">
+    <div class="kop">
+      <span class="eyebrow">Diensten</span>
+      <h2>Voor elk moment dat <em>gewoon moet kloppen</em>.</h2>
+      <p>Van een vroege vlucht tot een lange dag vol afspraken. Wij plannen vooruit, zodat u dat niet hoeft te doen.</p>
+    </div>
+    <div class="diensten-grid">
+      <a href="#" class="dienst groot donker"><span class="nr">01</span><h3>Luchthavenvervoer</h3><p>Schiphol en elke luchthaven tot Frankfurt. Met vluchtmonitoring en ontvangst in de aankomsthal.</p><span class="meer">Meer over luchthaven →</span></a>
+      <a href="#" class="dienst groot"><span class="nr">02</span><h3>Zakelijk vervoer</h3><p>Voor directie, gasten en roadshows. Discreet, stipt en op rekening.</p><span class="meer">Meer over zakelijk →</span></a>
+      <a href="#" class="dienst"><span class="nr">03</span><h3>Chauffeur per uur</h3><p>Uw chauffeur blijft beschikbaar, per uur of per dag.</p><span class="meer">Meer →</span></a>
+      <a href="#" class="dienst"><span class="nr">04</span><h3>Avonden &amp; events</h3><p>Gala, concert of diner. Heen in stijl, veilig terug.</p><span class="meer">Meer →</span></a>
+      <a href="#" class="dienst"><span class="nr">05</span><h3>Privé tours</h3><p>Keukenhof, Giethoorn, Zaanse Schans. In uw eigen tempo.</p><span class="meer">Meer →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="ervaring" id="ervaring">
+  <div class="shell">
+    <div class="kop">
+      <span class="eyebrow">Werkwijze</span>
+      <h2>Drie stappen. <em>Geen enkele twijfel.</em></h2>
+      <p>Van aanvraag tot aankomst weet u precies waar u aan toe bent.</p>
+    </div>
+    <div class="stappen">
+      <div class="stap"><span class="nr">STAP I</span><h3>U reserveert</h3><p>Online, telefonisch of via WhatsApp. Het liefst ruim van tevoren.</p></div>
+      <div class="stap"><span class="nr">STAP II</span><h3>Wij bevestigen</h3><p>Persoonlijk, met vaste prijs, voertuig en de naam van uw chauffeur.</p></div>
+      <div class="stap"><span class="nr">STAP III</span><h3>U stapt in</h3><p>Uw chauffeur staat er voor u klaar. U hoeft nergens meer aan te denken.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="vloot">
+  <div class="shell">
+    <div class="kop">
+      <span class="eyebrow">De vloot</span>
+      <h2>Rust op de <em>achterbank</em>.</h2>
+      <p>Recente, onberispelijk verzorgde wagens. Water, laders en wifi aan boord.</p>
+    </div>
+    <div class="vloot-grid">
+      <article class="auto"><div class="foto"><img src="../img/fleet-sedan.jpg" alt="Mercedes E-Klasse"></div><div class="auto-tekst"><span class="klasse">Business</span><h3>E-Klasse</h3><p>Tot 3 passagiers · 3 koffers</p></div></article>
+      <article class="auto"><div class="foto"><img src="../img/fleet-premium.jpg" alt="Mercedes S-Klasse"></div><div class="auto-tekst"><span class="klasse">First class</span><h3>S-Klasse</h3><p>Tot 3 passagiers · 3 koffers</p></div></article>
+      <article class="auto"><div class="foto"><img src="../img/fleet-tesla.jpg" alt="Tesla"></div><div class="auto-tekst"><span class="klasse">Elektrisch</span><h3>Tesla</h3><p>Tot 4 passagiers · emissievrij</p></div></article>
+      <article class="auto"><div class="foto"><img src="../img/fleet-bus.jpg" alt="Mercedes V-Klasse"></div><div class="auto-tekst"><span class="klasse">Groep</span><h3>V-Klasse</h3><p>Tot 7 passagiers · veel bagage</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="review">
+  <div class="shell">
+    <div>
+      <span class="eyebrow">Ervaringen</span>
+      <h2>Wat gasten <em>over ons</em> zeggen.</h2>
+    </div>
+    <div>
+      <blockquote>"Hier komt een echte Google-review van een klant, kort en specifiek."</blockquote>
+      <cite>Naam klant · Google review</cite>
+      <span class="placeholder">PLACEHOLDER · ECHTE REVIEW AANLEVEREN</span>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="cta-kaart">
+    <div class="shell">
+      <span class="eyebrow">Reserveren</span>
+      <h2>Leg uw rit vast. <em>Wij doen de rest.</em></h2>
+      <div class="cta-knoppen">
+        <a href="#reserveren" class="knop knop-champagne">Rit reserveren →</a>
+        <a href="tel:+31202101637" class="knop knop-licht"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>020 210 1637</a>
+        <a href="https://wa.me/31202101637" class="knop knop-licht"><svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"/></svg>WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="shell">
+    <span class="logo">Fixed <i>Ride</i></span>
+    <span>Privé chauffeur Amsterdam · Uitsluitend op reservering</span>
+    <span>© 2026 Fixed Ride</span>
+  </div>
+</footer>
+
+<nav class="mobiel-balk">
+  <a href="tel:+31202101637"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Bel</a>
+  <a href="https://wa.me/31202101637"><svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"/></svg>WhatsApp</a>
+  <a href="#reserveren" class="hoofd">Reserveren</a>
+</nav>
+
+</body>
+</html>

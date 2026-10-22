@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fixed Ride | Privé chauffeur Amsterdam, vooraf gereserveerd</title>
+<meta name="description" content="Fixed Ride: privé chauffeur in Amsterdam, gespecialiseerd in vooraf reserveren. Vaste prijs, vluchtmonitoring en gelicentieerde chauffeurs. Reserveer online, bel of app ons.">
+<meta name="theme-color" content="#0A120F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A120F;
+    --ink-2: #101B16;
+    --ink-3: #172520;
+    --ink-line: #24342D;
+    --goud: #D4B97F;
+    --goud-hi: #EAD7A9;
+    --goud-zacht: rgba(212, 185, 127, 0.12);
+    --creme: #F4F1EA;
+    --creme-2: #EAE5DA;
+    --wit: #FFFFFF;
+    --tekst: #121815;
+    --tekst-zacht: #5E655F;
+    --lijn: #DDD7CA;
+    --op-donker: #E7ECE8;
+    --zacht-donker: #93A39A;
+    --wa: #25D366;
+    --r-xl: 32px;
+    --r-lg: 22px;
+    --r-md: 16px;
+    --r-sm: 12px;
+    --pill: 999px;
+    --f: "Inter Tight", system-ui, sans-serif;
+    --f-serif: "Instrument Serif", Georgia, serif;
+    --f-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body { background: var(--creme); color: var(--tekst); font-family: var(--f); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  button, input, select { font: inherit; color: inherit; }
+  ul { list-style: none; }
+  svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 28px; }
+  h1, h2, h3 { font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; }
+  .serif { font-family: var(--f-serif); font-weight: 400; font-style: italic; letter-spacing: -0.01em; }
+  .mono { font-family: var(--f-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .tag { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; border-radius: var(--pill); background: var(--goud-zacht); border: 1px solid rgba(212, 185, 127, 0.35); font-size: 13px; font-weight: 600; color: var(--goud-hi); }
+  .tag::before, .dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--goud); box-shadow: 0 0 0 4px rgba(212, 185, 127, 0.18); }
+  .tag-licht { background: var(--wit); border-color: var(--lijn); color: var(--tekst); }
+
+  /* Knoppen */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 22px; border-radius: var(--pill); border: 0; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .2s, box-shadow .25s, border-color .2s, transform .2s; white-space: nowrap; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-goud { background: var(--goud); color: var(--ink); }
+  .btn-goud:hover { background: var(--goud-hi); box-shadow: 0 0 34px rgba(212, 185, 127, 0.35); }
+  .btn-goud .pijl { width: 30px; height: 30px; margin-right: -12px; border-radius: 50%; background: var(--ink); color: var(--goud); display: grid; place-items: center; }
+  .btn-lijn { border: 1.5px solid var(--ink-line); color: var(--wit); background: transparent; }
+  .btn-lijn:hover { border-color: var(--zacht-donker); }
+  .btn-lijn .wa { color: var(--wa); }
+  .btn-donker { background: var(--ink); color: var(--creme); }
+  .btn-donker:hover { box-shadow: 0 14px 30px rgba(10, 18, 15, 0.25); }
+  .btn-wit { background: var(--wit); border: 1px solid var(--lijn); color: var(--tekst); }
+
+  /* ================= HERO ================= */
+  .hero-page { padding: 10px; }
+  .hero { position: relative; overflow: hidden; isolation: isolate; border-radius: var(--r-xl); color: var(--op-donker);
+    background: radial-gradient(55% 60% at 88% 0%, rgba(212, 185, 127, 0.16) 0%, transparent 65%), radial-gradient(45% 55% at 0% 100%, rgba(36, 83, 62, 0.35) 0%, transparent 65%), var(--ink); }
+  .wegen { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+
+  .nav { display: flex; align-items: center; gap: 18px; padding: 18px 0; }
+  .merk { display: inline-flex; align-items: center; gap: 11px; font-weight: 700; font-size: 19px; letter-spacing: -0.02em; color: var(--wit); }
+  .merk i { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--goud); color: var(--ink); font-style: normal; font-family: var(--f-serif); font-size: 22px; }
+  .merk .serif { color: var(--goud); font-size: 22px; margin-left: -4px; }
+  .nav-links { display: flex; gap: 2px; margin-left: auto; }
+  .nav-links a { padding: 9px 14px; border-radius: var(--pill); font-size: 14.5px; font-weight: 500; color: var(--zacht-donker); transition: color .2s, background .2s; }
+  .nav-links a:hover { color: var(--wit); background: var(--ink-3); }
+  .nav-acties { display: flex; gap: 8px; }
+  .rond { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--ink-line); display: grid; place-items: center; color: var(--wit); transition: border-color .2s, background .2s; }
+  .rond:hover { border-color: var(--goud); background: var(--goud-zacht); }
+  .rond .wa { color: var(--wa); }
+  .nav .btn { min-height: 44px; }
+  .btn-bel { border: 1px solid var(--ink-line); color: var(--wit); background: transparent; font-variant-numeric: tabular-nums; }
+  .btn-bel .i { color: var(--goud); }
+  .btn-bel:hover { border-color: var(--goud); background: var(--goud-zacht); }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; padding: 40px 0 44px; }
+  .hero-tekst { display: grid; gap: 24px; justify-items: start; }
+  .hero h1 { font-size: clamp(42px, 5.8vw, 78px); color: var(--wit); text-wrap: balance; }
+  .hero h1 .serif { color: var(--goud); font-size: 1.08em; }
+  .hero-sub { max-width: 540px; font-size: 18px; color: var(--zacht-donker); }
+  .hero-sub b { color: var(--wit); font-weight: 600; }
+  .hero-acties { display: flex; flex-wrap: wrap; gap: 10px; }
+  .punten { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; font-size: 14.5px; }
+  .punten li { display: flex; gap: 10px; align-items: center; }
+  .punten .i { color: var(--goud); width: 16px; height: 16px; }
+
+  /* Live ritkaart */
+  .rit { width: min(480px, 100%); display: grid; gap: 16px; padding: 20px; border-radius: var(--r-lg); background: rgba(16, 27, 22, 0.86); border: 1px solid var(--ink-line); backdrop-filter: blur(8px); }
+  .rit-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .rit-top .mono { color: var(--zacht-donker); }
+  .status { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: var(--pill); background: var(--goud-zacht); font-size: 12.5px; font-weight: 600; color: var(--goud-hi); white-space: nowrap; }
+  .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--goud); animation: ping 1.6s ease-out infinite; }
+  @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(212, 185, 127, 0.6); } 100% { box-shadow: 0 0 0 9px rgba(212, 185, 127, 0); } }
+  .route { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; }
+  .stop strong { display: block; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; color: var(--wit); font-variant-numeric: tabular-nums; }
+  .stop span { font-size: 12.5px; color: var(--zacht-donker); }
+  .stop-eind { text-align: right; }
+  .spoor { position: relative; height: 18px; }
+  .spoor::before { content: ""; position: absolute; left: 0; right: 0; top: 8px; height: 2px; background: repeating-linear-gradient(90deg, var(--ink-line) 0 6px, transparent 6px 11px); }
+  .spoor-vul { position: absolute; left: 0; top: 8px; height: 2px; width: var(--p, 0%); background: var(--goud); box-shadow: 0 0 10px rgba(212, 185, 127, 0.6); }
+  .spoor-auto { position: absolute; top: 1px; left: var(--p, 0%); width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: var(--goud); border: 3px solid var(--ink-2); box-shadow: 0 0 0 2px var(--goud), 0 0 14px rgba(212, 185, 127, 0.7); }
+  .vlucht { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-radius: var(--r-sm); background: var(--ink); font-size: 13px; color: var(--zacht-donker); }
+  .vlucht b { color: var(--wit); font-weight: 600; }
+  .vlucht .ok { color: var(--goud-hi); font-weight: 600; }
+  .chauffeur { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--ink-line); font-size: 13.5px; color: var(--zacht-donker); }
+  .chauffeur > b { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--ink-3); color: var(--goud-hi); font-size: 13px; flex-shrink: 0; }
+  .chauffeur strong { display: block; color: var(--wit); font-weight: 600; }
+  .kenteken { margin-left: auto; padding: 4px 9px; border-radius: 6px; background: #F2C94C; color: #111; font-family: var(--f-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; white-space: nowrap; }
+  .rit figcaption { font-size: 12px; color: var(--zacht-donker); }
+
+
+  /* Beeld met live ritkaart */
+  .hero-beeld { position: relative; padding-bottom: 72px; }
+  .hero-foto { position: relative; aspect-ratio: 5 / 4; border-radius: 26px; overflow: hidden; border: 1px solid var(--ink-line); background: #0d1f17; box-shadow: 0 40px 90px rgba(0, 0, 0, 0.5); }
+  .hero-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 38% center; transform: scale(1.04); animation: kenburns 20s ease-in-out infinite alternate; }
+  @keyframes kenburns { to { transform: scale(1.12) translateX(-2%); } }
+  .foto-tag { position: absolute; top: 18px; right: 18px; padding: 8px 14px; border-radius: var(--pill); background: rgba(10, 18, 15, 0.72); backdrop-filter: blur(10px); border: 1px solid var(--ink-line); font-size: 12.5px; font-weight: 500; color: var(--op-donker); }
+  .hero-beeld .rit { position: absolute; left: -44px; bottom: 0; width: min(400px, 88%); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55); }
+
+  /* Concierge-balk */
+  .concierge { display: grid; grid-template-columns: 0.75fr 2fr; gap: 24px; align-items: center; margin: 0 0 44px; padding: 18px 18px 18px 26px; border-radius: 22px; background: rgba(16, 27, 22, 0.8); border: 1px solid var(--ink-line); backdrop-filter: blur(8px); }
+  .concierge-tekst .mono { color: var(--goud); }
+  .concierge-tekst strong { display: block; margin-top: 6px; font-family: var(--f-serif); font-weight: 400; font-size: 25px; line-height: 1.1; color: var(--wit); }
+  .concierge-keuzes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .concierge-keuzes button { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--ink-line); background: var(--ink); text-align: left; cursor: pointer; transition: border-color .25s, transform .25s, background .25s; }
+  .concierge-keuzes button:hover { border-color: var(--goud); background: rgba(212, 185, 127, 0.05); transform: translateY(-2px); }
+  .concierge-keuzes .ic { display: grid; place-items: center; width: 42px; height: 42px; flex-shrink: 0; border-radius: 12px; background: var(--goud-zacht); color: var(--goud); }
+  .concierge-keuzes b { display: block; font-size: 15px; font-weight: 600; color: var(--wit); }
+  .concierge-keuzes small { font-size: 12.5px; color: var(--zacht-donker); }
+  .concierge-keuzes .pijl-r { margin-left: auto; width: 16px; height: 16px; color: var(--zacht-donker); transition: transform .25s, color .25s; }
+  .concierge-keuzes button:hover .pijl-r { transform: translateX(3px); color: var(--goud); }
+
+  /* Reserveerpaneel */
+  .lade { position: fixed; inset: 0; z-index: 100; visibility: hidden; transition: visibility 0s .5s; }
+  .lade.open { visibility: visible; transition: none; }
+  .lade-achter { position: absolute; inset: 0; background: rgba(5, 9, 7, 0.62); backdrop-filter: blur(6px); opacity: 0; transition: opacity .4s; }
+  .lade.open .lade-achter { opacity: 1; }
+  .lade-paneel { position: absolute; top: 10px; right: 10px; bottom: 10px; width: min(540px, calc(100% - 20px)); overflow-y: auto; overscroll-behavior: contain; border-radius: 28px; transform: translateX(calc(100% + 20px)); transition: transform .55s cubic-bezier(.2, .8, .2, 1); }
+  .lade.open .lade-paneel { transform: none; }
+  .lade-paneel .boek { min-height: 100%; border-radius: 28px; box-shadow: none; }
+  .lade-paneel .boek-kop { padding-right: 52px; }
+  .lade-sluit { position: absolute; top: 22px; right: 22px; z-index: 2; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--ink-line); background: var(--ink-2); color: var(--op-donker); cursor: pointer; transition: border-color .2s, color .2s; }
+  .lade-sluit:hover { border-color: var(--goud); color: var(--goud); }
+  body.lade-open { overflow: hidden; }
+
+  /* Reserveerformulier: enkele rit, met stops of per uur */
+  .boek { grid-area: form; display: grid; gap: 16px; padding: 26px; border-radius: 26px; background: linear-gradient(180deg, rgba(23, 37, 32, 0.94), rgba(14, 24, 20, 0.97)); border: 1px solid var(--ink-line); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+  .boek-kop { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+  .boek-kop .mono { display: block; margin-bottom: 8px; color: var(--goud); }
+  .boek h2 { font-family: var(--f-serif); font-weight: 400; font-size: 31px; letter-spacing: -0.01em; line-height: 1.05; color: var(--wit); }
+  .boek-stap { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--zacht-donker); white-space: nowrap; }
+  .boek-stap b { color: var(--goud-hi); font-weight: 600; }
+  .stap-lijn { height: 2px; margin-top: -4px; border-radius: 2px; background: var(--ink-line); overflow: hidden; }
+  .stap-lijn i { display: block; width: 50%; height: 100%; background: var(--goud); transition: width .45s ease; }
+  .velden { display: grid; gap: 10px; }
+  .doel { display: grid; gap: 9px; padding: 4px 2px 2px; }
+  .doel .mono { color: var(--zacht-donker); font-size: 10px; }
+  .doel-keuzes { display: flex; flex-wrap: wrap; gap: 6px; }
+  .doel-keuzes label { position: relative; }
+  .doel-keuzes input { position: absolute; inset: 0; opacity: 0; }
+  .doel-keuzes span { display: block; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--ink-line); background: var(--ink); font-size: 13px; font-weight: 600; color: var(--zacht-donker); cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+  .doel-keuzes span:hover { color: var(--op-donker); }
+  .doel-keuzes input:checked + span { border-color: var(--goud); background: var(--goud-zacht); color: var(--goud-hi); }
+  .doel-keuzes input:focus-visible + span { outline: 2px solid var(--goud-hi); outline-offset: 2px; }
+
+  .modi { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); padding: 4px; border-radius: 14px; background: var(--ink); border: 1px solid var(--ink-line); }
+  .modi button { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 11px 6px; border: 0; border-radius: 10px; background: none; font-size: 13.5px; font-weight: 600; color: var(--zacht-donker); cursor: pointer; transition: color .3s; }
+  .modi button .i { width: 16px; height: 16px; }
+  .modi button[aria-selected="true"] { color: var(--ink); }
+  .modi-glijder { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 3); border-radius: 10px; background: var(--goud); box-shadow: 0 6px 18px rgba(212, 185, 127, 0.25); transition: transform .4s cubic-bezier(.3, .7, .2, 1); }
+
+  .paneel { border-radius: 16px; background: var(--ink); border: 1px solid var(--ink-line); overflow: hidden; }
+  .prij { position: relative; display: flex; align-items: center; gap: 14px; min-height: 62px; padding: 11px 16px; border-top: 1px solid var(--ink-line); transition: background .2s; }
+  .paneel > .prij:first-child, #stops > .prij:first-child:not(:only-child) { }
+  .paneel > :first-child.prij { border-top: 0; }
+  .prij:focus-within { background: rgba(212, 185, 127, 0.045); }
+  .prij .in { flex: 1; min-width: 0; display: grid; gap: 2px; }
+  .prij label { font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--zacht-donker); transition: color .2s; }
+  .prij:focus-within label { color: var(--goud); }
+  .prij.mist label { color: #FF9B85; }
+  .prij input, .prij select { width: 100%; padding: 2px 0; border: 0; outline: none; background: none; font-size: 15.5px; color: var(--wit); color-scheme: dark; }
+  .prij input::placeholder { color: rgba(147, 163, 154, 0.7); }
+  .prij select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+  .prij select option { background: var(--ink-2); }
+  .stip { position: relative; z-index: 1; flex-shrink: 0; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--zacht-donker); background: var(--ink); }
+  .stip.stop { width: 9px; height: 9px; margin: 0 1px; border-radius: 2px; border-color: var(--goud-hi); transform: rotate(45deg); }
+  .stip.eind { border-color: var(--goud); background: var(--goud); box-shadow: 0 0 0 4px rgba(212, 185, 127, 0.15); }
+  .route-paneel { position: relative; }
+  .route-paneel::before { content: ""; position: absolute; left: 21px; top: 36px; bottom: 36px; border-left: 1.5px dashed #3A4B43; }
+  .route-paneel.met-plus::before { bottom: 84px; }
+  #stops .prij { animation: binnen .35s ease; }
+  .mini-knop { flex-shrink: 0; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--ink-line); background: none; font-size: 17px; color: var(--zacht-donker); cursor: pointer; transition: color .2s, border-color .2s, background .2s; }
+  .mini-knop:hover { color: var(--goud); border-color: var(--goud); background: var(--goud-zacht); }
+  .mini-knop:disabled { opacity: .35; cursor: not-allowed; }
+  .mini-knop .i { width: 15px; height: 15px; }
+  .stop-plus { display: flex; align-items: center; gap: 12px; width: 100%; padding: 13px 16px; border: 0; border-top: 1px dashed var(--ink-line); background: none; font-size: 14px; font-weight: 600; color: var(--goud-hi); cursor: pointer; transition: background .2s; }
+  .stop-plus:hover { background: rgba(212, 185, 127, 0.05); }
+  .stop-plus .plus { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--goud-zacht); border: 1px solid rgba(212, 185, 127, 0.35); font-size: 15px; }
+  .stop-plus small { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--zacht-donker); }
+  .stop-plus:disabled { opacity: .45; cursor: not-allowed; }
+
+  .paneel-rij { display: grid; grid-template-columns: 1.15fr 0.9fr 0.95fr; }
+  .paneel-rij.twee { grid-template-columns: 1fr 1fr; }
+  .paneel-rij .prij { border-top: 0; border-left: 1px solid var(--ink-line); }
+  .paneel-rij .prij:first-child { border-left: 0; }
+
+  .uren-kies { display: grid; gap: 14px; padding: 16px; }
+  .uren-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .uren-top .mono { color: var(--zacht-donker); font-size: 10px; }
+  .uren-top strong { display: block; margin-top: 4px; font-size: 14px; font-weight: 500; color: var(--op-donker); }
+  .teller { display: flex; align-items: center; gap: 12px; }
+  .teller output { min-width: 4.4ch; font-family: var(--f-serif); font-size: 38px; line-height: 1; text-align: center; color: var(--wit); }
+  .teller output small { margin-left: 4px; font-family: var(--f); font-size: 13px; color: var(--zacht-donker); }
+  .snel { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .snel button { padding: 9px 4px; border-radius: 10px; border: 1px solid var(--ink-line); background: none; font-size: 13px; font-weight: 600; color: var(--zacht-donker); cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+  .snel button:hover { color: var(--op-donker); }
+  .snel button.aan { border-color: var(--goud); background: var(--goud-zacht); color: var(--goud-hi); }
+
+  .schakel { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 16px; font-size: 14px; font-weight: 600; color: var(--op-donker); cursor: pointer; }
+  .schakel small { display: block; font-size: 12.5px; font-weight: 400; color: var(--zacht-donker); }
+  .schakel input { flex-shrink: 0; appearance: none; -webkit-appearance: none; position: relative; width: 42px; height: 24px; margin: 0; border-radius: 999px; background: var(--ink-3); cursor: pointer; transition: background .2s; }
+  .schakel input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--op-donker); transition: transform .2s, background .2s; }
+  .schakel input:checked { background: var(--goud); }
+  .schakel input:checked::after { transform: translateX(18px); background: var(--ink); }
+  .schakel input:focus-visible { outline: 2px solid var(--goud-hi); outline-offset: 2px; }
+  #retourVelden { border-top: 1px solid var(--ink-line); }
+
+  .klassen { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .klasse { position: relative; }
+  .klasse input { position: absolute; inset: 0; opacity: 0; }
+  .klasse span { display: grid; gap: 1px; padding: 10px 11px; border-radius: 12px; border: 1px solid var(--ink-line); background: var(--ink); cursor: pointer; transition: border-color .2s, background .2s; }
+  .klasse strong { font-size: 13px; font-weight: 600; color: var(--op-donker); }
+  .klasse small { font-size: 11.5px; color: var(--zacht-donker); }
+  .klasse input:checked + span { border-color: var(--goud); background: rgba(212, 185, 127, 0.07); }
+  .klasse input:checked + span strong { color: var(--wit); }
+  .klasse input:focus-visible + span { outline: 2px solid var(--goud-hi); outline-offset: 2px; }
+
+  .samenvatting { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 12px; background: var(--goud-zacht); border: 1px solid rgba(212, 185, 127, 0.25); font-size: 13px; color: var(--goud-hi); }
+  .samenvatting b { flex-shrink: 0; font-weight: 600; color: var(--wit); }
+  .boek .btn { width: 100%; min-height: 54px; border-radius: 14px; }
+  .boek-onder { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; color: var(--zacht-donker); }
+  .boek-onder a { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--goud-hi); }
+  .boek-onder .i { width: 14px; height: 14px; }
+  .fout { font-size: 13px; color: #FF9B85; }
+  .terug { justify-self: start; padding: 4px 0; border: 0; background: none; font-size: 14px; font-weight: 600; color: var(--zacht-donker); cursor: pointer; }
+  .terug:hover { color: var(--op-donker); }
+  .klaar { display: grid; gap: 12px; justify-items: center; padding: 20px 6px; text-align: center; }
+  .klaar b { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--goud); font-size: 26px; color: var(--ink); }
+  .klaar h3 { font-family: var(--f-serif); font-weight: 400; font-size: 30px; color: var(--wit); }
+  .klaar p { color: var(--zacht-donker); }
+  .modus-in { animation: binnen .35s ease; }
+  @keyframes binnen { from { opacity: 0; transform: translateY(6px); } }
+
+  @media (max-width: 640px) {
+    .boek { padding: 18px; gap: 14px; }
+    .concierge-keuzes { grid-template-columns: 1fr; }
+    .lade-paneel { top: 5vh; right: 0; bottom: 0; width: 100%; border-radius: 24px 24px 0 0; transform: translateY(100%); }
+    .lade-paneel .boek { border-radius: 24px 24px 0 0; padding-bottom: 32px; }
+    .lade-sluit { top: 16px; right: 16px; }
+    .hero-foto { aspect-ratio: 4 / 3; }
+    .boek h2 { font-size: 26px; }
+    .modi button { padding: 10px 4px; font-size: 12.5px; }
+    .modi button .i { display: none; }
+    .paneel-rij { grid-template-columns: 1fr 1fr; }
+    .paneel-rij:not(.twee) .prij:nth-child(3) { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--ink-line); }
+    .klassen { grid-template-columns: 1fr 1fr; }
+    .snel { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    .snel button { font-size: 12px; padding: 9px 2px; }
+    .teller output { font-size: 32px; }
+    .uren-top { flex-direction: column; align-items: stretch; }
+    .teller { justify-content: space-between; }
+  }
+
+  /* Lopende band */
+  .band { border-top: 1px solid var(--ink-line); overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .band-track { display: flex; width: max-content; padding: 16px 0; animation: band 46s linear infinite; }
+  .band-track span { display: inline-flex; align-items: center; gap: 34px; padding-right: 34px; color: var(--zacht-donker); white-space: nowrap; }
+  .band-track span::after { content: "✦"; color: var(--goud); }
+  @keyframes band { to { transform: translateX(-50%); } }
+
+  /* ================= SECTIES ================= */
+  section { padding: 110px 0; }
+  .kop { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: end; margin-bottom: 52px; }
+  .kop h2 { font-size: clamp(36px, 4.6vw, 62px); margin-top: 18px; text-wrap: balance; }
+  .kop h2 .serif { color: #8C6F35; font-size: 1.08em; }
+  .kop p { color: var(--tekst-zacht); font-size: 17px; max-width: 460px; justify-self: end; }
+  .kop-midden { text-align: center; display: block; max-width: 760px; margin: 0 auto 52px; }
+  .kop-midden p { margin: 18px auto 0; justify-self: auto; }
+
+  /* Vertrouwen-rij */
+  .vertrouwen { padding: 22px 0 0; }
+  .vertrouwen .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .vt { display: flex; gap: 14px; align-items: center; padding: 18px 20px; border-radius: var(--r-md); background: var(--wit); border: 1px solid var(--lijn); }
+  .vt .ic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--ink); color: var(--goud); flex-shrink: 0; }
+  .vt strong { display: block; font-size: 15px; letter-spacing: -0.01em; }
+  .vt span { font-size: 13px; color: var(--tekst-zacht); }
+
+  /* Bento diensten */
+  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+  .kaart { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 26px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); overflow: hidden; transition: transform .3s, box-shadow .3s; }
+  .kaart:hover { transform: translateY(-3px); box-shadow: 0 24px 50px rgba(10, 18, 15, 0.08); }
+  .kaart h3 { font-size: 23px; letter-spacing: -0.02em; }
+  .kaart p { font-size: 14.5px; color: var(--tekst-zacht); }
+  .kaart .meer { margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+  .kaart .mono { color: #8C6F35; }
+  .k-4 { grid-column: span 4; }
+  .k-2 { grid-column: span 2; }
+  .k-3 { grid-column: span 3; }
+  .kaart.donker { background: var(--ink); border-color: var(--ink); color: var(--op-donker); }
+  .kaart.donker h3 { color: var(--wit); }
+  .kaart.donker p { color: var(--zacht-donker); }
+  .kaart.donker .mono { color: var(--goud); }
+  .kaart.donker .meer { color: var(--goud-hi); }
+  .kaart-luchthaven { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .kaart-luchthaven > div:first-child { display: flex; flex-direction: column; gap: 12px; }
+
+  /* mini-UI's */
+  .mini { border-radius: var(--r-md); background: var(--creme); border: 1px solid var(--lijn); padding: 14px; font-size: 13px; }
+  .donker .mini { background: var(--ink-2); border-color: var(--ink-line); }
+  .mini-rij { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--lijn); }
+  .donker .mini-rij { border-color: var(--ink-line); }
+  .mini-rij:last-child { border-bottom: 0; }
+  .mini-rij b { font-weight: 600; }
+  .donker .mini-rij b { color: var(--wit); }
+  .pil { padding: 3px 9px; border-radius: var(--pill); font-size: 11.5px; font-weight: 600; background: var(--goud-zacht); color: #8C6F35; white-space: nowrap; }
+  .donker .pil { color: var(--goud-hi); }
+  .pil-groen { background: rgba(37, 211, 102, 0.12); color: #1A9E4E; }
+  .donker .pil-groen { color: #6EE7A0; }
+  .voortgang { margin-top: 10px; height: 6px; border-radius: 6px; background: var(--ink-3); overflow: hidden; }
+  .voortgang i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--goud), var(--goud-hi)); border-radius: 6px; animation: laden 4.5s ease-in-out infinite; }
+  @keyframes laden { 0% { width: 8%; } 70%, 100% { width: 86%; } }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips span { padding: 7px 12px; border-radius: var(--pill); background: var(--creme); border: 1px solid var(--lijn); font-size: 13px; font-weight: 500; }
+  .chips span.aan { background: var(--ink); border-color: var(--ink); color: var(--goud-hi); }
+  .uren { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .uren span { text-align: center; padding: 12px 6px; border-radius: var(--r-sm); background: var(--creme); border: 1px solid var(--lijn); font-weight: 600; font-size: 15px; }
+  .uren span small { display: block; font-size: 11.5px; font-weight: 500; color: var(--tekst-zacht); }
+  .uren span.aan { background: var(--ink); color: var(--goud-hi); border-color: var(--ink); }
+  .uren span.aan small { color: var(--zacht-donker); }
+
+  /* Werkwijze */
+  .werkwijze .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; }
+  .werk-kop { position: sticky; top: 110px; align-self: start; display: grid; gap: 20px; justify-items: start; }
+  .werk-kop h2 { font-size: clamp(36px, 4.6vw, 62px); }
+  .werk-kop h2 .serif { color: #8C6F35; font-size: 1.08em; }
+  .werk-kop p { color: var(--tekst-zacht); font-size: 17px; max-width: 420px; }
+  .tijdlijn { position: relative; display: grid; gap: 14px; padding-left: 34px; }
+  .tijdlijn::before { content: ""; position: absolute; left: 8px; top: 12px; bottom: 12px; width: 2px; background: var(--lijn); }
+  .tijdlijn::after { content: ""; position: absolute; left: 8px; top: 12px; width: 2px; height: var(--tl, 0%); max-height: calc(100% - 24px); background: var(--goud); transition: height .2s linear; }
+  .moment { position: relative; padding: 22px 24px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); }
+  .moment::before { content: ""; position: absolute; left: -32px; top: 26px; width: 14px; height: 14px; border-radius: 50%; background: var(--creme); border: 2px solid var(--lijn); transition: background .3s, border-color .3s; z-index: 1; }
+  .moment.aan::before { background: var(--goud); border-color: var(--goud); box-shadow: 0 0 0 5px rgba(212, 185, 127, 0.22); }
+  .moment .mono { color: #8C6F35; }
+  .moment h3 { font-size: 21px; letter-spacing: -0.02em; margin: 8px 0 6px; }
+  .moment p { font-size: 14.5px; color: var(--tekst-zacht); }
+
+  /* Vloot + tarieven (donker) */
+  .vloot { background: var(--ink); color: var(--op-donker); border-radius: var(--r-xl); margin: 0 10px; }
+  .vloot .kop h2 { color: var(--wit); }
+  .vloot .kop h2 .serif { color: var(--goud); }
+  .vloot .kop p { color: var(--zacht-donker); }
+  .vtabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 14px; }
+  .vtab { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--r-md); background: var(--ink-2); border: 1.5px solid var(--ink-line); cursor: pointer; text-align: left; transition: border-color .2s, background .2s; }
+  .vtab .i { color: var(--goud); width: 22px; height: 22px; }
+  .vtab strong { display: block; font-size: 15px; color: var(--wit); }
+  .vtab small { font-size: 12.5px; color: var(--zacht-donker); }
+  .vtab[aria-selected="true"] { border-color: var(--goud); background: rgba(212, 185, 127, 0.07); }
+  .vpaneel { display: grid; grid-template-columns: 1.25fr 1fr; gap: 14px; }
+  .vfoto { position: relative; border-radius: var(--r-lg); overflow: hidden; background: #0d1f17; min-height: 380px; }
+  .vfoto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .45s, transform .9s; }
+  .vleeg { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; background: #0d1f17; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--zacht-donker); }
+  .vfoto img.weg { opacity: 0; transform: scale(1.03); }
+  .vfoto .vlabel { position: absolute; left: 16px; bottom: 16px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .vfoto .vlabel span { padding: 7px 12px; border-radius: var(--pill); background: rgba(10, 18, 15, 0.78); backdrop-filter: blur(8px); font-size: 12.5px; font-weight: 500; color: var(--op-donker); }
+  .vinfo { display: grid; gap: 14px; align-content: start; }
+  .vblok { padding: 22px; border-radius: var(--r-lg); background: var(--ink-2); border: 1px solid var(--ink-line); }
+  .vblok h3 { font-size: 26px; color: var(--wit); letter-spacing: -0.02em; }
+  .vblok > p { font-size: 14px; color: var(--zacht-donker); margin-top: 6px; }
+  .prijzen { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .prijzen th, .prijzen td { padding: 11px 0; border-bottom: 1px solid var(--ink-line); text-align: left; font-weight: 500; }
+  .prijzen thead th { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--zacht-donker); font-weight: 600; padding-top: 0; }
+  .prijzen td { text-align: right; color: var(--wit); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .prijzen thead th:not(:first-child) { text-align: right; }
+  .prijzen tbody th { color: var(--op-donker); }
+  .prijzen tr:last-child th, .prijzen tr:last-child td { border-bottom: 0; }
+  .vnoot { font-size: 12.5px; color: var(--zacht-donker); margin-top: 14px; }
+
+  /* Reviews + FAQ naast elkaar */
+  .rf { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 14px; align-items: start; }
+  .review-kaart { padding: 30px; border-radius: var(--r-lg); background: var(--ink); color: var(--op-donker); display: grid; gap: 22px; position: sticky; top: 110px; }
+  .review-kaart .mono { color: var(--goud); }
+  .score { display: flex; align-items: baseline; gap: 12px; }
+  .score strong { font-size: 64px; color: var(--wit); letter-spacing: -0.04em; line-height: 1; }
+  .sterren { color: var(--goud); letter-spacing: 3px; font-size: 18px; }
+  .review-kaart blockquote { font-family: var(--f-serif); font-style: italic; font-size: 26px; line-height: 1.25; color: var(--wit); }
+  .review-kaart cite { font-style: normal; font-size: 13.5px; color: var(--zacht-donker); }
+  .placeholder { justify-self: start; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.1em; color: var(--goud); border: 1px dashed var(--goud); border-radius: 6px; padding: 4px 9px; }
+  .faq { display: grid; gap: 8px; }
+  .faq details { border-radius: var(--r-md); background: var(--wit); border: 1px solid var(--lijn); }
+  .faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 20px; font-weight: 600; font-size: 16px; cursor: pointer; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--creme); font-size: 18px; font-weight: 500; transition: transform .25s, background .25s; flex-shrink: 0; }
+  .faq details[open] summary::after { transform: rotate(45deg); background: var(--goud); }
+  .faq details p { padding: 0 20px 20px; color: var(--tekst-zacht); font-size: 15px; }
+
+  /* CTA */
+  .cta-page { padding: 0 10px 10px; }
+  .cta { position: relative; overflow: hidden; isolation: isolate; border-radius: var(--r-xl); background: radial-gradient(60% 80% at 50% 0%, rgba(212, 185, 127, 0.16), transparent 65%), var(--ink); color: var(--op-donker); text-align: center; padding: 110px 24px; }
+  .cta h2 { font-size: clamp(40px, 5.6vw, 76px); color: var(--wit); margin: 22px auto 18px; max-width: 14ch; }
+  .cta h2 .serif { color: var(--goud); font-size: 1.08em; }
+  .cta p { color: var(--zacht-donker); max-width: 460px; margin: 0 auto 34px; font-size: 17px; }
+  .cta-acties { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  footer { padding: 56px 0 120px; }
+  .voet { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; font-size: 14px; color: var(--tekst-zacht); }
+  .voet h4 { font-size: 13px; font-weight: 600; color: var(--tekst); margin-bottom: 12px; }
+  .voet li { margin-bottom: 8px; }
+  .voet a:hover { color: var(--tekst); }
+  .voet .merk { color: var(--tekst); margin-bottom: 14px; }
+  .voet-onder { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--lijn); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--tekst-zacht); }
+
+  /* Mobiele balk */
+  .mbalk { display: none; }
+
+  /* Reveal */
+  .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .rv.in { opacity: 1; transform: none; }
+
+  @media (max-width: 1080px) {
+    .nav-links { display: none; }
+    .nav-acties { margin-left: auto; }
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; padding: 24px 0 32px; }
+    .hero-beeld { padding-bottom: 0; }
+    .hero-beeld .rit { position: relative; left: auto; width: calc(100% - 24px); margin: -64px auto 0; }
+    .concierge { grid-template-columns: 1fr; gap: 16px; padding: 18px; }
+    .vertrouwen .wrap { grid-template-columns: 1fr 1fr; }
+    .kop { grid-template-columns: 1fr; gap: 16px; }
+    .kop p { justify-self: start; }
+    .k-4, .k-2, .k-3 { grid-column: span 3; }
+    .kaart-luchthaven { grid-column: 1 / -1; }
+    .werkwijze .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .werk-kop { position: static; }
+    .vtabs { grid-template-columns: 1fr 1fr; }
+    .vpaneel { grid-template-columns: 1fr; }
+    .vfoto { min-height: 0; aspect-ratio: 16 / 9; }
+    .rf { grid-template-columns: 1fr; }
+    .review-kaart { position: static; }
+    .voet { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 18px; }
+    .hero-page { padding: 6px; }
+    .hero, .vloot, .cta { border-radius: 24px; }
+    .vloot { margin: 0 6px; }
+    .cta-page { padding: 0 6px 6px; }
+    .nav .btn-goud, .rond-wa { display: none; }
+    .nav .btn-bel { width: 44px; padding: 0; }
+    .nav .btn-bel span { display: none; }
+    .hero-acties .btn { flex: 1 1 40%; padding: 0 14px; }
+    .hero-acties .btn-goud { flex-basis: 100%; }
+    .punten { grid-template-columns: 1fr; gap: 8px; }
+    .boek { padding: 18px; border-radius: 20px; }
+    .soorten { grid-template-columns: repeat(2, 1fr); }
+    .rij3 { grid-template-columns: 1fr 1fr; }
+    .rij3 .veld:first-child { grid-column: 1 / -1; }
+    .stop strong { font-size: 20px; }
+    section { padding: 80px 0; }
+    .vertrouwen .wrap { grid-template-columns: 1fr; }
+    .bento { grid-template-columns: 1fr; }
+    .k-4, .k-2, .k-3 { grid-column: 1 / -1; }
+    .kaart-luchthaven { grid-template-columns: 1fr; }
+    .vtabs { grid-template-columns: 1fr 1fr; }
+    .vtab { padding: 12px; }
+    .vtab .i { display: none; }
+    .voet { grid-template-columns: 1fr; }
+    .mbalk { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 6px; position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 80; padding: 6px; border-radius: var(--pill); background: rgba(10, 18, 15, 0.94); backdrop-filter: blur(14px); border: 1px solid var(--ink-line); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35); }
+    .mbalk a { height: 46px; border-radius: var(--pill); display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--wit); }
+    .mbalk .wa { color: var(--wa); }
+    .mbalk .i { color: var(--goud); }
+    .mbalk .hoofd { background: var(--goud); color: var(--ink); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .band-track, .status::before, .voortgang i { animation: none; }
+    .rv { opacity: 1; transform: none; transition: none; }
+  }
+  .wa-cta { margin-top: 14px; }
+  .kop .wa-cta { justify-self: start; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.9 19.5L3 21z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l1-1.6-2.1-1-1 .9a4.2 4.2 0 0 1-2.3-2.3l.9-1-1-2.1L9 8.8z"/></symbol>
+  <symbol id="i-pijl" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-vlieg" viewBox="0 0 24 24"><path d="M2.5 13.5l7-1.5 5-7.5h2l-2.5 7.5 5.5-1 1.5-2h1.5l-1 4 1 4h-1.5l-1.5-2-5.5-1 2.5 7.5h-2l-5-7.5-7-1.5z"/></symbol>
+  <symbol id="i-koffer" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-klok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-ster" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></symbol>
+  <symbol id="i-schild" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M18 6.5A7 7 0 1 0 18 17.5M4 10h10M4 14h10"/></symbol>
+  <symbol id="i-mens" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3h-2M3 16h2m4 0h6"/><circle cx="7" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></symbol>
+  <symbol id="i-flits" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M3 11h18M8 17v2M16 17v2"/></symbol>
+  <symbol id="i-kroon" viewBox="0 0 24 24"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5z"/></symbol>
+  <symbol id="i-glas" viewBox="0 0 24 24"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0zM12 13v7M8 21h8"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+  <symbol id="i-wissel" viewBox="0 0 24 24"><path d="M7 4v16M4 17l3 3 3-3M17 20V4M14 7l3-3 3 3"/></symbol>
+  <symbol id="i-kruis" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-tas" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/></symbol>
+</svg>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero-page">
+    <section class="hero" id="reserveren" aria-labelledby="t-hero">
+      <canvas class="wegen" id="wegen" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <header class="nav">
+          <a class="merk" href="#top" aria-label="Fixed Ride, naar boven"><i>F</i>Fixed <span class="serif">Ride</span></a>
+          <nav class="nav-links" aria-label="Hoofdmenu">
+            <a href="#diensten">Diensten</a><a href="#werkwijze">Werkwijze</a><a href="#vloot">Vloot &amp; prijzen</a><a href="#vragen">Vragen</a>
+          </nav>
+          <div class="nav-acties">
+            <a class="btn btn-bel" href="tel:+31202101637" aria-label="Bel 020 210 1637"><svg class="i"><use href="#i-tel"/></svg><span>020 210 1637</span></a>
+            <a class="rond rond-wa" href="https://wa.me/31202101637" aria-label="WhatsApp"><svg class="i wa"><use href="#i-wa"/></svg></a>
+            <a class="btn btn-goud" href="#boek">Reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+          </div>
+        </header>
+
+        <div class="hero-grid">
+          <div class="hero-tekst">
+            <span class="tag">Privé chauffeur · gespecialiseerd in vooraf reserveren</span>
+            <h1 id="t-hero">Uw rit staat vast. <span class="serif">Lang voordat u vertrekt.</span></h1>
+            <p class="hero-sub">Fixed Ride is <b>gespecialiseerd in vooraf gereserveerde ritten</b>. Daarom weet u vooraf precies hoe laat u wordt opgehaald, <b>wat het kost</b> en wie uw chauffeur is.</p>
+            <div class="hero-acties">
+              <a class="btn btn-goud" href="#boek">Rit reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+              <a class="btn btn-lijn" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>Bel direct</a>
+              <a class="btn btn-lijn" href="https://wa.me/31202101637"><svg class="i wa"><use href="#i-wa"/></svg>WhatsApp</a>
+            </div>
+            <ul class="punten">
+              <li><svg class="i"><use href="#i-check"/></svg>Vaste prijs, vooraf bevestigd</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Wij volgen uw vlucht</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Naambord bij de luchthaven</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Gelicentieerde chauffeurs</li>
+            </ul>
+          </div>
+
+          <div class="hero-beeld">
+            <div class="hero-foto"><img src="../img/fleet-sedan.jpg" alt="Mercedes E-Klasse van Fixed Ride"><span class="foto-tag">Mercedes E-Klasse · Business</span></div>
+            <figure class="rit" aria-label="Voorbeeld van een gereserveerde rit">
+              <div class="rit-top"><span class="mono">Uw rit · voorbeeld</span><span class="status" id="ritStatus">Bevestigd</span></div>
+              <div class="route">
+                <div class="stop"><strong>05:45</strong><span>Amsterdam Zuid</span></div>
+                <div class="spoor" id="spoor"><i class="spoor-vul"></i><i class="spoor-auto"></i></div>
+                <div class="stop stop-eind"><strong>06:10</strong><span>Schiphol, vertrek</span></div>
+              </div>
+              <div class="vlucht"><span><svg class="i" style="width:15px;height:15px;vertical-align:-3px;margin-right:6px"><use href="#i-vlieg"/></svg>Vlucht <b>KL1002</b> naar Londen</span><span class="ok" id="vluchtStatus">Op tijd</span></div>
+              <div class="chauffeur"><b>MK</b><div><strong>Uw chauffeur</strong>Mercedes E-Klasse · zwart</div><span class="kenteken">G-123-FR</span></div>
+              <figcaption>Voorbeeld. Naam, auto en kenteken ontvangt u vooraf.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="concierge">
+          <div class="concierge-tekst"><span class="mono">Reserveren</span><strong>Hoe mag uw chauffeur u van dienst zijn?</strong></div>
+          <div class="concierge-keuzes">
+            <button type="button" data-open="rit"><span class="ic"><svg class="i"><use href="#i-pijl"/></svg></span><span><b>Enkele rit</b><small>Van A naar B, ook retour</small></span><svg class="i pijl-r"><use href="#i-pijl"/></svg></button>
+            <button type="button" data-open="stops"><span class="ic"><svg class="i"><use href="#i-map"/></svg></span><span><b>Met tussenstops</b><small>Meerdere adressen onderweg</small></span><svg class="i pijl-r"><use href="#i-pijl"/></svg></button>
+            <button type="button" data-open="uur"><span class="ic"><svg class="i"><use href="#i-klok"/></svg></span><span><b>Per uur</b><small>Uw chauffeur blijft beschikbaar</small></span><svg class="i pijl-r"><use href="#i-pijl"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="band" aria-hidden="true">
+        <div class="band-track mono">
+          <span>Schiphol</span><span>Rotterdam The Hague</span><span>Eindhoven</span><span>Brussel Zaventem</span><span>Düsseldorf</span><span>Frankfurt</span><span>Zakelijk op rekening</span><span>Chauffeur per uur</span><span>Keukenhof</span><span>Giethoorn</span>
+          <span>Schiphol</span><span>Rotterdam The Hague</span><span>Eindhoven</span><span>Brussel Zaventem</span><span>Düsseldorf</span><span>Frankfurt</span><span>Zakelijk op rekening</span><span>Chauffeur per uur</span><span>Keukenhof</span><span>Giethoorn</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VERTROUWEN ============ -->
+  <div class="vertrouwen">
+    <div class="wrap">
+      <div class="vt rv"><span class="ic"><svg class="i"><use href="#i-euro"/></svg></span><div><strong>Vaste prijs vooraf</strong><span>Geen meter, geen toeslagen</span></div></div>
+      <div class="vt rv"><span class="ic"><svg class="i"><use href="#i-vlieg"/></svg></span><div><strong>Vlucht gevolgd</strong><span>Vertraging? Wij schuiven mee</span></div></div>
+      <div class="vt rv"><span class="ic"><svg class="i"><use href="#i-schild"/></svg></span><div><strong>Gelicentieerd</strong><span>Alleen chauffeurs met vergunning</span></div></div>
+      <div class="vt rv"><span class="ic"><svg class="i"><use href="#i-mens"/></svg></span><div><strong>Persoonlijk contact</strong><span>Bel of app, altijd een mens</span></div></div>
+    </div>
+  </div>
+
+  <!-- ============ DIENSTEN (bento) ============ -->
+  <section id="diensten">
+    <div class="wrap">
+      <div class="kop rv">
+        <div><span class="tag tag-licht dot">Diensten</span><h2>Eén chauffeur voor <span class="serif">elk moment</span> dat moet kloppen.</h2></div>
+        <p>Van de vroege vlucht tot een volle dag aan afspraken. Elke rit wordt vooraf gepland, bevestigd en voorbereid. Alles regelt u via WhatsApp.</p><a class="btn btn-lijn wa-cta" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20rit%20vooraf%20inplannen." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Plan uw rit via WhatsApp</a>
+      </div>
+
+      <div class="bento">
+        <article class="kaart donker k-4 kaart-luchthaven rv">
+          <div>
+            <span class="mono">01 · Luchthaven</span>
+            <h3>Naar elke luchthaven, tot Frankfurt</h3>
+            <p>Schiphol, Eindhoven, Rotterdam, Brussel, Düsseldorf en verder. Wij volgen uw vlucht live en staan klaar in de aankomsthal, ook bij vertraging.</p>
+            <a class="meer" href="#boek" data-modus="rit">Luchthavenrit reserveren <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+          <div class="mini">
+            <div class="mini-rij"><span>Vlucht <b>KL1234</b> · Barcelona</span><span class="pil">Landt 14:52</span></div>
+            <div class="mini-rij"><span>Chauffeur in aankomsthal</span><span class="pil pil-groen">Klaar</span></div>
+            <div class="mini-rij"><span>Wachttijd bij vertraging</span><b>Inbegrepen</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;margin-top:10px" class="mono"><span>Landing</span><span>+12 min</span></div>
+            <div class="voortgang"><i></i></div>
+          </div>
+        </article>
+
+        <article class="kaart k-2 rv">
+          <span class="mono">02 · Zakelijk</span>
+          <h3>Zakelijk op rekening</h3>
+          <p>Voor directie, gasten en roadshows. Factuur achteraf in overleg.</p>
+          <div class="mini">
+            <div class="mini-rij"><span>Kantoor → RAI</span><b>Op rekening</b></div>
+            <div class="mini-rij"><span>Factuur</span><span class="pil">In overleg</span></div>
+          </div>
+        </article>
+
+        <article class="kaart k-2 rv">
+          <span class="mono">03 · Per uur</span>
+          <h3>Chauffeur per uur of dag</h3>
+          <p>Uw chauffeur blijft beschikbaar tussen afspraken.</p>
+          <div class="uren"><span>1 u<small>vanaf</small></span><span class="aan">6 u<small>halve dag</small></span><span>Dag<small>tot 10 u</small></span></div>
+        </article>
+
+        <article class="kaart k-2 rv">
+          <span class="mono">04 · Avonden &amp; events</span>
+          <h3>Heen in stijl, veilig terug</h3>
+          <p>Gala, concert of diner. De terugrit staat ook al vast.</p>
+          <div class="mini">
+            <div class="mini-rij"><span>Heen</span><b>19:30</b></div>
+            <div class="mini-rij"><span>Terug</span><b>00:30</b></div>
+          </div>
+        </article>
+
+        <article class="kaart k-2 rv">
+          <span class="mono">05 · Privé tours</span>
+          <h3>Nederland, in uw tempo</h3>
+          <p>Bekende dagtours of uw eigen route, privé gereden.</p>
+          <div class="chips"><span class="aan">Keukenhof</span><span>Giethoorn</span><span>Zaanse Schans</span><span>Kinderdijk</span><span>Den Haag</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WERKWIJZE ============ -->
+  <section class="werkwijze" id="werkwijze" style="padding-top:20px">
+    <div class="wrap">
+      <div class="werk-kop rv">
+        <span class="tag tag-licht dot">Werkwijze</span>
+        <h2>Van reservering tot <span class="serif">aankomst.</span></h2>
+        <p>U weet bij elke stap waar u aan toe bent. Geen app nodig, geen wachtrij. U regelt alles via WhatsApp en alles kan vooraf worden ingepland.</p>
+        <a class="btn btn-donker" href="#boek">Rit reserveren <svg class="i"><use href="#i-pijl"/></svg></a>
+      </div>
+      <div class="tijdlijn" id="tijdlijn">
+        <div class="moment"><span class="mono">Ruim vooraf</span><h3>U reserveert</h3><p>Online, telefonisch of via WhatsApp. Hoe eerder, hoe zekerder. Ook voor ritten weken vooruit.</p></div>
+        <div class="moment"><span class="mono">Snelle reactie</span><h3>Persoonlijke bevestiging</h3><p>Wij reageren snel via WhatsApp met een vaste prijs, het voertuig en alle afspraken zwart op wit.</p></div>
+        <div class="moment"><span class="mono">Vooraf bevestigd</span><h3>Uw chauffeur bekend</h3><p>Naam, telefoonnummer, auto en kenteken. U weet precies wie er voor de deur staat.</p></div>
+        <div class="moment"><span class="mono">Op de dag zelf</span><h3>Uw chauffeur staat klaar</h3><p>Tien minuten voor de afgesproken tijd. Bij de luchthaven volgen wij uw vlucht en wachten wij in de hal.</p></div>
+        <div class="moment"><span class="mono">Aankomst</span><h3>U stapt uit, wij regelen de rest</h3><p>Bagage uit de auto, betaling vooraf geregeld. Volgende rit? Die staat zo vast.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VLOOT + PRIJZEN ============ -->
+  <section class="vloot" id="vloot">
+    <div class="wrap">
+      <div class="kop rv">
+        <div><span class="tag dot">Vloot &amp; vaste prijzen</span><h2>Kies uw klasse. <span class="serif">De prijs staat al vast.</span></h2></div>
+        <p>Recente, onberispelijk verzorgde auto's. Wifi aan boord? Vermeld het bij uw reservering, dan regelen wij het. Hieronder de vaste prijzen naar Schiphol. Andere route of wens? Stuur het ons, u krijgt vooraf een vaste prijs.</p><a class="btn btn-lijn wa-cta" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20rit%20vooraf%20inplannen." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Vraag uw prijs via WhatsApp</a>
+      </div>
+
+      <div class="vtabs" role="tablist" aria-label="Voertuigklasse">
+        <button class="vtab" role="tab" aria-selected="false" data-v="superb"><svg class="i"><use href="#i-auto"/></svg><span><strong>Comfort</strong><small>Skoda Superb · tot 4 p.</small></span></button>
+        <button class="vtab" role="tab" aria-selected="true" data-v="sedan"><svg class="i"><use href="#i-auto"/></svg><span><strong>Business</strong><small>Sedan · tot 4 p.</small></span></button>
+        <button class="vtab" role="tab" aria-selected="false" data-v="tesla"><svg class="i"><use href="#i-flits"/></svg><span><strong>Elektrisch</strong><small>Tesla · tot 4 p.</small></span></button>
+        <button class="vtab" role="tab" aria-selected="false" data-v="van"><svg class="i"><use href="#i-bus"/></svg><span><strong>Van</strong><small>V-Klasse · tot 8 p.</small></span></button>
+        <button class="vtab" role="tab" aria-selected="false" data-v="first"><svg class="i"><use href="#i-kroon"/></svg><span><strong>First class</strong><small>S-Klasse · tot 3 p.</small></span></button>
+      </div>
+
+      <div class="vpaneel">
+        <div class="vfoto">
+          <span class="vleeg" id="vLeeg" hidden></span>
+          <img id="vImg" src="../img/fleet-sedan.jpg" alt="Mercedes E-Klasse">
+          <div class="vlabel" id="vLabels"><span>Tot 4 passagiers</span><span>3 koffers</span><span>Wifi op aanvraag</span></div>
+        </div>
+        <div class="vinfo">
+          <div class="vblok">
+            <span class="mono" style="color:var(--goud)" id="vKlasse">Business</span>
+            <h3 id="vNaam">Mercedes E-Klasse</h3>
+            <p id="vTekst">De zakelijke standaard. Stil, ruim en altijd onberispelijk.</p>
+          </div>
+          <div class="vblok">
+            <table class="prijzen">
+              <thead><tr><th>Naar Schiphol vanaf</th><th>Enkel</th><th>Retour</th></tr></thead>
+              <tbody id="vPrijzen"></tbody>
+            </table>
+            <p class="vnoot">Vaste prijzen inclusief wachttijd bij vertraging. Andere route? U krijgt direct een vaste prijs via WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS + FAQ ============ -->
+  <section id="vragen">
+    <div class="wrap">
+      <div class="kop rv">
+        <div><span class="tag tag-licht dot">Ervaringen &amp; vragen</span><h2>Alles wat u <span class="serif">vooraf</span> wilt weten.</h2></div>
+        <p>Staat uw vraag er niet bij? App ons, u krijgt direct een mens aan de lijn. Alles kan vooraf worden ingepland.</p><a class="btn btn-lijn wa-cta" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20rit%20vooraf%20inplannen." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Stel uw vraag via WhatsApp</a>
+      </div>
+      <div class="rf">
+        <aside class="review-kaart rv">
+          <span class="mono">Google reviews</span>
+          <div class="score"><strong>–,–</strong><span class="sterren">★★★★★</span></div>
+          <blockquote>"Hier komt een echte Google-review van een klant, kort en specifiek over de rit."</blockquote>
+          <cite>Naam klant · Google</cite>
+          <span class="placeholder">PLACEHOLDER · ECHTE SCORE EN REVIEW AANLEVEREN</span>
+        </aside>
+        <div class="faq rv">
+          <details open><summary>Hoe ver vooraf moet ik reserveren?</summary><p>Hoe eerder, hoe beter. Bij voorkeur minimaal 24 uur van tevoren. Last minute? Bel of app ons, dan kijken we direct wat mogelijk is.</p></details>
+          <details><summary>Wat als mijn vlucht vertraging heeft?</summary><p>Wij volgen uw vlucht live. Uw chauffeur past de ophaaltijd automatisch aan. Wachttijd door vertraging is bij de vaste prijs inbegrepen.</p></details>
+          <details><summary>Staat de prijs echt vast?</summary><p>Ja. U ontvangt de prijs bij de bevestiging, en dat is ook wat u betaalt. Geen meter die doorloopt.</p></details>
+          <details><summary>Wie is mijn chauffeur?</summary><p>Alle ritten worden gereden door gelicentieerde chauffeurs. Vooraf ontvangt u naam, telefoonnummer, auto en kenteken.</p></details>
+          <details><summary>Kan ik zakelijk op rekening rijden?</summary><p>In overleg. Standaard rekenen wij vooraf af; voor vaste zakelijke klanten is een factuur achteraf bespreekbaar, met per rit de route, datum en naam van de reiziger. Vraag het even via WhatsApp.</p></details>
+          <details><summary>Kan ik een rit wijzigen of annuleren?</summary><p>Ja, neem contact met ons op via telefoon of WhatsApp. We passen het direct voor u aan.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <div class="cta-page">
+    <section class="cta" style="padding:110px 24px">
+      <canvas class="wegen" id="wegen2" aria-hidden="true"></canvas>
+      <span class="tag">Reserveren</span>
+      <h2>Leg uw rit vast. <span class="serif">Wij doen de rest.</span></h2>
+      <p>Reserveer online, bel of stuur een WhatsApp. U krijgt persoonlijk een vaste prijs terug.</p>
+      <div class="cta-acties">
+        <a class="btn btn-goud" href="#boek">Rit reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+        <a class="btn btn-lijn" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>020 210 1637</a>
+        <a class="btn btn-lijn" href="https://wa.me/31202101637"><svg class="i wa"><use href="#i-wa"/></svg>WhatsApp</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="voet">
+      <div>
+        <a class="merk" href="#top"><i>F</i>Fixed <span class="serif">Ride</span></a>
+        <p>Privé chauffeur in Amsterdam. Gespecialiseerd in vooraf reserveren, altijd een vaste prijs.</p>
+      </div>
+      <div><h4>Diensten</h4><ul><li><a href="#diensten">Luchthaven</a></li><li><a href="#diensten">Zakelijk</a></li><li><a href="#diensten">Chauffeur per uur</a></li><li><a href="#diensten">Privé tours</a></li></ul></div>
+      <div><h4>Fixed Ride</h4><ul><li><a href="#werkwijze">Werkwijze</a></li><li><a href="#vloot">Vloot &amp; prijzen</a></li><li><a href="#vragen">Vragen</a></li><li><a href="#">Over ons</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+31202101637">020 210 1637</a></li><li><a href="https://wa.me/31202101637">WhatsApp</a></li><li>Amsterdam, 24/7</li></ul></div>
+    </div>
+    <div class="voet-onder"><span>© 2026 Fixed Ride</span><span>Alle ritten door gelicentieerde chauffeurs</span></div>
+  </div>
+</footer>
+
+<div class="lade" id="lade" aria-hidden="true">
+  <div class="lade-achter" data-sluit></div>
+  <aside class="lade-paneel" role="dialog" aria-modal="true" aria-labelledby="t-boek">
+    <button class="lade-sluit" type="button" data-sluit aria-label="Sluiten"><svg class="i"><use href="#i-kruis"/></svg></button>
+    <form class="boek" id="boek" novalidate aria-labelledby="t-boek">
+      <div class="boek-kop">
+        <div><span class="mono">Reservering</span><h2 id="t-boek">Waar mogen wij u brengen?</h2></div>
+        <span class="boek-stap" id="stapLbl"><b>01</b> / 02</span>
+      </div>
+      <div class="stap-lijn" aria-hidden="true"><i id="stapLijn"></i></div>
+
+      <div id="p1" class="velden">
+        <div class="modi" role="tablist" aria-label="Soort reservering">
+          <span class="modi-glijder" id="glijder" aria-hidden="true"></span>
+          <button type="button" role="tab" aria-selected="true" data-modus="rit"><svg class="i"><use href="#i-pijl"/></svg>Enkele rit</button>
+          <button type="button" role="tab" aria-selected="false" data-modus="stops"><svg class="i"><use href="#i-map"/></svg>Met stops</button>
+          <button type="button" role="tab" aria-selected="false" data-modus="uur"><svg class="i"><use href="#i-klok"/></svg>Per uur</button>
+        </div>
+
+        <div class="doel" role="radiogroup" aria-labelledby="lbl-doel">
+          <span class="mono" id="lbl-doel">Wat mogen wij voor u regelen?</span>
+          <div class="doel-keuzes">
+            <label><input type="radio" name="doel" value="Stadsrit" checked><span>Stadsrit</span></label>
+            <label><input type="radio" name="doel" value="Intercity rit"><span>Intercity rit</span></label>
+            <label><input type="radio" name="doel" value="Luchthaven"><span>Luchthaven</span></label>
+            <label><input type="radio" name="doel" value="Zakelijk"><span>Zakelijk</span></label>
+            <label><input type="radio" name="doel" value="Evenement"><span>Evenement</span></label>
+          </div>
+        </div>
+
+        <div class="paneel route-paneel" id="routePaneel">
+          <div class="prij"><span class="stip"></span><div class="in"><label for="f-van">Ophalen</label><input id="f-van" placeholder="Adres, hotel of luchthaven" autocomplete="street-address"></div></div>
+          <div id="stops" hidden></div>
+          <div class="prij"><span class="stip eind"></span><div class="in"><label for="f-naar" id="lbl-naar">Bestemming</label><input id="f-naar" placeholder="Waar mogen wij u brengen?"></div><button type="button" class="mini-knop" id="wissel" aria-label="Ophalen en bestemming omwisselen"><svg class="i"><use href="#i-wissel"/></svg></button></div>
+          <button type="button" class="stop-plus" id="stopPlus" hidden><span class="plus">+</span>Tussenstop toevoegen<small id="stopTel">1 van 4</small></button>
+        </div>
+
+        <div class="paneel modus-in" id="urenPaneel" hidden>
+          <div class="uren-kies">
+            <div class="uren-top">
+              <div><span class="mono">Chauffeur beschikbaar</span><strong>Vanaf 1 uur, ook tussen afspraken</strong></div>
+              <div class="teller"><button type="button" class="mini-knop" id="urenMin" aria-label="Eén uur minder">−</button><output id="uren" aria-live="polite">4<small>uur</small></output><button type="button" class="mini-knop" id="urenPlus" aria-label="Eén uur meer">+</button></div>
+            </div>
+            <div class="snel" id="snel"><button type="button" data-u="3">3 u</button><button type="button" data-u="4" class="aan">4 u</button><button type="button" data-u="6">6 u</button><button type="button" data-u="8">8 u</button><button type="button" data-u="10">Dag</button></div>
+          </div>
+        </div>
+
+        <div class="paneel paneel-rij">
+          <div class="prij"><div class="in"><label for="f-datum">Datum</label><input id="f-datum" type="date"></div></div>
+          <div class="prij"><div class="in"><label for="f-tijd" id="lbl-tijd">Tijd</label><input id="f-tijd" type="time" value="09:00"></div></div>
+          <div class="prij"><div class="in"><label for="f-pers">Personen</label><select id="f-pers"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></div></div>
+        </div>
+
+        <div class="paneel" id="retourPaneel">
+          <label class="schakel"><span>Retourrit<small>De terugrit direct mee reserveren</small></span><input type="checkbox" id="f-retour"></label>
+          <div class="paneel-rij twee" id="retourVelden" hidden>
+            <div class="prij"><div class="in"><label for="f-terug">Terugdatum</label><input id="f-terug" type="date"></div></div>
+            <div class="prij"><div class="in"><label for="f-terugtijd">Tijd</label><input id="f-terugtijd" type="time" value="18:00"></div></div>
+          </div>
+        </div>
+
+        <div class="klassen" role="radiogroup" aria-label="Voertuig">
+          <label class="klasse"><input type="radio" name="klasse" value="Comfort (Skoda Superb)"><span><strong>Comfort</strong><small>tot 4 p.</small></span></label>
+          <label class="klasse"><input type="radio" name="klasse" value="Business sedan" checked><span><strong>Business</strong><small>tot 4 p.</small></span></label>
+          <label class="klasse"><input type="radio" name="klasse" value="Elektrisch (Tesla)"><span><strong>Elektrisch</strong><small>tot 4 p.</small></span></label>
+          <label class="klasse"><input type="radio" name="klasse" value="Van (V-Klasse)"><span><strong>Van</strong><small>tot 8 p.</small></span></label>
+          <label class="klasse"><input type="radio" name="klasse" value="First class (S-Klasse)"><span><strong>First class</strong><small>tot 3 p.</small></span></label>
+        </div>
+
+        <div class="samenvatting"><span id="samenvatting">Enkele rit · Business</span><b>Vaste prijs</b></div>
+        <p class="fout" id="fout1" role="alert" hidden>Vul de gemarkeerde velden in.</p>
+        <button class="btn btn-goud" type="button" id="volgende">Verder naar uw gegevens <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></button>
+      </div>
+
+      <div id="p2" class="velden" hidden>
+        <button class="terug" type="button" id="terug">← Terug naar uw rit</button>
+        <div class="paneel">
+          <div class="prij"><div class="in"><label for="f-naam">Uw naam</label><input id="f-naam" autocomplete="name" placeholder="Voor- en achternaam"></div></div>
+          <div class="prij"><div class="in"><label for="f-tel">Telefoonnummer</label><input id="f-tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 12345678"></div></div>
+          <div class="prij"><div class="in"><label for="f-vlucht">Vluchtnummer · optioneel</label><input id="f-vlucht" placeholder="Bijv. KL1002" autocomplete="off"></div></div>
+          <div class="prij"><div class="in"><label for="f-opm">Wensen · optioneel</label><input id="f-opm" placeholder="Kinderzitje, naambord, extra bagage"></div></div>
+        </div>
+        <div class="samenvatting"><span id="samenvatting2">Enkele rit · Business</span><b>Vaste prijs</b></div>
+        <p class="fout" id="fout2" role="alert" hidden>Vul uw naam en telefoonnummer in.</p>
+        <button class="btn btn-goud" type="submit"><svg class="i"><use href="#i-wa"/></svg>Verstuur via WhatsApp</button>
+      </div>
+
+      <div class="klaar" id="p3" hidden tabindex="-1">
+        <b>✓</b>
+        <h3>Uw aanvraag staat klaar</h3>
+        <p>WhatsApp opent met al uw ritgegevens. U ontvangt persoonlijk een vaste prijs terug.</p>
+        <a class="btn btn-goud" id="waGo" href="#" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Open WhatsApp</a>
+      </div>
+
+      <p class="boek-onder" id="micro">Liever direct contact? <a href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>Bel 020 210 1637</a></p>
+    </form>
+  </aside>
+</div>
+
+<nav class="mbalk" aria-label="Snel contact">
+  <a href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>Bel</a>
+  <a href="https://wa.me/31202101637"><svg class="i wa"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a href="#boek" class="hoofd">Reserveren</a>
+</nav>
+
+<script>
+(() => {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Lichtsporen over wegen (canvas) ---------- */
+  function wegen(cv, paden) {
+    const ctx = cv.getContext("2d");
+    let w = 0, h = 0, roads = [];
+    function layout() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      w = cv.clientWidth; h = cv.clientHeight;
+      cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      roads = paden.map((p, i) => ({ p: p.map(([x, y]) => [x * w, y * h]), t: (roads[i] && roads[i].t) || Math.random() }));
+    }
+    const bez = (p, t) => { const u = 1 - t; return [0, 1].map(k => u*u*u*p[0][k] + 3*u*u*t*p[1][k] + 3*u*t*t*p[2][k] + t*t*t*p[3][k]); };
+    function draw(dt) {
+      ctx.clearRect(0, 0, w, h);
+      for (const r of roads) {
+        ctx.beginPath(); ctx.moveTo(...r.p[0]); ctx.bezierCurveTo(...r.p[1], ...r.p[2], ...r.p[3]);
+        ctx.strokeStyle = "rgba(255,255,255,0.045)"; ctx.lineWidth = 12; ctx.stroke();
+        ctx.setLineDash([8, 12]); ctx.strokeStyle = "rgba(212,185,127,0.16)"; ctx.lineWidth = 1.3; ctx.stroke(); ctx.setLineDash([]);
+        if (!reduce) r.t = (r.t + dt * 0.00005) % 1;
+        for (let i = 0; i < 28; i++) {
+          const t = r.t - i * 0.006; if (t < 0) continue;
+          const [x, y] = bez(r.p, t), a = 1 - i / 28;
+          ctx.beginPath(); ctx.arc(x, y, i === 0 ? 3.2 : 2.2, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(234,215,169,${0.85 * a * a})`;
+          ctx.shadowColor = "rgba(234,215,169,0.8)"; ctx.shadowBlur = i === 0 ? 16 : 0; ctx.fill(); ctx.shadowBlur = 0;
+        }
+      }
+    }
+    layout(); new ResizeObserver(() => { layout(); draw(0); }).observe(cv);
+    let last = performance.now(), zichtbaar = true;
+    new IntersectionObserver(([e]) => { zichtbaar = e.isIntersecting; }).observe(cv);
+    if (reduce) draw(0);
+    else (function loop(now) { const dt = Math.min(now - last, 60); last = now; if (zichtbaar) draw(dt); requestAnimationFrame(loop); })(last);
+  }
+  wegen(document.getElementById("wegen"), [
+    [[-.05, .80], [.25, .62], [.55, .97], [1.05, .72]],
+    [[.38, -.05], [.52, .30], [.70, .22], [.98, .60]],
+    [[-.05, .28], [.30, .40], [.46, .08], [.80, -.05]],
+    [[.60, 1.05], [.70, .70], [.90, .55], [1.05, .30]],
+    [[-.05, 1.0], [.20, .86], [.35, .55], [.62, .48]]
+  ]);
+  wegen(document.getElementById("wegen2"), [
+    [[-.05, .75], [.30, .55], [.60, 1.0], [1.05, .65]],
+    [[-.05, .20], [.35, .45], [.65, -.1], [1.05, .30]]
+  ]);
+
+  /* ---------- Live ritkaart ---------- */
+  const spoor = document.getElementById("spoor"), st = document.getElementById("ritStatus"), vs = document.getElementById("vluchtStatus");
+  function zetRit(p) {
+    spoor.style.setProperty("--p", (p * 100).toFixed(1) + "%");
+    st.textContent = p <= 0 ? "Bevestigd" : p < 0.08 ? "Chauffeur staat klaar" : p < 0.99 ? "Onderweg naar Schiphol" : "Aangekomen";
+    vs.textContent = p < 0.99 ? "Op tijd" : "Inchecken open";
+  }
+  if (reduce) zetRit(0.55);
+  else { let t = 0; setInterval(() => { t = (t + 1) % 210; zetRit(t < 30 ? 0 : t < 180 ? (t - 30) / 150 : 1); }, 80); }
+
+  /* ---------- Reserveren: enkele rit, met stops of per uur ---------- */
+  const $ = id => document.getElementById(id), val = id => $(id).value.trim();
+  const p1 = $("p1"), p2 = $("p2"), p3 = $("p3");
+  const vandaag = new Date().toISOString().slice(0, 10);
+  $("f-datum").min = vandaag; $("f-terug").min = vandaag;
+  const MAX_STOPS = 4, modusNaam = { rit: "Enkele rit", stops: "Rit met stops", uur: "Chauffeur per uur" };
+  let modus = "rit", uren = 4;
+  const tabs = [...document.querySelectorAll(".modi button")];
+  const stops = $("stops");
+
+  function zetModus(m) {
+    modus = m;
+    tabs.forEach((b, i) => {
+      const aan = b.dataset.modus === m;
+      b.setAttribute("aria-selected", aan);
+      if (aan) $("glijder").style.transform = `translateX(${i * 100}%)`;
+    });
+    stops.hidden = $("stopPlus").hidden = m !== "stops";
+    $("routePaneel").classList.toggle("met-plus", m === "stops");
+    if (m === "stops" && !stops.children.length) voegStopToe(false);
+    $("urenPaneel").hidden = m !== "uur";
+    $("retourPaneel").hidden = m === "uur";
+    $("wissel").hidden = m === "uur";
+    $("lbl-naar").textContent = m === "uur" ? "Eindpunt · optioneel" : "Eindbestemming";
+    if (m !== "uur") $("lbl-naar").textContent = m === "stops" ? "Eindbestemming" : "Bestemming";
+    $("f-naar").placeholder = m === "uur" ? "Bijv. terug naar het hotel" : "Waar mogen wij u brengen?";
+    $("lbl-tijd").textContent = m === "uur" ? "Starttijd" : "Tijd";
+    $("t-boek").textContent = m === "uur" ? "Uw chauffeur, zo lang als nodig." : m === "stops" ? "Uw route, met tussenstops." : "Waar mogen wij u brengen?";
+    document.querySelectorAll(".prij.mist").forEach(r => r.classList.remove("mist")); $("fout1").hidden = true;
+    samenvat();
+  }
+  tabs.forEach(b => b.addEventListener("click", () => zetModus(b.dataset.modus)));
+
+  function hernummer() {
+    [...stops.children].forEach((rij, i) => { rij.querySelector("label").textContent = `Tussenstop ${i + 1}`; });
+    const n = stops.children.length;
+    $("stopTel").textContent = `${n} van ${MAX_STOPS}`;
+    $("stopPlus").disabled = n >= MAX_STOPS;
+    samenvat();
+  }
+  function voegStopToe(focus = true) {
+    if (stops.children.length >= MAX_STOPS) return;
+    const rij = document.createElement("div");
+    rij.className = "prij";
+    rij.innerHTML = `<span class="stip stop"></span><div class="in"><label></label><input class="stop-in" placeholder="Adres van de tussenstop"></div><button type="button" class="mini-knop" aria-label="Tussenstop verwijderen"><svg class="i"><use href="#i-kruis"/></svg></button>`;
+    rij.querySelector("button").addEventListener("click", () => {
+      rij.remove();
+      if (!stops.children.length) zetModus("rit"); else hernummer();
+    });
+    stops.appendChild(rij); hernummer();
+    if (focus) rij.querySelector("input").focus();
+  }
+  $("stopPlus").addEventListener("click", () => voegStopToe());
+
+  $("wissel").addEventListener("click", () => { const a = $("f-van").value; $("f-van").value = $("f-naar").value; $("f-naar").value = a; });
+
+  function zetUren(u) {
+    uren = Math.min(Math.max(u, 3), 12);
+    $("uren").innerHTML = `${uren}<small>uur</small>`;
+    document.querySelectorAll("#snel button").forEach(b => b.classList.toggle("aan", +b.dataset.u === uren));
+    $("urenMin").disabled = uren <= 3; $("urenPlus").disabled = uren >= 12;
+    samenvat();
+  }
+  $("urenMin").addEventListener("click", () => zetUren(uren - 1));
+  $("urenPlus").addEventListener("click", () => zetUren(uren + 1));
+  document.querySelectorAll("#snel button").forEach(b => b.addEventListener("click", () => zetUren(+b.dataset.u)));
+
+  $("f-retour").addEventListener("change", () => { $("retourVelden").hidden = !$("f-retour").checked; samenvat(); });
+  document.querySelectorAll('input[name="klasse"]').forEach(r => r.addEventListener("change", samenvat));
+
+  const klasse = () => document.querySelector('input[name="klasse"]:checked');
+  const doel = () => document.querySelector('input[name="doel"]:checked').value;
+  document.querySelectorAll('input[name="doel"]').forEach(r => r.addEventListener("change", samenvat));
+  const urenTekst = () => uren === 10 ? "hele dag (10 uur)" : `${uren} uur`;
+  function samenvat() {
+    const delen = [doel(), modusNaam[modus]];
+    if (modus === "stops") { const n = stops.children.length; delen.push(`${n} ${n === 1 ? "stop" : "stops"}`); }
+    if (modus === "uur") delen.push(urenTekst());
+    if (modus !== "uur" && $("f-retour").checked) delen.push("retour");
+    delen.push(klasse().closest("label").querySelector("strong").textContent);
+    $("samenvatting").textContent = $("samenvatting2").textContent = delen.join(" · ");
+  }
+
+  function stap(n) {
+    p1.hidden = n !== 1; p2.hidden = n !== 2; p3.hidden = n !== 3;
+    $("stapLbl").innerHTML = n === 3 ? "<b>✓</b> Verstuurd" : `<b>0${n}</b> / 02`;
+    $("stapLijn").style.width = n === 1 ? "50%" : "100%";
+    $("micro").hidden = n === 3;
+  }
+  function controleer(inputs) {
+    let ok = true;
+    inputs.forEach(el => { const leeg = !el.value.trim(); el.closest(".prij").classList.toggle("mist", leeg); if (leeg) ok = false; });
+    return ok;
+  }
+  $("volgende").addEventListener("click", () => {
+    const verplicht = [$("f-van"), $("f-datum")];
+    if (modus !== "uur") verplicht.push($("f-naar"));
+    if (modus === "stops") verplicht.push(...stops.querySelectorAll("input"));
+    if (modus !== "uur" && $("f-retour").checked) verplicht.push($("f-terug"));
+    const ok = controleer(verplicht); $("fout1").hidden = ok;
+    if (ok) { stap(2); $("f-naam").focus(); }
+  });
+  $("terug").addEventListener("click", () => stap(1));
+
+  const datum = iso => iso.split("-").reverse().join("-");
+  $("boek").addEventListener("submit", e => {
+    e.preventDefault();
+    if (!p1.hidden) { $("volgende").click(); return; }
+    const ok = controleer([$("f-naam"), $("f-tel")]); $("fout2").hidden = ok;
+    if (!ok) return;
+    const regels = ["Goedendag Fixed Ride, ik wil graag een rit reserveren.", "", `Soort rit: ${doel()} · ${modusNaam[modus]}`, `Ophalen: ${val("f-van")}`];
+    [...stops.querySelectorAll("input")].forEach((s, i) => { if (modus === "stops") regels.push(`Tussenstop ${i + 1}: ${s.value.trim()}`); });
+    if (modus === "uur") { regels.push(`Aantal uur: ${urenTekst()}`); if (val("f-naar")) regels.push(`Eindpunt: ${val("f-naar")}`); }
+    else regels.push(`Bestemming: ${val("f-naar")}`);
+    regels.push(`${modus === "uur" ? "Start" : "Datum"}: ${datum(val("f-datum"))} om ${val("f-tijd")}`);
+    if (modus !== "uur" && $("f-retour").checked) regels.push(`Retour: ${datum(val("f-terug"))} om ${val("f-terugtijd")}`);
+    regels.push(`Personen: ${val("f-pers")}`, `Voertuig: ${klasse().value}`);
+    if (val("f-vlucht")) regels.push(`Vluchtnummer: ${val("f-vlucht")}`);
+    if (val("f-opm")) regels.push(`Wensen: ${val("f-opm")}`);
+    regels.push("", `Naam: ${val("f-naam")}`, `Telefoon: ${val("f-tel")}`);
+    const url = "https://wa.me/31202101637?text=" + encodeURIComponent(regels.join("\n"));
+    $("waGo").href = url; stap(3); p3.focus(); window.open(url, "_blank", "noopener");
+  });
+  zetUren(4); samenvat();
+
+  /* ---------- Reserveren opent als paneel ---------- */
+  const lade = $("lade");
+  let terugFocus = null;
+  function openLade(m) {
+    if (m) zetModus(m);
+    if (!p3.hidden) stap(1);
+    terugFocus = document.activeElement;
+    lade.classList.add("open"); lade.setAttribute("aria-hidden", "false"); document.body.classList.add("lade-open");
+    setTimeout(() => lade.querySelector(".lade-sluit").focus({ preventScroll: true }), 450);
+  }
+  function sluitLade() {
+    lade.classList.remove("open"); lade.setAttribute("aria-hidden", "true"); document.body.classList.remove("lade-open");
+    if (terugFocus) terugFocus.focus({ preventScroll: true });
+  }
+  document.querySelectorAll('a[href="#boek"]').forEach(a => a.addEventListener("click", e => { e.preventDefault(); openLade(a.dataset.modus); }));
+  document.querySelectorAll("[data-open]").forEach(b => b.addEventListener("click", () => openLade(b.dataset.open)));
+  lade.querySelectorAll("[data-sluit]").forEach(b => b.addEventListener("click", sluitLade));
+  addEventListener("keydown", e => { if (e.key === "Escape" && lade.classList.contains("open")) sluitLade(); });
+
+  /* ---------- Vloot-tabs met vaste prijzen ---------- */
+  const routes = ["Amsterdam Centrum", "Amsterdam West", "Amsterdam Zuidoost", "Amstelveen"];
+  const vloot = {
+    superb: { klasse: "Comfort", naam: "Skoda Superb", tekst: "Ruim, stil en verzorgd. Comfortabel reizen met dezelfde zekerheid vooraf.", img: "fleet-superb.jpg", labels: ["Tot 4 passagiers", "4 koffers", "Wifi op aanvraag"], prijs: null },
+    sedan: { klasse: "Business", naam: "Mercedes E-Klasse", tekst: "De zakelijke standaard. Stil, ruim en altijd onberispelijk.", img: "fleet-sedan.jpg", labels: ["Tot 4 passagiers", "3 koffers", "Wifi op aanvraag"], prijs: [[55, 105], [50, 95], [50, 95], [45, 85]] },
+    tesla: { klasse: "Elektrisch", naam: "Tesla", tekst: "Volledig elektrisch en fluisterstil. Dezelfde vaste prijs als de sedan.", img: "fleet-tesla.jpg", labels: ["Tot 4 passagiers", "Emissievrij", "Wifi op aanvraag"], prijs: [[55, 105], [50, 95], [50, 95], [45, 85]] },
+    van: { klasse: "Groep", naam: "Mercedes V-Klasse", tekst: "Voor families, teams en veel bagage. Ruimte voor iedereen.", img: "fleet-bus.jpg", labels: ["Tot 8 passagiers", "8 koffers", "Wifi op aanvraag"], prijs: [[80, 155], [75, 145], [80, 155], [70, 135]] },
+    first: { klasse: "First class", naam: "Mercedes S-Klasse", tekst: "Het hoogste comfort voor directie, gasten en bijzondere momenten.", img: "fleet-premium.jpg", labels: ["Tot 3 passagiers", "3 koffers", "Extra beenruimte"], prijs: [[90, 175], [85, 165], [85, 165], [80, 155]] }
+  };
+  const img = $("vImg");
+  function toonVoertuig(k) {
+    const v = vloot[k];
+    document.querySelectorAll(".vtab").forEach(b => b.setAttribute("aria-selected", b.dataset.v === k));
+    $("vKlasse").textContent = v.klasse; $("vNaam").textContent = v.naam; $("vTekst").textContent = v.tekst;
+    $("vLabels").innerHTML = v.labels.map(l => `<span>${l}</span>`).join("");
+    $("vPrijzen").innerHTML = routes.map((r, i) => v.prijs ? `<tr><th>${r}</th><td>€ ${v.prijs[i][0]}</td><td>€ ${v.prijs[i][1]}</td></tr>` : `<tr><th>${r}</th><td colspan="2">Op aanvraag</td></tr>`).join("");
+    img.classList.add("weg");
+    setTimeout(() => { img.src = "../img/" + v.img; img.alt = v.naam; img.onload = () => { img.classList.remove("weg"); $("vLeeg").hidden = true; }; img.onerror = () => { $("vLeeg").textContent = "Foto volgt · " + v.naam; $("vLeeg").hidden = false; }; }, 200);
+  }
+  document.querySelectorAll(".vtab").forEach(b => b.addEventListener("click", () => toonVoertuig(b.dataset.v)));
+  toonVoertuig("sedan");
+
+  /* ---------- Tijdlijn vult mee met scrollen ---------- */
+  const tl = $("tijdlijn"), momenten = [...tl.querySelectorAll(".moment")];
+  function tijdlijn() {
+    const r = tl.getBoundingClientRect(), mid = innerHeight * 0.6;
+    const p = Math.min(Math.max((mid - r.top) / r.height, 0), 1);
+    tl.style.setProperty("--tl", (p * 100).toFixed(1) + "%");
+    momenten.forEach(m => m.classList.toggle("aan", m.getBoundingClientRect().top < mid));
+  }
+  addEventListener("scroll", tijdlijn, { passive: true }); tijdlijn();
+
+  /* ---------- Reveal ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
+  document.querySelectorAll(".rv").forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + "ms"; io.observe(el); });
+})();
+</script>
+</body>
+</html>

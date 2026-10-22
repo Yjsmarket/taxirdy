@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixed Ride Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A120F;
+    --ink-2: #101B16;
+    --ink-line: #24342D;
+    --goud: #D4B97F;
+    --goud-hi: #EAD7A9;
+    --creme: #F4F1EA;
+    --tekst: #121815;
+    --zacht: #93A39A;
+    --f: "Inter Tight", system-ui, sans-serif;
+    --f-serif: "Instrument Serif", Georgia, serif;
+    --f-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--creme); color: var(--tekst); font-family: var(--f); -webkit-font-smoothing: antialiased; padding: 10px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+
+  /* ---------- Het beeldmerk ---------- */
+  .merk { --lijn: var(--goud); --vul: var(--ink); --gloed: var(--goud-hi); display: block; overflow: visible; }
+  [data-merk] .merk { width: 100%; height: auto; }
+  .merk .s { fill: none; stroke: var(--lijn); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .merk .v { fill: var(--vul); }
+  .podium .merk .s { stroke-width: 1.35; }
+  .fav .merk .s { stroke-width: 3.4; }
+  .merk .stip { fill: var(--lijn); }
+  .merk .deur { transform-box: view-box; transform-origin: 90px 74px; }
+  .merk .arm { transform-box: view-box; transform-origin: 47px 56px; }
+  .merk .boven { transform-box: view-box; transform-origin: 39px 82px; }
+  .merk .pet { transform-box: view-box; transform-origin: 46px 36px; }
+  .merk .gloed { opacity: 0; }
+
+  /* Geanimeerd: tekenen, deur open, arm uitnodigend, buiging met pet */
+  .merk.speel .s { stroke-dasharray: 1; stroke-dashoffset: 1; animation: teken 1.3s cubic-bezier(.6, .1, .3, 1) forwards; }
+  .merk.speel .v { fill-opacity: 0; animation: vul .5s ease .9s forwards; }
+  .merk.speel .stip { opacity: 0; animation: vul .3s ease 1.1s forwards; }
+  .merk.speel .deur { animation: deur 1s cubic-bezier(.5, 0, .2, 1) 1.35s both; }
+  .merk.speel .gloed { animation: gloed 1.2s ease 1.6s forwards; }
+  .merk.speel .arm { animation: arm .8s cubic-bezier(.4, 0, .2, 1.3) 1.9s both; }
+  .merk.speel .boven { animation: buig 1.1s ease-in-out 2.45s both; }
+  .merk.speel .pet { animation: pet 1.1s ease-in-out 2.45s both; }
+  @keyframes teken { to { stroke-dashoffset: 0; } }
+  @keyframes vul { to { fill-opacity: 1; opacity: 1; } }
+  @keyframes deur { from { transform: scaleX(1); } to { transform: scaleX(.52) skewY(-7deg); } }
+  @keyframes gloed { to { opacity: 1; } }
+  @keyframes arm { from { transform: rotate(30deg); } to { transform: rotate(-16deg); } }
+  @keyframes buig { 0%, 100% { transform: none; } 45%, 60% { transform: rotate(6deg); } }
+  @keyframes pet { 0%, 100% { transform: none; } 45%, 60% { transform: rotate(-14deg) translateY(-1px); } }
+
+  /* Statisch: de eindstand (deur open, arm uitnodigend) */
+  .merk.vast .deur { transform: scaleX(.52) skewY(-7deg); }
+  .merk.vast .arm { transform: rotate(-16deg); }
+  .merk.vast .gloed { opacity: 1; }
+
+  /* Lichte en witte variant */
+  .op-licht .merk { --lijn: var(--ink); --vul: var(--creme); --gloed: var(--goud); }
+  .wit .merk { --lijn: #FFFFFF; --vul: var(--ink); --gloed: rgba(255, 255, 255, .7); }
+
+  /* ---------- Woordmerk ---------- */
+  .woord { display: grid; gap: 8px; justify-items: center; text-align: center; }
+  .woord .naam { font-family: var(--f-serif); font-size: 64px; line-height: 1; letter-spacing: -0.01em; color: #FFF; }
+  .woord .naam i { color: var(--goud); }
+  .woord .sub { color: var(--zacht); font-size: 10.5px; letter-spacing: 0.32em; }
+
+  /* ---------- Pagina ---------- */
+  .podium { position: relative; overflow: hidden; border-radius: 30px; background: radial-gradient(50% 55% at 50% 38%, rgba(212, 185, 127, 0.13), transparent 70%), var(--ink); color: var(--zacht); min-height: calc(100vh - 20px); display: grid; place-items: center; padding: 70px 24px; }
+  .podium-in { display: grid; gap: 34px; justify-items: center; }
+  .podium .merk { width: min(300px, 64vw); height: auto; }
+  .podium .woord { opacity: 0; transform: translateY(10px); }
+  .podium.klaar .woord { animation: op .9s ease forwards; }
+  @keyframes op { to { opacity: 1; transform: none; } }
+  .podium .label { position: absolute; top: 26px; left: 30px; color: var(--goud); }
+  .opnieuw { position: absolute; bottom: 26px; right: 26px; display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--ink-line); background: var(--ink-2); color: var(--creme); font: 600 14px var(--f); cursor: pointer; transition: border-color .2s; }
+  .opnieuw:hover { border-color: var(--goud); }
+
+  .uitleg { max-width: 1180px; margin: 0 auto; padding: 80px 20px 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; }
+  .uitleg h2 { font-size: clamp(34px, 4.4vw, 56px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; }
+  .uitleg h2 i { font-family: var(--f-serif); font-weight: 400; color: #8C6F35; }
+  .uitleg p { color: #5E655F; font-size: 16px; line-height: 1.6; }
+
+  .raster { max-width: 1180px; margin: 0 auto; padding: 0 20px 60px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .vak { border-radius: 22px; padding: 26px; min-height: 250px; display: grid; grid-template-rows: auto 1fr; gap: 14px; }
+  .vak .mono { color: var(--zacht); }
+  .vak .inhoud { display: grid; place-items: center; }
+  .donker { background: var(--ink); }
+  .licht { background: #FFF; border: 1px solid #DDD7CA; }
+  .licht .mono { color: #8C6F35; }
+  .goud { background: var(--goud); }
+  .goud .mono { color: var(--ink); opacity: .6; }
+  .w3 { grid-column: span 3; } .w2 { grid-column: span 2; } .w6 { grid-column: span 6; }
+
+  .liggend { display: flex; align-items: center; gap: 20px; }
+  .liggend [data-merk] { width: 100px; }
+  .liggend .naam { font-family: var(--f-serif); font-size: 44px; line-height: 1; color: #FFF; }
+  .liggend .naam i { color: var(--goud); }
+  .liggend small { display: block; margin-top: 6px; font-family: var(--f-mono); font-size: 9.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--zacht); }
+  .op-licht .liggend .naam { color: var(--tekst); }
+  .op-licht .liggend .naam i { color: #8C6F35; }
+  .op-licht .liggend small { color: #8A8F86; }
+
+  .app { width: 132px; height: 132px; border-radius: 30px; background: var(--ink); display: grid; place-items: center; box-shadow: 0 20px 40px rgba(10, 18, 15, 0.25); }
+  .app [data-merk] { width: 92px; }
+  .maten { display: flex; align-items: end; gap: 22px; }
+  .maten > div { display: grid; justify-items: center; gap: 10px; }
+  .maten span { font-family: var(--f-mono); font-size: 10px; color: #8A8F86; }
+  .fav { border-radius: 22%; background: var(--ink); display: grid; place-items: center; }
+
+  .kaartje { width: 300px; max-width: 100%; aspect-ratio: 85 / 55; border-radius: 12px; background: var(--ink); padding: 20px 22px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 24px 50px rgba(10, 18, 15, 0.3); }
+  .kaartje [data-merk] { width: 44px; }
+  .kaartje .naam { font-family: var(--f-serif); font-size: 24px; color: #FFF; }
+  .kaartje .naam i { color: var(--goud); }
+  .kaartje small { font-family: var(--f-mono); font-size: 8.5px; letter-spacing: 0.2em; color: var(--zacht); text-transform: uppercase; }
+
+  .noot { max-width: 1180px; margin: 0 auto; padding: 0 20px 70px; color: #5E655F; font-size: 14px; }
+
+  @media (max-width: 860px) {
+    .uitleg { grid-template-columns: 1fr; padding-top: 60px; }
+    .w3, .w2 { grid-column: span 6; }
+    .woord .naam { font-size: 48px; }
+    .liggend .naam { font-size: 34px; }
+    .liggend [data-merk] { width: 58px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .merk.speel * { animation: none !important; stroke-dashoffset: 0 !important; fill-opacity: 1 !important; opacity: 1 !important; }
+    .merk.speel .deur { transform: scaleX(.52) skewY(-7deg); }
+    .merk.speel .arm { transform: rotate(-16deg); }
+    .podium .woord { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<template id="merk-tpl">
+  <svg class="merk" viewBox="10 18 132 92" role="img" aria-label="Fixed Ride: chauffeur houdt het portier van de auto open">
+    <defs>
+      <radialGradient id="g" cx="0.4" cy="0.45" r="0.8"><stop offset="0" stop-color="var(--gloed)" stop-opacity=".6"/><stop offset="1" stop-color="var(--gloed)" stop-opacity="0"/></radialGradient>
+    </defs>
+    <!-- auto: achterkant, voorkant, dorpel, wielen -->
+    <path class="s" pathLength="1" d="M62 67 L55 67.5 Q50 68 50 74 L50 91 Q50 95 54 95"/>
+    <path class="s" pathLength="1" d="M90 53 L103 53 Q108 53 113 60 L117 65.5 L131 67 Q136 68 136 74 L136 91 Q136 95 132 95"/>
+    <path class="s" pathLength="1" d="M93 57 L103 57 Q106 57 109.5 61.5 L113 66.5 L93 66.5 Z"/>
+    <path class="s" pathLength="1" d="M54 95 L132 95"/>
+    <!-- licht uit het interieur -->
+    <path class="gloed" d="M62 68 L68 57 Q70 53 75 53 L90 53 L90 95 L62 95 Z" fill="url(#g)"/>
+    <!-- het portier -->
+    <g class="deur">
+      <path class="s v" pathLength="1" d="M62 68 L68 57 Q70 53 75 53 L90 53 L90 95 L65 95 Q62 95 62 92 Z"/>
+      <path class="s" pathLength="1" d="M67 67 L71 60 Q72.5 57 76 57 L87 57 L87 67 Z"/>
+      <path class="s" pathLength="1" d="M66 75 L72 75"/>
+    </g>
+    <circle class="s v" pathLength="1" cx="61" cy="97" r="6.5"/>
+    <circle class="s v" pathLength="1" cx="122" cy="97" r="6.5"/>
+    <!-- grond -->
+    <path class="s" pathLength="1" d="M18 104 L140 104"/>
+    <!-- chauffeur: benen -->
+    <path class="s" pathLength="1" d="M34 82 L34 102 L38 102"/>
+    <path class="s" pathLength="1" d="M44 82 L44 102 L49 102"/>
+    <!-- chauffeur: bovenlijf, buigt -->
+    <g class="boven">
+      <g class="arm">
+        <path class="s" pathLength="1" d="M47 56 Q53 66 56 74 Q59 76 63 74"/>
+      </g>
+      <path class="s v" pathLength="1" d="M29 82 L30 57 Q31 50 39 50 Q47 50 48 57 L49 82 Z"/>
+      <path class="s" pathLength="1" d="M35 51 L39 60 L43 51"/>
+      <circle class="stip" cx="39" cy="66" r="1.1"/>
+      <circle class="stip" cx="39" cy="73" r="1.1"/>
+      <circle class="s v" pathLength="1" cx="39" cy="42.5" r="5.5"/>
+      <g class="pet">
+        <path class="s v" pathLength="1" d="M32 36.5 L30.5 30.5 Q30.5 27.5 39.5 27 Q48.5 27.5 48.5 30.5 L47 36.5 Z"/>
+        <path class="s" pathLength="1" d="M32.5 33.5 L46.5 33.5"/>
+        <path class="s" pathLength="1" d="M31 36.5 L47.5 36.5 Q51.5 36.8 53.5 39"/>
+      </g>
+    </g>
+  </svg>
+</template>
+
+<section class="podium" id="podium">
+  <span class="mono label">Fixed Ride · logo concept</span>
+  <div class="podium-in">
+    <div data-merk="speel"></div>
+    <div class="woord">
+      <div class="naam">Fixed <i>Ride</i></div>
+      <div class="mono sub">Privé chauffeur · vooraf gereserveerd</div>
+    </div>
+  </div>
+  <button class="opnieuw" id="opnieuw" type="button">↻ Animatie opnieuw</button>
+</section>
+
+<div class="uitleg">
+  <h2>De deur staat al open. <i>Voordat u er bent.</i></h2>
+  <p>Het beeldmerk laat een chauffeur in pak en pet zien die het portier voor u openhoudt, met warm licht uit het interieur. Het vertelt in één beeld waar Fixed Ride voor staat: alles is vooraf geregeld, u hoeft alleen in te stappen. De animatie tekent eerst de lijnen, opent dan de deur en eindigt met een kleine buiging.</p>
+</div>
+
+<div class="raster">
+  <div class="vak donker w3"><span class="mono">Liggend · donker</span><div class="inhoud"><div class="liggend"><div data-merk="vast"></div><div><div class="naam">Fixed <i>Ride</i></div><small>Privé chauffeur</small></div></div></div></div>
+  <div class="vak licht w3 op-licht"><span class="mono">Liggend · licht</span><div class="inhoud"><div class="liggend"><div data-merk="vast"></div><div><div class="naam">Fixed <i>Ride</i></div><small>Privé chauffeur</small></div></div></div></div>
+
+  <div class="vak goud w2"><span class="mono">App-icoon</span><div class="inhoud"><div class="app"><div data-merk="vast"></div></div></div></div>
+  <div class="vak licht w2"><span class="mono">Kleine maten</span><div class="inhoud"><div class="maten">
+    <div><div class="fav" style="width:64px;height:64px"><div data-merk="vast" style="width:46px"></div></div><span>64</span></div>
+    <div><div class="fav" style="width:40px;height:40px"><div data-merk="vast" style="width:29px"></div></div><span>40</span></div>
+    <div><div class="fav" style="width:24px;height:24px"><div data-merk="vast" style="width:18px"></div></div><span>24</span></div>
+  </div></div></div>
+  <div class="vak licht w2"><span class="mono">Visitekaartje</span><div class="inhoud"><div class="kaartje"><div data-merk="vast"></div><div><div class="naam">Fixed <i>Ride</i></div><small>020 210 1637 · fixed-ride.nl</small></div></div></div></div>
+
+  <div class="vak donker w6 wit"><span class="mono">Wit · op foto of donker beeld</span><div class="inhoud"><div class="liggend"><div data-merk="vast"></div><div><div class="naam" style="color:#fff">Fixed <i style="color:#fff">Ride</i></div><small style="color:rgba(255,255,255,.6)">Privé chauffeur · vooraf gereserveerd</small></div></div></div></div>
+</div>
+
+<p class="noot">Losse bestanden voor de website staan in img/logo/: fixed-ride-logo-animatie.svg (speelt één keer af bij laden), fixed-ride-logo.svg, -licht.svg en -wit.svg (statisch). Gebruik ze als gewone afbeelding, zonder extra code.</p>
+
+<script>
+  const tpl = document.getElementById("merk-tpl");
+  document.querySelectorAll("[data-merk]").forEach((plek, i) => {
+    const svg = tpl.content.firstElementChild.cloneNode(true);
+    svg.querySelector("radialGradient").id = "g" + i;
+    svg.querySelector(".gloed").setAttribute("fill", `url(#g${i})`);
+    svg.classList.add(plek.dataset.merk);
+    plek.appendChild(svg);
+  });
+
+  const podium = document.getElementById("podium");
+  function speel() {
+    const svg = podium.querySelector(".merk");
+    podium.classList.remove("klaar"); svg.classList.remove("speel");
+    void svg.getBoundingClientRect();
+    svg.classList.add("speel");
+    setTimeout(() => podium.classList.add("klaar"), 2600);
+  }
+  document.getElementById("opnieuw").addEventListener("click", speel);
+  speel();
+</script>
+</body>
+</html>

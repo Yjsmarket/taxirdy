@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixed Ride — Concept C · Atelier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F6F2;
+    --wit: #FFFFFF;
+    --inkt: #111110;
+    --inkt-2: #2A2926;
+    --zacht: #77746C;
+    --lijn: #E4E1D8;
+    --brons: #9C7A45;
+    --donker: #151513;
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Inter Tight", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--inkt); font-family: var(--sans); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .shell { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+  h1, h2, h3 { font-weight: 500; letter-spacing: -0.035em; line-height: 0.98; }
+  .serif { font-family: var(--serif); font-weight: 400; font-style: italic; letter-spacing: -0.01em; color: var(--brons); }
+  .label { font-size: 12px; font-weight: 500; color: var(--zacht); display: flex; align-items: center; gap: 10px; }
+  .label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--brons); }
+
+  /* Header */
+  .header { position: sticky; top: 0; z-index: 50; background: rgba(247, 246, 242, 0.86); backdrop-filter: blur(16px); }
+  .header .shell { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .logo { font-weight: 600; font-size: 17px; letter-spacing: -0.02em; }
+  .logo .serif { font-size: 21px; }
+  .nav { display: flex; gap: 6px; background: var(--wit); border: 1px solid var(--lijn); border-radius: 999px; padding: 5px; }
+  .nav a { padding: 8px 16px; border-radius: 999px; font-size: 14px; color: var(--inkt-2); transition: background .2s; }
+  .nav a:hover { background: var(--bg); }
+  .acties { display: flex; gap: 8px; align-items: center; }
+  .rond { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--lijn); background: var(--wit); display: grid; place-items: center; transition: border-color .2s; }
+  .rond:hover { border-color: var(--inkt); }
+  .rond svg, .knop svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+  .knop { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 22px; border-radius: 999px; font-size: 14px; font-weight: 500; background: var(--inkt); color: var(--bg); transition: background .2s; white-space: nowrap; }
+  .knop:hover { background: var(--inkt-2); }
+  .knop-licht { background: var(--wit); color: var(--inkt); border: 1px solid var(--lijn); }
+  .knop-licht:hover { background: var(--wit); border-color: var(--inkt); }
+  .knop-groot { height: 56px; padding: 0 30px; font-size: 15px; }
+
+  /* Hero */
+  .hero { padding: 90px 0 40px; text-align: center; }
+  .hero .label { justify-content: center; }
+  .hero h1 { font-size: clamp(54px, 9.4vw, 148px); margin: 26px auto 28px; max-width: 12ch; }
+  .hero h1 .serif { font-size: 1.08em; }
+  .hero-sub { max-width: 520px; margin: 0 auto; font-size: 18px; color: var(--zacht); }
+
+  .zoekbalk { margin: 48px auto 0; max-width: 980px; background: var(--wit); border: 1px solid var(--lijn); border-radius: 999px; padding: 8px; display: grid; grid-template-columns: 1.3fr 1.3fr 1fr 0.8fr auto; align-items: center; box-shadow: 0 20px 60px rgba(17, 17, 16, 0.06); text-align: left; }
+  .zoekbalk .veld { padding: 8px 22px; border-right: 1px solid var(--lijn); }
+  .zoekbalk .veld:nth-child(4) { border-right: 0; }
+  .zoekbalk label { display: block; font-size: 11px; font-weight: 600; color: var(--inkt); }
+  .zoekbalk input { width: 100%; border: 0; background: none; outline: none; font: 400 14px var(--sans); color: var(--zacht); padding-top: 2px; }
+  .zoekbalk .knop { height: 56px; padding: 0 28px; border: 0; cursor: pointer; }
+
+  .hero-foto { margin-top: 64px; border-radius: 28px; overflow: hidden; aspect-ratio: 21 / 9; background: var(--donker); position: relative; }
+  .hero-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
+  .foto-tag { position: absolute; left: 24px; bottom: 24px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px); border-radius: 999px; padding: 10px 18px; font-size: 13px; font-weight: 500; }
+
+  /* Beloftes */
+  .beloftes { padding: 64px 0; }
+  .beloftes .shell { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .belofte { padding: 6px 28px; border-left: 1px solid var(--lijn); }
+  .belofte:first-child { border-left: 0; padding-left: 0; }
+  .belofte h3 { font-size: 19px; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .belofte p { font-size: 14px; color: var(--zacht); }
+
+  section { padding: 120px 0; }
+
+  /* Diensten */
+  .diensten .shell { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 80px; }
+  .diensten-kop { position: sticky; top: 120px; align-self: start; }
+  .diensten-kop h2 { font-size: clamp(42px, 5.2vw, 76px); margin: 22px 0 22px; }
+  .diensten-kop p { color: var(--zacht); max-width: 380px; margin-bottom: 30px; }
+  .dienst { display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; padding: 34px 0; border-top: 1px solid var(--lijn); }
+  .dienst:last-child { border-bottom: 1px solid var(--lijn); }
+  .dienst h3 { font-size: clamp(30px, 3.2vw, 44px); transition: color .25s; }
+  .dienst p { grid-column: 1; color: var(--zacht); max-width: 520px; }
+  .dienst .pijl { grid-row: 1 / 3; grid-column: 2; align-self: center; width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--lijn); display: grid; place-items: center; transition: background .25s, color .25s, transform .25s; }
+  .dienst:hover h3 { color: var(--brons); }
+  .dienst:hover .pijl { background: var(--inkt); color: var(--bg); transform: rotate(-45deg); }
+
+  /* Vloot */
+  .vloot { background: var(--donker); color: var(--bg); border-radius: 36px 36px 0 0; }
+  .vloot-kop { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 56px; }
+  .vloot-kop h2 { font-size: clamp(42px, 5.2vw, 76px); margin-top: 22px; }
+  .vloot-kop p { color: rgba(247, 246, 242, 0.6); max-width: 360px; }
+  .vloot .label { color: rgba(247, 246, 242, 0.6); }
+  .vloot-rij { display: grid; grid-template-columns: repeat(4, minmax(280px, 1fr)); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+  .auto { scroll-snap-align: start; }
+  .auto .foto { border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 5; background: #0d1f17; }
+  .auto img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s; }
+  .auto:hover img { transform: scale(1.05); }
+  .auto-tekst { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 4px 0; }
+  .auto h3 { font-size: 24px; letter-spacing: -0.02em; }
+  .auto span { font-size: 13px; color: rgba(247, 246, 242, 0.55); }
+
+  /* Stappen */
+  .stappen-sectie { background: var(--donker); color: var(--bg); padding-top: 40px; }
+  .stappen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .stap { background: rgba(247, 246, 242, 0.05); border: 1px solid rgba(247, 246, 242, 0.1); border-radius: 22px; padding: 34px; }
+  .stap .nr { font-family: var(--serif); font-style: italic; font-size: 54px; color: var(--brons); line-height: 1; }
+  .stap h3 { font-size: 24px; letter-spacing: -0.02em; margin: 34px 0 10px; }
+  .stap p { color: rgba(247, 246, 242, 0.6); font-size: 15px; }
+
+  /* Review */
+  .review { text-align: center; }
+  .review blockquote { font-size: clamp(30px, 3.8vw, 54px); letter-spacing: -0.03em; line-height: 1.1; max-width: 20ch; margin: 26px auto 24px; }
+  .review cite { font-style: normal; color: var(--zacht); font-size: 14px; }
+  .review .label { justify-content: center; }
+  .placeholder { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--brons); border: 1px dashed var(--brons); border-radius: 999px; padding: 5px 12px; }
+
+  /* CTA */
+  .cta { padding: 0 0 32px; }
+  .cta-kaart { background: var(--wit); border: 1px solid var(--lijn); border-radius: 36px; padding: 90px 40px; text-align: center; }
+  .cta h2 { font-size: clamp(46px, 6.4vw, 96px); margin: 22px auto 36px; max-width: 13ch; }
+  .cta .label { justify-content: center; }
+  .cta-knoppen { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  footer { padding: 40px 0 110px; font-size: 13px; color: var(--zacht); }
+  footer .shell { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+  /* Zwevend contact */
+  .zwevend { position: fixed; right: 24px; bottom: 24px; z-index: 60; display: flex; gap: 6px; background: var(--inkt); border-radius: 999px; padding: 6px; box-shadow: 0 18px 44px rgba(17, 17, 16, 0.28); }
+  .zwevend a { height: 44px; padding: 0 18px; border-radius: 999px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--bg); }
+  .zwevend a:hover { background: var(--inkt-2); }
+  .zwevend svg { width: 16px; height: 16px; fill: none; stroke: var(--brons); stroke-width: 1.7; }
+  .zwevend .hoofd { background: var(--bg); color: var(--inkt); }
+  .zwevend .hoofd:hover { background: var(--wit); }
+
+  @media (max-width: 1040px) {
+    .nav { display: none; }
+    .zoekbalk { grid-template-columns: 1fr 1fr; border-radius: 26px; gap: 4px; }
+    .zoekbalk .veld { border-right: 0; border-bottom: 1px solid var(--lijn); padding: 12px 18px; }
+    .zoekbalk .knop { grid-column: 1 / -1; justify-content: center; border-radius: 20px; }
+    .hero-foto { aspect-ratio: 16 / 9; }
+    .beloftes .shell { grid-template-columns: 1fr 1fr; gap: 28px 0; }
+    .belofte:nth-child(3) { border-left: 0; padding-left: 0; }
+    .diensten .shell { grid-template-columns: 1fr; gap: 40px; }
+    .diensten-kop { position: static; }
+    .vloot-kop { flex-direction: column; align-items: start; }
+    .stappen { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .shell { padding: 0 20px; }
+    .acties .rond, .acties .knop { display: none; }
+    .hero { padding: 56px 0 24px; }
+    section { padding: 84px 0; }
+    .zoekbalk { grid-template-columns: 1fr; }
+    .hero-foto { aspect-ratio: 4 / 3; border-radius: 22px; }
+    .beloftes .shell { grid-template-columns: 1fr; }
+    .belofte { border-left: 0; padding: 0 0 20px; border-bottom: 1px solid var(--lijn); }
+    .vloot-rij { grid-template-columns: repeat(4, 78%); }
+    .vloot { border-radius: 26px 26px 0 0; }
+    .cta-kaart { padding: 64px 22px; border-radius: 26px; }
+    .zwevend { left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr 1.3fr; }
+    .zwevend a { justify-content: center; padding: 0 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="shell">
+    <a href="#" class="logo">Fixed <span class="serif">Ride</span></a>
+    <nav class="nav">
+      <a href="#diensten">Diensten</a>
+      <a href="#vloot">Vloot</a>
+      <a href="#werkwijze">Werkwijze</a>
+      <a href="#">Over ons</a>
+    </nav>
+    <div class="acties">
+      <a href="tel:+31202101637" class="rond" aria-label="Bel ons"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+      <a href="https://wa.me/31202101637" class="rond" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"/></svg></a>
+      <a href="#reserveren" class="knop">Reserveren</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="reserveren">
+  <div class="shell">
+    <div class="label">Privé chauffeur in Amsterdam</div>
+    <h1>Jouw rit, <span class="serif">vooraf</span> geregeld.</h1>
+    <p class="hero-sub">Geen taxi die je moet zoeken. Een chauffeur die op je wacht, voor een prijs die je al kent.</p>
+
+    <form class="zoekbalk" onsubmit="return false">
+      <div class="veld"><label>Van</label><input placeholder="Adres of luchthaven"></div>
+      <div class="veld"><label>Naar</label><input placeholder="Bestemming"></div>
+      <div class="veld"><label>Datum</label><input type="date"></div>
+      <div class="veld"><label>Tijd</label><input type="time" value="09:00"></div>
+      <button class="knop">Reserveren →</button>
+    </form>
+
+    <div class="hero-foto">
+      <img src="../img/fleet-premium.jpg" alt="Mercedes S-Klasse">
+      <span class="foto-tag">Mercedes S-Klasse · First class</span>
+    </div>
+  </div>
+</section>
+
+<div class="beloftes">
+  <div class="shell">
+    <div class="belofte"><h3>Vaste prijs</h3><p>Je weet het bedrag voor je instapt.</p></div>
+    <div class="belofte"><h3>Vlucht gevolgd</h3><p>Vertraging? Je chauffeur past zich aan.</p></div>
+    <div class="belofte"><h3>Gelicentieerd</h3><p>Alleen chauffeurs met vergunning.</p></div>
+    <div class="belofte"><h3>Persoonlijk</h3><p>Een mens aan de lijn, altijd.</p></div>
+  </div>
+</div>
+
+<section class="diensten" id="diensten">
+  <div class="shell">
+    <div class="diensten-kop">
+      <div class="label">Diensten</div>
+      <h2>Voor de momenten die <span class="serif">moeten kloppen.</span></h2>
+      <p>Alles wat we rijden, is vooraf vastgelegd. Zo staat er nooit iemand voor niets te wachten, en jij ook niet.</p>
+      <a href="#reserveren" class="knop knop-licht">Bekijk alle diensten</a>
+    </div>
+    <div>
+      <a href="#" class="dienst"><h3>Luchthaven</h3><p>Schiphol en elke luchthaven tot Frankfurt. Met vluchtmonitoring en ontvangst in de hal.</p><span class="pijl">→</span></a>
+      <a href="#" class="dienst"><h3>Zakelijk</h3><p>Voor directie, gasten en roadshows. Discreet, stipt, op rekening.</p><span class="pijl">→</span></a>
+      <a href="#" class="dienst"><h3>Chauffeur per uur</h3><p>Je chauffeur blijft beschikbaar, per uur of per dag.</p><span class="pijl">→</span></a>
+      <a href="#" class="dienst"><h3>Avonden &amp; events</h3><p>Gala, concert of diner. Heen in stijl, veilig terug.</p><span class="pijl">→</span></a>
+      <a href="#" class="dienst"><h3>Privé tours</h3><p>Keukenhof, Giethoorn, Zaanse Schans. In je eigen tempo.</p><span class="pijl">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="vloot" id="vloot">
+  <div class="shell">
+    <div class="vloot-kop">
+      <div>
+        <div class="label">De vloot</div>
+        <h2>Stil. Ruim. <span class="serif">Onberispelijk.</span></h2>
+      </div>
+      <p>Recente wagens, altijd schoon, met water, laders en wifi aan boord.</p>
+    </div>
+    <div class="vloot-rij">
+      <article class="auto"><div class="foto"><img src="../img/fleet-premium.jpg" alt="Mercedes S-Klasse"></div><div class="auto-tekst"><h3>S-Klasse</h3><span>First class · 3 p.</span></div></article>
+      <article class="auto"><div class="foto"><img src="../img/fleet-sedan.jpg" alt="Mercedes E-Klasse"></div><div class="auto-tekst"><h3>E-Klasse</h3><span>Business · 3 p.</span></div></article>
+      <article class="auto"><div class="foto"><img src="../img/fleet-tesla.jpg" alt="Tesla"></div><div class="auto-tekst"><h3>Tesla</h3><span>Elektrisch · 4 p.</span></div></article>
+      <article class="auto"><div class="foto"><img src="../img/fleet-bus.jpg" alt="Mercedes V-Klasse"></div><div class="auto-tekst"><h3>V-Klasse</h3><span>Groep · 7 p.</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="stappen-sectie" id="werkwijze">
+  <div class="shell">
+    <div class="stappen">
+      <div class="stap"><div class="nr">01</div><h3>Je reserveert</h3><p>Online, telefonisch of via WhatsApp. Het liefst ruim van tevoren.</p></div>
+      <div class="stap"><div class="nr">02</div><h3>Wij bevestigen</h3><p>Persoonlijk, met vaste prijs, auto en de naam van je chauffeur.</p></div>
+      <div class="stap"><div class="nr">03</div><h3>Je stapt in</h3><p>Je chauffeur staat klaar. Jij hoeft nergens meer aan te denken.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="review">
+  <div class="shell">
+    <div class="label">Ervaringen</div>
+    <blockquote>"Hier komt een echte Google-review van een klant."</blockquote>
+    <cite>Naam klant · Google</cite><br>
+    <span class="placeholder">PLACEHOLDER · ECHTE REVIEW AANLEVEREN</span>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="shell">
+    <div class="cta-kaart">
+      <div class="label">Reserveren</div>
+      <h2>Leg je rit vast. <span class="serif">Klaar.</span></h2>
+      <div class="cta-knoppen">
+        <a href="#reserveren" class="knop knop-groot">Rit reserveren →</a>
+        <a href="tel:+31202101637" class="knop knop-licht knop-groot"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>020 210 1637</a>
+        <a href="https://wa.me/31202101637" class="knop knop-licht knop-groot"><svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"/></svg>WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="shell">
+    <span>Fixed Ride · Privé chauffeur Amsterdam</span>
+    <span>Uitsluitend op reservering</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<nav class="zwevend">
+  <a href="tel:+31202101637"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Bel</a>
+  <a href="https://wa.me/31202101637"><svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"/></svg>WhatsApp</a>
+  <a href="#reserveren" class="hoofd">Reserveren</a>
+</nav>
+
+</body>
+</html>

@@ -499,3 +499,21 @@
   }
   .wa-cta { margin-top: 14px; }
   .kop .wa-cta { justify-self: start; }
+
+  /* ---------- Toestemmingsbalk ---------- */
+  .ck { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; padding: 12px; transform: translateY(120%); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+  .ck.ck-op { transform: none; }
+  .ck-in { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 26px; align-items: center; padding: 20px 24px; border-radius: 22px; background: rgba(16, 27, 22, 0.96); border: 1px solid var(--ink-line); box-shadow: 0 30px 70px rgba(10, 18, 15, 0.45); backdrop-filter: blur(10px); }
+  .ck-tekst strong { display: block; font-size: 15.5px; color: var(--wit); margin-bottom: 4px; }
+  .ck-tekst p { font-size: 13.5px; line-height: 1.5; color: var(--zacht-donker); max-width: 72ch; }
+  .ck-tekst a { color: var(--goud-hi); text-decoration: underline; }
+  .ck-knoppen { display: flex; gap: 10px; }
+  .ck-knoppen .btn { min-height: 44px; font-size: 14px; }
+  @media (max-width: 760px) {
+    .ck-in { grid-template-columns: 1fr; gap: 16px; padding: 18px; }
+    .ck-knoppen { display: grid; grid-template-columns: 1fr 1fr; }
+    .ck-knoppen .btn { width: 100%; padding: 0 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ck { transition: none; }
+  }

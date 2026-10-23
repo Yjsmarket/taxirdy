@@ -23,3 +23,21 @@
    bevestiging binnen het uur · chauffeur 24 uur vooraf bekend · chauffeur 10 min eerder · wachttijd bij vertraging inbegrepen · naambord · betaling vooraf · zakelijk maandfactuur · per uur minimaal 3 uur, dag tot 10 uur · water/laders/wifi · 24/7 · minimaal 24 uur vooraf reserveren · geen toeslag files · capaciteit per auto.
 4. Logo: het huidige `img/logo.png` (taxi met blokjes) past niet bij premium; nu staat er een tekstlogo "F · Fixed Ride".
 5. Daarna de andere pagina's (airport, diensten, vloot, tours, over ons) in deze stijl, volgens `INDELING.md`.
+
+## Structuur sinds de over-ons pagina (23-10-2026)
+
+De site is weer meerdere pagina's, dus de CSS is uit `index.html` gehaald:
+
+- `css/app.css` is de gedeelde stylesheet van alle pagina's.
+- `js/sfeer.js` bevat de lichtsporen over de wegen en het invloeien bij scrollen,
+  voor de subpagina's. De homepage heeft zijn eigen script onderin staan.
+- `over-ons/index.html` is de over-ons pagina, bereikbaar op `/over-ons/`.
+
+Let op: `index.html` wordt **niet meer** gegenereerd uit
+`designs/fixed-ride-premium.html`. Dat designbestand is nu alleen nog de
+oorspronkelijke referentie. Wijzig voortaan `index.html` en `css/app.css`
+rechtstreeks, anders verdwijnt de gedeelde stylesheet weer.
+
+Pagina-eigen CSS staat in een `<style>` blok in de pagina zelf, onder de
+gedeelde stylesheet. Op mobiel is de hero een flex-kolom met `order`, dus
+een nieuw blok in de hero heeft altijd een eigen `order` nodig.

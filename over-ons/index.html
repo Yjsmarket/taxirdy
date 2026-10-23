@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Over ons | Fixed Ride, bemiddelaar in vooraf gereserveerde ritten</title>
+<meta name="description" content="Fixed Ride bemiddelt in vooraf gereserveerde ritten. Wij rijden niet zelf: wij leggen uw rit vast, spreken de prijs vooraf af en brengen de rit onder bij een taxibedrijf met de juiste vergunningen.">
+<meta name="theme-color" content="#0A120F">
+<link rel="icon" href="../img/logo/fixed-ride-badge.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/logo/fixed-ride-badge.svg">
+<link rel="canonical" href="https://fixed-ride.nl/over-ons/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/app.css?v=1">
+<style>
+  /* De kop is hier een langere zin dan op de homepage, dus iets kleiner gezet
+     zodat de knoppen in beeld blijven. */
+  .hero h1 { font-size: clamp(34px, 4.2vw, 58px); }
+
+  /* ---------- Beloftebalk ---------- */
+  .beloften { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; }
+  .belofte { padding: 24px 22px; border-radius: var(--r-lg); background: rgba(16, 27, 22, 0.8); border: 1px solid var(--ink-line); }
+  .belofte b { display: block; font-family: var(--f-serif); font-weight: 400; font-style: italic; font-size: 38px; line-height: 1; color: var(--goud); }
+  .belofte span { display: block; margin-top: 10px; font-size: 13.5px; line-height: 1.45; color: var(--zacht-donker); }
+
+  /* ---------- Wie wij zijn ---------- */
+  .verhaal { display: grid; grid-template-columns: 1fr 0.85fr; gap: 56px; align-items: start; }
+  .verhaal p { font-size: 16.5px; color: var(--tekst-zacht); margin-bottom: 18px; max-width: 58ch; }
+  .verhaal p b { color: var(--tekst); }
+  .lijst { list-style: none; display: grid; gap: 12px; margin-top: 30px; padding: 26px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); }
+  .lijst .mono { color: #8C6F35; margin-bottom: 4px; }
+  .lijst li { display: flex; gap: 11px; align-items: flex-start; font-size: 14.5px; }
+  .lijst .i { color: #8C6F35; width: 17px; height: 17px; margin-top: 2px; }
+  .zijbeeld { position: sticky; top: 28px; display: grid; gap: 14px; }
+
+  /* ---------- Vergunningen ---------- */
+  .legit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .legit .kaart { background: var(--ink-2); border-color: var(--ink-line); color: var(--op-donker); }
+  .legit .kaart h3 { color: var(--wit); font-size: 20px; }
+  .legit .kaart p { color: var(--zacht-donker); }
+  .legit .ic { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: var(--goud-zacht); color: var(--goud); }
+  .legit .ic .i { width: 22px; height: 22px; }
+
+  /* ---------- Verloren voorwerpen, stappen met getekende lijn ---------- */
+  .stappen { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px; }
+  .spoorlijn { position: absolute; top: 31px; left: 7%; width: 86%; height: 2px; overflow: visible; }
+  .spoorlijn path { fill: none; stroke: var(--lijn); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .spoorlijn.in path { animation: teken 1.5s ease forwards; }
+  @keyframes teken { to { stroke-dashoffset: 0; } }
+  .stap { position: relative; }
+  .stap .bol { width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center; background: var(--creme); border: 2px solid var(--lijn); font-family: var(--f-serif); font-size: 25px; color: #8C6F35; transition: border-color .4s, background .4s, transform .4s; }
+  .stap.in .bol { border-color: var(--goud); background: var(--wit); transform: scale(1.04); }
+  .stap h3 { margin: 22px 0 8px; font-size: 21px; }
+  .stap p { font-size: 14.5px; color: var(--tekst-zacht); }
+
+  /* ---------- Zwevend vergunningkaartje in de hero ---------- */
+  .keurmerk { display: flex; align-items: center; gap: 14px; padding: 18px 20px; border-radius: 20px; background: rgba(16, 27, 22, 0.86); border: 1px solid var(--ink-line); backdrop-filter: blur(8px); animation: zweef 7s ease-in-out infinite; }
+  .keurmerk .ic { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 13px; background: var(--goud-zacht); color: var(--goud); }
+  .keurmerk strong { display: block; font-size: 15px; color: var(--wit); }
+  .keurmerk span { font-size: 13px; color: var(--zacht-donker); }
+  @keyframes zweef { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .keurmerk { animation: none; }
+    .spoorlijn path { stroke-dashoffset: 0; }
+  }
+  @media (max-width: 1080px) {
+    .verhaal { grid-template-columns: 1fr; gap: 36px; }
+    .zijbeeld { position: static; }
+    .beloften { grid-template-columns: 1fr 1fr; }
+    .legit { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    /* De hero is op mobiel een flex-kolom met volgorde, dus de beloftebalk
+       moet expliciet achteraan, anders springt hij boven de koptekst. */
+    .beloften { order: 4; margin-top: 0; }
+    .stappen { grid-template-columns: 1fr; gap: 26px; }
+    .spoorlijn { display: none; }
+    .belofte b { font-size: 31px; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.9 19.5L3 21z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l1-1.6-2.1-1-1 .9a4.2 4.2 0 0 1-2.3-2.3l.9-1-1-2.1L9 8.8z"/></symbol>
+  <symbol id="i-pijl" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-klok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-schild" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M18 6.5A7 7 0 1 0 18 17.5M4 10h10M4 14h10"/></symbol>
+  <symbol id="i-mens" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3h-2M3 16h2m4 0h6"/><circle cx="7" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></symbol>
+  <symbol id="i-tas" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/></symbol>
+  <symbol id="i-ster" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+</svg>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero-page">
+    <section class="hero" aria-labelledby="t-over">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.78],[0.28,0.58],[0.58,0.98],[1.05,0.70]],[[0.36,-0.05],[0.52,0.32],[0.72,0.20],[0.98,0.58]],[[-0.05,0.26],[0.30,0.42],[0.48,0.06],[0.82,-0.05]],[[0.62,1.05],[0.72,0.68],[0.92,0.52],[1.05,0.28]]]' aria-hidden="true"></canvas>
+      <div class="wrap">
+        <header class="nav">
+          <a class="merk" href="../" aria-label="Fixed Ride, naar de homepage">Fixed <span class="serif">Ride</span></a>
+          <nav class="nav-links" aria-label="Hoofdmenu">
+            <a href="../#diensten">Diensten</a><a href="../#werkwijze">Werkwijze</a><a href="../#vloot">Vloot &amp; prijzen</a><a href="./" aria-current="page">Over ons</a>
+          </nav>
+          <div class="nav-acties">
+            <a class="btn btn-bel" href="tel:+31202101637" aria-label="Bel 020 210 1637"><svg class="i"><use href="#i-tel"/></svg><span>020 210 1637</span></a>
+            <a class="rond rond-wa" href="https://wa.me/31202101637" aria-label="WhatsApp"><svg class="i wa"><use href="#i-wa"/></svg></a>
+            <a class="btn btn-goud" href="../#reserveren">Reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+          </div>
+        </header>
+
+        <div class="hero-grid">
+          <div class="hero-tekst">
+            <img class="hero-logo" src="../img/logo/fixed-ride-logo-animatie.svg" alt="" width="149" height="104">
+            <span class="tag">Over Fixed Ride</span>
+            <h1 id="t-over">Wij leggen uw rit vast. <span class="serif">Gelicentieerde chauffeurs rijden hem.</span></h1>
+            <p class="hero-sub">Fixed Ride is <b>bemiddelaar in vooraf gereserveerde ritten</b>. Wij rijden niet zelf. Wij leggen uw rit vast, spreken de prijs vooraf af en brengen de rit onder bij een taxibedrijf uit ons netwerk dat <b>over de juiste vergunningen beschikt</b>.</p>
+            <div class="hero-acties">
+              <a class="btn btn-goud" href="../#reserveren">Rit reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+              <a class="btn btn-lijn" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20heb%20een%20vraag." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Stel uw vraag</a>
+            </div>
+            <ul class="punten">
+              <li><svg class="i"><use href="#i-check"/></svg>Wij bemiddelen, wij rijden niet zelf</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Alleen bedrijven met vergunning</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Eén aanspreekpunt per rit</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Vaste prijs, vooraf afgesproken</li>
+            </ul>
+          </div>
+
+          <div class="hero-beeld">
+            <div class="hero-foto"><img src="../img/fleet-premium.jpg" alt="Mercedes S-Klasse uit het netwerk van Fixed Ride"><span class="foto-tag">Uit ons netwerk · First class</span></div>
+            <div class="keurmerk">
+              <span class="ic"><svg class="i"><use href="#i-schild"/></svg></span>
+              <div>
+                <strong>Alleen met vergunning</strong>
+                <span>Elke rit die wij bemiddelen wordt gereden met verzekerd vervoer.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="beloften">
+          <div class="belofte rv"><b>100%</b><span>Taxibedrijven met de juiste vergunningen</span></div>
+          <div class="belofte rv"><b>1</b><span>Aanspreekpunt, van reservering tot aankomst</span></div>
+          <div class="belofte rv"><b>Vast</b><span>Prijs vooraf afgesproken, nooit een verrassing</span></div>
+          <div class="belofte rv"><b>24/7</b><span>Bereikbaar via WhatsApp en telefoon</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ WIE WIJ ZIJN ============ -->
+  <section id="wie-wij-zijn">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Wie wij zijn</span>
+          <h2>Bemiddelaar in ritten, <span class="serif">bewaker van uw zekerheid.</span></h2>
+        </div>
+        <p>Een taxi regelen is makkelijk. Er zeker van zijn dat hij er staat, op tijd, tegen de afgesproken prijs, daar draait het bij ons om.</p>
+      </div>
+
+      <div class="verhaal">
+        <div class="rv">
+          <p>Wij bemiddelen uitsluitend in ritten. Dat betekent: u vertelt ons waar u heen wilt en wanneer, wij leggen de rit vast, spreken vooraf de prijs af en kiezen het juiste taxibedrijf uit ons netwerk. <b>Geen app die u aan een willekeurige auto koppelt</b>, maar een vast aanspreekpunt dat meekijkt tot u bent aangekomen.</p>
+          <p>Omdat wij ons richten op ritten die vooraf gereserveerd zijn, kunnen we de tijd nemen om het goed te regelen. De auto wordt op uw rit gekozen, de chauffeur weet waar hij naartoe gaat en de prijs staat vast voordat u instapt.</p>
+          <p>Zo combineren we het beste van twee werelden: <b>de flexibiliteit van een netwerk</b> en de zekerheid van een persoonlijke afspraak.</p>
+
+          <ul class="lijst">
+            <li><span class="mono">Zo zit het</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg>Wij bemiddelen in ritten, wij rijden niet zelf</li>
+            <li><svg class="i"><use href="#i-check"/></svg>We werken uitsluitend met taxibedrijven die over de juiste vergunningen beschikken</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Chauffeurs zijn gescreend via ons partnernetwerk</li>
+            <li><svg class="i"><use href="#i-check"/></svg>U krijgt vooraf één vaste prijsafspraak</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Eén aanspreekpunt via WhatsApp of telefoon</li>
+          </ul>
+        </div>
+
+        <div class="zijbeeld rv">
+          <div class="hero-foto" style="aspect-ratio:4/5"><img src="../img/fleet-sedan.jpg" alt="Mercedes E-Klasse uit het netwerk van Fixed Ride"><span class="foto-tag">Mercedes E-Klasse · Business</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIER BELOFTEN ============ -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Waar wij voor staan</span>
+          <h2>Vier beloften, <span class="serif">elke rit opnieuw.</span></h2>
+        </div>
+        <p>Niet omdat het goed klinkt, maar omdat het de reden is dat mensen hun rit vooraf bij ons vastleggen.</p>
+      </div>
+
+      <div class="bento">
+        <article class="kaart k-2 rv">
+          <span class="mono">01 · Zekerheid</span>
+          <h3>Afspraak is afspraak</h3>
+          <p>Een rit die bij ons is vastgelegd, staat vast. U ontvangt een persoonlijke bevestiging en op het afgesproken moment staat de auto er. Voor een vlucht, een meeting, of iemand die u niet wilt laten wachten.</p>
+        </article>
+        <article class="kaart k-2 rv">
+          <span class="mono">02 · Transparantie</span>
+          <h3>De prijs staat vooraf vast</h3>
+          <p>Geen meter die doorloopt en geen dynamische tarieven op drukke momenten. Wat we vooraf afspreken, is wat u betaalt. Zo simpel hoort het te zijn.</p>
+        </article>
+        <article class="kaart k-2 rv">
+          <span class="mono">03 · Kwaliteit</span>
+          <h3>Alleen met vergunning</h3>
+          <p>We brengen ritten uitsluitend onder bij taxibedrijven die over de juiste vergunningen beschikken, met chauffeurs die gescreend zijn. Liever een kleiner netwerk dat klopt, dan een groot netwerk dat wisselt.</p>
+        </article>
+        <article class="kaart donker k-6 rv" style="flex-direction:row;align-items:center;gap:26px;flex-wrap:wrap">
+          <span class="ic" style="display:grid;place-items:center;width:52px;height:52px;border-radius:15px;background:var(--goud-zacht);color:var(--goud)"><svg class="i" style="width:24px;height:24px"><use href="#i-mens"/></svg></span>
+          <div style="flex:1;min-width:260px">
+            <span class="mono">04 · Persoonlijk</span>
+            <h3 style="margin:6px 0 8px">Een mens, geen menu</h3>
+            <p>Vraag, wijziging of iets vergeten in de auto? U appt of belt gewoon met ons. Geen keuzemenu, geen ticketnummer, maar iemand die uw rit kent en het direct oppakt.</p>
+          </div>
+          <a class="btn btn-lijn" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20heb%20een%20vraag." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>App ons</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VERGUNNINGEN ============ -->
+  <section class="vloot">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Vergunningen &amp; screening</span>
+          <h2>Niet iedereen mag <span class="serif">uw rit</span> rijden.</h2>
+        </div>
+        <p>Voordat een taxibedrijf ritten van ons ontvangt, kijken we naar de basis. Pas als dat klopt, komt een bedrijf in ons netwerk.</p>
+      </div>
+
+      <div class="legit">
+        <article class="kaart rv">
+          <span class="ic"><svg class="i"><use href="#i-schild"/></svg></span>
+          <h3>Juiste vergunningen</h3>
+          <p>Alleen taxibedrijven die aan de Nederlandse taxiregels voldoen. Geen uitzonderingen, ook niet als het druk is.</p>
+        </article>
+        <article class="kaart rv">
+          <span class="ic"><svg class="i"><use href="#i-ster"/></svg></span>
+          <h3>Gescreende chauffeurs</h3>
+          <p>Professioneel, representatief en bekend met zakelijke en persoonlijke ritten. Zij weten dat zij uw rit rijden, niet zomaar een rit.</p>
+        </article>
+        <article class="kaart rv">
+          <span class="ic"><svg class="i"><use href="#i-auto"/></svg></span>
+          <h3>Verzekerd vervoer</h3>
+          <p>Elke rit die wij bemiddelen wordt gereden met verzekerd vervoer, in een auto die onderhouden en verzorgd is.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VERLOREN VOORWERPEN ============ -->
+  <section id="verloren-voorwerpen">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Verloren voorwerpen</span>
+          <h2>Iets laten liggen? <span class="serif">We brengen het terug.</span></h2>
+        </div>
+        <p>Telefoon op de achterbank, paspoort in het portiervak of een koffer in de kofferbak, het overkomt de beste. Omdat wij precies weten welk taxibedrijf uw rit heeft gereden, kunnen we snel schakelen.</p>
+      </div>
+
+      <div class="stappen">
+        <svg class="spoorlijn rv" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true"><path d="M0 1 H100" pathLength="1"/></svg>
+        <div class="stap rv">
+          <span class="bol">1</span>
+          <h3>Meld het direct</h3>
+          <p>Stuur een WhatsApp of bel ons met uw naam, de datum en tijd van uw rit en wat u kwijt bent. Hoe eerder u het meldt, hoe sneller we kunnen schakelen.</p>
+        </div>
+        <div class="stap rv">
+          <span class="bol">2</span>
+          <h3>Wij zoeken het uit</h3>
+          <p>Wij weten welk taxibedrijf en welke chauffeur uw rit heeft gereden en nemen direct contact op. U hoeft zelf niemand na te bellen.</p>
+        </div>
+        <div class="stap rv">
+          <span class="bol">3</span>
+          <h3>U krijgt het terug</h3>
+          <p>Gevonden voorwerpen worden teruggebracht, of we spreken een moment af waarop u het ophaalt. Wel zo'n fijn einde van uw rit.</p>
+        </div>
+      </div>
+
+      <div class="rv" style="margin-top:44px">
+        <a class="btn btn-goud" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20ben%20iets%20verloren%20in%20de%20auto." target="_blank" rel="noopener"><svg class="i"><use href="#i-tas"/></svg>Meld een verloren voorwerp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <div class="cta-page" style="padding:0 10px 10px">
+    <section class="cta">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.75],[0.30,0.55],[0.60,1.0],[1.05,0.65]],[[-0.05,0.20],[0.35,0.45],[0.65,-0.1],[1.05,0.30]]]' aria-hidden="true"></canvas>
+      <span class="tag">Vooraf reserveren</span>
+      <h2>Eén bericht. <span class="serif">En het is geregeld.</span></h2>
+      <p>Stuur ons waar u heen wilt en wanneer. U krijgt een vaste prijs terug en daarna hoeft u er niet meer aan te denken.</p>
+      <div class="cta-acties">
+        <a class="btn btn-goud" href="../#reserveren">Rit reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+        <a class="btn btn-lijn" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20rit%20vooraf%20inplannen." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Reserveer via WhatsApp</a>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="voet">
+      <div>
+        <a class="merk" href="../"><img src="../img/logo/fixed-ride-logo-licht.svg" alt="" width="54" height="38">Fixed <span class="serif">Ride</span></a>
+        <p>Bemiddelaar in vooraf gereserveerde ritten. Vooraf vastgelegd, vast van prijs, gereden met vergunning.</p>
+      </div>
+      <div><h4>Diensten</h4><ul><li><a href="../#diensten">Luchthaven</a></li><li><a href="../#diensten">Zakelijk</a></li><li><a href="../#diensten">Chauffeur per uur</a></li><li><a href="../#diensten">Privé tours</a></li></ul></div>
+      <div><h4>Fixed Ride</h4><ul><li><a href="../#werkwijze">Werkwijze</a></li><li><a href="../#vloot">Vloot &amp; prijzen</a></li><li><a href="../#vragen">Vragen</a></li><li><a href="./">Over ons</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+31202101637">020 210 1637</a></li><li><a href="https://wa.me/31202101637">WhatsApp</a></li><li><a href="#verloren-voorwerpen">Verloren voorwerpen</a></li></ul></div>
+    </div>
+    <div class="voet-onder"><span>© 2026 Fixed Ride</span><span>Bemiddelaar in taxiritten, gereden door gelicentieerde chauffeurs</span></div>
+  </div>
+</footer>
+
+<script src="../js/sfeer.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "url": "https://fixed-ride.nl/over-ons/",
+  "name": "Over Fixed Ride",
+  "description": "Fixed Ride bemiddelt in vooraf gereserveerde ritten en werkt uitsluitend met taxibedrijven die over de juiste vergunningen beschikken.",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Fixed Ride",
+    "url": "https://fixed-ride.nl/",
+    "telephone": "+31202101637",
+    "areaServed": "Amsterdam",
+    "description": "Bemiddelaar in vooraf gereserveerde taxiritten in Amsterdam en omstreken."
+  }
+}
+</script>
+</body>
+</html>

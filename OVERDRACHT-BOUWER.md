@@ -41,3 +41,16 @@ rechtstreeks, anders verdwijnt de gedeelde stylesheet weer.
 Pagina-eigen CSS staat in een `<style>` blok in de pagina zelf, onder de
 gedeelde stylesheet. Op mobiel is de hero een flex-kolom met `order`, dus
 een nieuw blok in de hero heeft altijd een eigen `order` nodig.
+
+## Ontbrekende luchthaventarieven (24-10-2026)
+
+Op `/airport-taxi/` staan alleen de Schiphol-tarieven, die komen uit de
+vloot-data van de homepage. Voor elf luchthavens staat nu "Op aanvraag":
+
+Eindhoven, Rotterdam The Hague, Maastricht Aachen, Groningen Eelde,
+Brussel Zaventem, Charleroi, Antwerpen, Düsseldorf, Weeze, Keulen/Bonn
+en Frankfurt.
+
+Zodra de klant die prijzen aanlevert (enkel en retour, per voertuigklasse),
+kunnen ze in de luchthavenkaarten en in de tarieventabel. Niets invullen
+zonder opgave van de klant.

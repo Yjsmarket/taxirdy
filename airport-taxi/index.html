@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Airport taxi Amsterdam | Taxi naar Schiphol, Brussel &amp; Düsseldorf | Fixed Ride</title>
+<meta name="description" content="Airport taxi vanuit Amsterdam naar elke luchthaven in Nederland, België en Duitsland. Vooraf gereserveerd, vaste prijs, vluchtmonitoring en naambord bij aankomst. Taxi naar Schiphol vanaf 45 euro.">
+<meta name="theme-color" content="#0A120F">
+<link rel="icon" href="../img/logo/fixed-ride-badge.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/logo/fixed-ride-badge.svg">
+<link rel="canonical" href="https://fixed-ride.nl/airport-taxi/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/app.css?v=1">
+<style>
+  .hero h1 { font-size: clamp(34px, 4.4vw, 60px); }
+
+  /* ---------- Vluchtkaart in de hero ---------- */
+  .vlucht-kaart { padding: 22px; border-radius: 22px; background: rgba(16, 27, 22, 0.86); border: 1px solid var(--ink-line); backdrop-filter: blur(8px); }
+  .vk-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+  .vk-live { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--goud); }
+  .vk-live i { width: 8px; height: 8px; border-radius: 50%; background: var(--goud); animation: ping 1.8s ease-out infinite; }
+  .vk-rij { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; }
+  .vk-rij strong { display: block; font-family: var(--f-mono); font-size: 19px; color: var(--wit); }
+  .vk-rij span { font-size: 12.5px; color: var(--zacht-donker); }
+  .vk-pijl { color: var(--goud); }
+  .vk-onder { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--ink-line); display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; color: var(--zacht-donker); }
+  .vk-onder b { color: var(--op-donker); }
+  .vk-ok { padding: 5px 11px; border-radius: var(--pill); background: rgba(37, 211, 102, 0.12); color: #4ade80; font-size: 12px; font-weight: 600; }
+
+  /* ---------- Luchthavens ---------- */
+  .lh { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .lh .kaart { gap: 10px; }
+  .lh-top { display: flex; align-items: center; gap: 12px; }
+  .lh-code { display: grid; place-items: center; min-width: 52px; height: 36px; padding: 0 10px; border-radius: 10px; background: var(--creme); border: 1px solid var(--lijn); font-family: var(--f-mono); font-size: 13px; font-weight: 600; color: #8C6F35; }
+  .lh-land { font-family: var(--f-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tekst-zacht); }
+  .lh .kaart h3 { font-size: 20px; }
+  .lh-kort { font-size: 13.5px; color: #8C6F35; font-weight: 600; }
+  .lh-voet { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--lijn); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .lh-prijs { font-size: 13px; color: var(--tekst-zacht); }
+  .lh-prijs b { display: block; font-family: var(--f-serif); font-style: italic; font-size: 22px; color: var(--tekst); }
+  .lh-knop { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; color: #8C6F35; white-space: nowrap; }
+  .lh-knop .i { width: 15px; height: 15px; }
+
+  /* ---------- Tarieven per voertuig ---------- */
+  .tar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .tar-kaart { display: flex; flex-direction: column; padding: 26px; border-radius: var(--r-lg); background: var(--ink-2); border: 1px solid var(--ink-line); }
+  .tar-kaart h3 { font-size: 21px; color: var(--wit); }
+  .tar-kaart .mono { color: var(--goud); }
+  .tar-tabel { margin-top: 18px; width: 100%; border-collapse: collapse; font-size: 14px; }
+  .tar-tabel th { padding: 0 0 10px; font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--zacht-donker); text-align: right; }
+  .tar-tabel th:first-child { text-align: left; }
+  .tar-tabel td { padding: 11px 0; border-top: 1px solid var(--ink-line); color: var(--op-donker); text-align: right; }
+  .tar-tabel td:first-child { text-align: left; color: var(--zacht-donker); }
+  .tar-tabel td b { color: var(--wit); font-weight: 600; }
+
+  /* ---------- Vluchtmonitoring, drie momenten ---------- */
+  .momenten { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .mo-lijn { position: absolute; top: 31px; left: 7%; width: 86%; height: 2px; overflow: visible; }
+  .mo-lijn path { fill: none; stroke: var(--ink-line); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .mo-lijn.in path { animation: teken 1.5s ease forwards; }
+  @keyframes teken { to { stroke-dashoffset: 0; } }
+  .moment .bol { width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center; background: var(--ink-2); border: 2px solid var(--ink-line); color: var(--goud); transition: border-color .4s, transform .4s; }
+  .moment.in .bol { border-color: var(--goud); transform: scale(1.04); }
+  .moment h3 { margin: 22px 0 8px; font-size: 21px; color: var(--wit); }
+  .moment p { font-size: 14.5px; color: var(--zacht-donker); }
+
+  /* ---------- Kennisblokken ---------- */
+  .kennis { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .kennis article { padding: 28px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); }
+  .kennis h3 { font-size: 21px; margin: 8px 0 10px; }
+  .kennis p { font-size: 14.5px; color: var(--tekst-zacht); margin-bottom: 12px; }
+  .kennis p:last-child { margin-bottom: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vk-live i { animation: none; }
+    .mo-lijn path { stroke-dashoffset: 0; }
+  }
+  @media (max-width: 1080px) {
+    .lh, .tar { grid-template-columns: 1fr 1fr; }
+    .kennis { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .beloften { order: 4; margin-top: 0; }
+    .hero-logo { height: 62px; }
+    /* Twee luchthavens naast elkaar, niet een blok per scroll. */
+    .lh { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .lh .kaart { padding: 16px; }
+    .lh .kaart h3 { font-size: 16px; }
+    .lh-kort, .lh .kaart p { display: none; }
+    .lh-code { min-width: 44px; height: 30px; font-size: 12px; }
+    .lh-voet { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .lh-prijs b { font-size: 19px; }
+    .tar { grid-template-columns: 1fr; }
+    .momenten { grid-template-columns: 1fr; gap: 26px; }
+    .mo-lijn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.9 19.5L3 21z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l1-1.6-2.1-1-1 .9a4.2 4.2 0 0 1-2.3-2.3l.9-1-1-2.1L9 8.8z"/></symbol>
+  <symbol id="i-pijl" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-vlieg" viewBox="0 0 24 24"><path d="M2.5 13.5l7-1.5 5-7.5h2l-2.5 7.5 5.5-1 1.5-2h1.5l-1 4 1 4h-1.5l-1.5-2-5.5-1 2.5 7.5h-2l-5-7.5-7-1.5z"/></symbol>
+  <symbol id="i-klok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-schild" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-koffer" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-mens" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3h-2M3 16h2m4 0h6"/><circle cx="7" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></symbol>
+  <symbol id="i-bord" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></symbol>
+</svg>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero-page">
+    <section class="hero" aria-labelledby="t-air">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.78],[0.28,0.58],[0.58,0.98],[1.05,0.70]],[[0.36,-0.05],[0.52,0.32],[0.72,0.20],[0.98,0.58]],[[-0.05,0.26],[0.30,0.42],[0.48,0.06],[0.82,-0.05]],[[0.62,1.05],[0.72,0.68],[0.92,0.52],[1.05,0.28]]]' aria-hidden="true"></canvas>
+      <div class="wrap">
+        <header class="nav">
+          <a class="merk" href="../" aria-label="Fixed Ride, naar de homepage">Fixed <span class="serif">Ride</span></a>
+          <nav class="nav-links" aria-label="Hoofdmenu">
+            <a href="./" aria-current="page">Airport taxi</a><a href="../#diensten">Diensten</a><a href="../#vloot">Vloot &amp; prijzen</a><a href="../over-ons/">Over ons</a>
+          </nav>
+          <div class="nav-acties">
+            <a class="btn btn-bel" href="tel:+31202101637" aria-label="Bel 020 210 1637"><svg class="i"><use href="#i-tel"/></svg><span>020 210 1637</span></a>
+            <a class="rond rond-wa" href="https://wa.me/31202101637" aria-label="WhatsApp"><svg class="i wa"><use href="#i-wa"/></svg></a>
+            <a class="btn btn-goud" href="../#reserveren">Reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+          </div>
+        </header>
+
+        <div class="hero-grid">
+          <div class="hero-tekst">
+            <img class="hero-logo" src="../img/logo/fixed-ride-logo-animatie.svg" alt="" width="149" height="104">
+            <div class="tags">
+              <span class="tag">Vluchtmonitoring</span>
+              <span class="tag">NL, België &amp; Duitsland</span>
+              <span class="tag">Vaste prijs</span>
+            </div>
+            <h1 id="t-air">Airport taxi met <span class="serif">vluchtmonitoring.</span> Naar elke luchthaven.</h1>
+            <p class="hero-sub">Reserveer uw <b>taxi naar de luchthaven</b> vooraf: Schiphol, Eindhoven, Brussel of Düsseldorf. Wij volgen uw vlucht, dus <b>bij vertraging schuift de ophaaltijd mee</b>. Vaste prijsafspraak, persoonlijke bevestiging.</p>
+            <div class="hero-acties">
+              <a class="btn btn-goud" href="../#reserveren">Airport taxi reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+              <a class="btn btn-lijn" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20airport%20taxi%20reserveren." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Vraag uw prijs</a>
+            </div>
+            <ul class="punten">
+              <li><svg class="i"><use href="#i-check"/></svg>Wij volgen uw vlucht</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Naambord bij de luchthaven</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Ook nachtvluchten en vroege vertrektijden</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Gelicentieerde chauffeurs</li>
+            </ul>
+          </div>
+
+          <div class="hero-beeld">
+            <div class="hero-foto"><img src="../img/fleet-sedan.jpg" alt="Mercedes E-Klasse voor luchthavenvervoer vanuit Amsterdam"><span class="foto-tag">Mercedes E-Klasse · Business</span></div>
+            <div class="vlucht-kaart">
+              <div class="vk-top">
+                <span class="mono" style="color:var(--goud)">Uw vlucht · voorbeeld</span>
+                <span class="vk-live"><i></i>Gevolgd</span>
+              </div>
+              <div class="vk-rij">
+                <div><strong>AMS</strong><span>Schiphol, vertrek</span></div>
+                <svg class="i vk-pijl"><use href="#i-vlieg"/></svg>
+                <div style="text-align:right"><strong>LHR</strong><span>Londen Heathrow</span></div>
+              </div>
+              <div class="vk-onder">
+                <span>Ophalen <b>05:45</b> · Amsterdam Zuid</span>
+                <span class="vk-ok">Op tijd</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="band" aria-hidden="true">
+        <div class="band-track mono">
+          <span>Schiphol</span><span>Eindhoven</span><span>Rotterdam The Hague</span><span>Maastricht Aachen</span><span>Groningen Eelde</span><span>Brussel Zaventem</span><span>Charleroi</span><span>Antwerpen</span><span>Düsseldorf</span><span>Weeze</span><span>Keulen/Bonn</span><span>Frankfurt</span>
+          <span>Schiphol</span><span>Eindhoven</span><span>Rotterdam The Hague</span><span>Maastricht Aachen</span><span>Groningen Eelde</span><span>Brussel Zaventem</span><span>Charleroi</span><span>Antwerpen</span><span>Düsseldorf</span><span>Weeze</span><span>Keulen/Bonn</span><span>Frankfurt</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ LUCHTHAVENS ============ -->
+  <section id="luchthavens">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Alle luchthavens</span>
+          <h2>Taxi naar de luchthaven, <span class="serif">van Schiphol tot Frankfurt.</span></h2>
+        </div>
+        <p>Luchthavenvervoer vanuit Amsterdam en omstreken naar elke luchthaven in Nederland, België en Duitsland.</p>
+      </div>
+
+      <div class="lh">
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">AMS</span><span class="lh-land">Nederland</span></div>
+          <h3>Schiphol Airport</h3>
+          <span class="lh-kort">De meest geboekte luchthavenrit.</span>
+          <p>Taxi naar Schiphol vanuit elke wijk in Amsterdam. Vroege vlucht of aankomst na middernacht, uw auto staat klaar en de ophaaltijd schuift mee bij vertraging.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Vanaf<b>€ 45</b>enkele rit</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Schiphol%20reserveren." target="_blank" rel="noopener">Reserveren <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">EIN</span><span class="lh-land">Nederland</span></div>
+          <h3>Eindhoven Airport</h3>
+          <span class="lh-kort">Populair voor citytrips en budgetvluchten.</span>
+          <p>Taxi van Amsterdam naar Eindhoven Airport met een vaste prijs. Ook voor de vroegste vertrektijden, vooraf ingepland zodat uw vlucht nooit in gevaar komt.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Eindhoven%20Airport." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">RTM</span><span class="lh-land">Nederland</span></div>
+          <h3>Rotterdam The Hague</h3>
+          <span class="lh-kort">Compact en snel in- en uitchecken.</span>
+          <p>Luchthavenvervoer naar Rotterdam The Hague Airport, ideaal in combinatie met een zakelijke afspraak in de regio Rotterdam of Den Haag.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Rotterdam%20The%20Hague%20Airport." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">MST</span><span class="lh-land">Nederland</span></div>
+          <h3>Maastricht Aachen</h3>
+          <span class="lh-kort">Zuid-Nederland, zonder overstappen.</span>
+          <p>Rechtstreekse taxi vanuit Amsterdam naar Maastricht Aachen Airport, met een vaste prijsafspraak die vooraf vastligt.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Maastricht%20Aachen%20Airport." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">GRQ</span><span class="lh-land">Nederland</span></div>
+          <h3>Groningen Eelde</h3>
+          <span class="lh-kort">Het noorden, comfortabel bereikt.</span>
+          <p>Taxi naar Groningen Airport Eelde voor vakantievluchten vanuit het noorden. Vooraf gereserveerd, dus uw vervoer staat vast.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Groningen%20Airport%20Eelde." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">BRU</span><span class="lh-land">België</span></div>
+          <h3>Brussel Zaventem</h3>
+          <span class="lh-kort">De internationale hub van België.</span>
+          <p>Taxi van Amsterdam naar Brussels Airport Zaventem voor intercontinentale vluchten. Comfortabel over de grens, met vluchtmonitoring op de terugweg.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Brussel%20Zaventem." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">CRL</span><span class="lh-land">België</span></div>
+          <h3>Brussels South Charleroi</h3>
+          <span class="lh-kort">Veel low-cost bestemmingen.</span>
+          <p>Rechtstreeks vervoer naar Charleroi, zonder gedoe met treinen of overstappen. Vooraf geboekt, vaste prijs, op tijd voor uw vlucht.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Charleroi." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">ANR</span><span class="lh-land">België</span></div>
+          <h3>Antwerpen Airport</h3>
+          <span class="lh-kort">Klein, snel en dichtbij.</span>
+          <p>Taxi naar Antwerpen Airport voor zakelijke vluchten en korte Europese verbindingen, gecombineerd met een comfortabele grensrit.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Antwerpen%20Airport." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">DUS</span><span class="lh-land">Duitsland</span></div>
+          <h3>Düsseldorf Airport</h3>
+          <span class="lh-kort">De grootste luchthaven van NRW.</span>
+          <p>Taxi van Amsterdam naar Düsseldorf Airport, veelgekozen voor intercontinentale vluchten. Eén vaste prijs, de hele rit vooraf geregeld.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20D%C3%BCsseldorf%20Airport." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">NRN</span><span class="lh-land">Duitsland</span></div>
+          <h3>Weeze Airport</h3>
+          <span class="lh-kort">Net over de grens, veel low-cost.</span>
+          <p>Airport taxi naar Weeze (Niederrhein), populair voor voordelige vluchten. Rechtstreeks vanaf uw voordeur, zonder parkeerzorgen.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Weeze%20Airport." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">CGN</span><span class="lh-land">Duitsland</span></div>
+          <h3>Keulen/Bonn Airport</h3>
+          <span class="lh-kort">Ook 's nachts goed bereikbaar.</span>
+          <p>Taxi naar Köln Bonn Airport voor vakantie- en zakenvluchten. Een geplande grensrit met een vaste prijsafspraak.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Keulen%20Bonn%20Airport." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+
+        <article class="kaart rv">
+          <div class="lh-top"><span class="lh-code">FRA</span><span class="lh-land">Duitsland</span></div>
+          <h3>Frankfurt Airport</h3>
+          <span class="lh-kort">De grootste hub van Duitsland.</span>
+          <p>Lange afstand is geen probleem. Taxi van Amsterdam naar Frankfurt Airport met een chauffeur die de route kent en een prijs die vooraf vastligt.</p>
+          <div class="lh-voet">
+            <span class="lh-prijs">Prijs<b>Op aanvraag</b>vaste afspraak</span>
+            <a class="lh-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20taxi%20naar%20Frankfurt%20Airport." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VLUCHTMONITORING ============ -->
+  <section class="vloot" id="vluchtmonitoring">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Vluchtmonitoring</span>
+          <h2>Vlucht vertraagd? <span class="serif">Uw taxi schuift mee.</span></h2>
+        </div>
+        <p>Bij elke luchthavenrit volgen wij uw vluchtgegevens. U hoeft niets aan te passen en niemand staat voor niets te wachten.</p>
+      </div>
+
+      <div class="momenten">
+        <svg class="mo-lijn rv" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true"><path d="M0 1 H100" pathLength="1"/></svg>
+        <div class="moment rv">
+          <span class="bol"><svg class="i" style="width:24px;height:24px"><use href="#i-klok"/></svg></span>
+          <h3>Vertrek</h3>
+          <p>Op tijd opgehaald voor uw vlucht, ook om vier uur 's ochtends. De ophaaltijd rekenen wij terug vanaf uw vertrektijd.</p>
+        </div>
+        <div class="moment rv">
+          <span class="bol"><svg class="i" style="width:24px;height:24px"><use href="#i-vlieg"/></svg></span>
+          <h3>Vertraging</h3>
+          <p>Wij zien het eerder dan u. De ophaaltijd schuift mee, zonder dat u hoeft te bellen of iets te wijzigen.</p>
+        </div>
+        <div class="moment rv">
+          <span class="bol"><svg class="i" style="width:24px;height:24px"><use href="#i-bord"/></svg></span>
+          <h3>Aankomst</h3>
+          <p>Geland? Uw chauffeur staat er met een naambord, precies zoals afgesproken. Ook als u eerder of later binnenkomt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TARIEVEN ============ -->
+  <section id="tarieven">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Luchthaventarieven</span>
+          <h2>Vaste prijzen <span class="serif">naar Schiphol.</span></h2>
+        </div>
+        <p>Prijzen per voertuig vanuit Amsterdam naar Schiphol. Andere luchthaven of ander ophaaladres? Via WhatsApp krijgt u direct een vaste prijs.</p>
+      </div>
+
+      <div class="tar">
+        <div class="tar-kaart rv">
+          <span class="mono">Business &amp; Elektrisch</span>
+          <h3>E-Klasse of Tesla</h3>
+          <table class="tar-tabel">
+            <thead><tr><th>Vanuit</th><th>Enkel</th><th>Retour</th></tr></thead>
+            <tbody>
+              <tr><td>Amsterdam Centrum</td><td><b>€ 55</b></td><td>€ 105</td></tr>
+              <tr><td>Amsterdam West</td><td><b>€ 50</b></td><td>€ 95</td></tr>
+              <tr><td>Amsterdam Zuidoost</td><td><b>€ 50</b></td><td>€ 95</td></tr>
+              <tr><td>Amstelveen</td><td><b>€ 45</b></td><td>€ 85</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tar-kaart rv">
+          <span class="mono">Groep</span>
+          <h3>Mercedes V-Klasse</h3>
+          <table class="tar-tabel">
+            <thead><tr><th>Vanuit</th><th>Enkel</th><th>Retour</th></tr></thead>
+            <tbody>
+              <tr><td>Amsterdam Centrum</td><td><b>€ 80</b></td><td>€ 155</td></tr>
+              <tr><td>Amsterdam West</td><td><b>€ 75</b></td><td>€ 145</td></tr>
+              <tr><td>Amsterdam Zuidoost</td><td><b>€ 80</b></td><td>€ 155</td></tr>
+              <tr><td>Amstelveen</td><td><b>€ 70</b></td><td>€ 135</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tar-kaart rv">
+          <span class="mono">First class</span>
+          <h3>Mercedes S-Klasse</h3>
+          <table class="tar-tabel">
+            <thead><tr><th>Vanuit</th><th>Enkel</th><th>Retour</th></tr></thead>
+            <tbody>
+              <tr><td>Amsterdam Centrum</td><td><b>€ 90</b></td><td>€ 175</td></tr>
+              <tr><td>Amsterdam West</td><td><b>€ 85</b></td><td>€ 165</td></tr>
+              <tr><td>Amsterdam Zuidoost</td><td><b>€ 85</b></td><td>€ 165</td></tr>
+              <tr><td>Amstelveen</td><td><b>€ 80</b></td><td>€ 155</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p class="rv" style="margin-top:28px;font-size:14.5px;color:var(--tekst-zacht);max-width:70ch">
+        Alle luchthaventransfers worden gereden door gelicentieerde taxibedrijven binnen ons netwerk.
+        Voor de overige luchthavens in Nederland, België en Duitsland geldt een vaste prijs op aanvraag.
+        <a href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20vaste%20prijs%20voor%20een%20luchthavenrit." target="_blank" rel="noopener" style="color:#8C6F35;font-weight:600;text-decoration:underline">Vraag direct een vaste prijs via WhatsApp</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ KENNIS / SEO ============ -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Airport taxi kennis</span>
+          <h2>Alles over uw <span class="serif">taxi naar de luchthaven.</span></h2>
+        </div>
+        <p>Wat u moet weten voordat u uw luchthavenvervoer vastlegt.</p>
+      </div>
+
+      <div class="kennis">
+        <article class="rv">
+          <span class="mono" style="color:#8C6F35">Taxi naar Schiphol</span>
+          <h3>Vanuit elke wijk in Amsterdam</h3>
+          <p>Een taxi naar Schiphol reserveert u bij ons vooraf, vanuit Amsterdam Centrum, Zuid, West, Noord, Zuidoost of Amstelveen. U krijgt een vaste prijs voor uw Schiphol taxi, dus geen meter die doorloopt in de file.</p>
+          <p>Juist bij vroege vluchten is dat prettig: de rit staat vast, de chauffeur is op tijd en u hoeft 's ochtends nergens meer over na te denken.</p>
+        </article>
+
+        <article class="rv">
+          <span class="mono" style="color:#8C6F35">Luchthavenvervoer buitenland</span>
+          <h3>België en Duitsland, één vaste prijs</h3>
+          <p>Vliegt u vanaf Brussel Zaventem, Charleroi, Düsseldorf, Weeze, Keulen of Frankfurt, dan rijdt u in één keer door. Geen overstappen met koffers, geen treinwissels, geen parkeerkosten bij de luchthaven.</p>
+          <p>De prijs voor de hele grensrit spreken wij vooraf af, heen en eventueel terug, zodat u precies weet waar u aan toe bent.</p>
+        </article>
+
+        <article class="rv">
+          <span class="mono" style="color:#8C6F35">Vluchtmonitoring</span>
+          <h3>Waarom uw vluchtnummer handig is</h3>
+          <p>Geeft u bij de reservering uw vluchtnummer door, dan houden wij de status van die vlucht in de gaten. Landt u eerder, dan staat uw chauffeur eerder klaar. Loopt het uit, dan schuift de ophaaltijd mee.</p>
+          <p>Zo voorkomt u dat u na een lange vlucht staat te wachten, en voorkomt u wachtkosten doordat een chauffeur te vroeg stond.</p>
+        </article>
+
+        <article class="rv">
+          <span class="mono" style="color:#8C6F35">Bagage en gezelschap</span>
+          <h3>De juiste auto bij uw koffers</h3>
+          <p>Met z'n tweeën en handbagage rijdt u prima in de E-Klasse of de Tesla. Gaat u met het gezin of een team op pad, dan is de V-Klasse de logische keuze, met ruimte tot acht personen.</p>
+          <p>Vermeld bij uw reservering hoeveel personen en koffers er meegaan, dan kiezen wij de auto die past. Wilt u wifi aan boord, geef het door, dan regelen wij het.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VRAGEN ============ -->
+  <section id="vragen" style="padding-top:0">
+    <div class="wrap">
+      <div class="rf">
+        <div class="rv">
+          <span class="mono">Veelgestelde vragen</span>
+          <h2 style="font-size:clamp(32px,3.6vw,48px);margin-top:16px">Over uw <span class="serif" style="color:#8C6F35">luchthavenrit.</span></h2>
+        </div>
+        <div class="faq rv">
+          <details open><summary>Hoe ver van tevoren moet ik een airport taxi reserveren?</summary><p>Hoe eerder, hoe beter. Bij voorkeur minimaal vierentwintig uur van tevoren, zeker bij vroege vertrektijden. Is het korter dag? Bel of app ons, dan kijken we direct wat mogelijk is.</p></details>
+          <details><summary>Wat gebeurt er als mijn vlucht vertraging heeft?</summary><p>Wij volgen uw vlucht. Uw chauffeur past de ophaaltijd automatisch aan, u hoeft niets te doen. Wachttijd door vertraging van de vlucht zit bij de vaste prijs inbegrepen.</p></details>
+          <details><summary>Staat de prijs naar de luchthaven echt vast?</summary><p>Ja. U ontvangt de prijs bij de bevestiging en dat is ook wat u betaalt. Geen meter die doorloopt, ook niet als het druk is op de weg.</p></details>
+          <details><summary>Word ik opgewacht bij aankomst?</summary><p>Ja, bij de luchthaven wordt u opgewacht met een naambord. U krijgt vooraf de naam en het telefoonnummer van uw chauffeur, plus de auto en het kenteken.</p></details>
+          <details><summary>Rijden jullie ook naar luchthavens in België en Duitsland?</summary><p>Ja. Brussel Zaventem, Charleroi, Antwerpen, Düsseldorf, Weeze, Keulen Bonn en Frankfurt rijden wij rechtstreeks vanuit Amsterdam, met één vaste prijs voor de hele rit.</p></details>
+          <details><summary>Kan ik 's nachts of heel vroeg worden opgehaald?</summary><p>Ja. Juist nachtvluchten en vroege vertrektijden zijn een reden om vooraf te reserveren. Wij plannen de rit in, zodat er 's ochtends niets meer geregeld hoeft te worden.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <div class="cta-page">
+    <section class="cta">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.75],[0.30,0.55],[0.60,1.0],[1.05,0.65]],[[-0.05,0.20],[0.35,0.45],[0.65,-0.1],[1.05,0.30]]]' aria-hidden="true"></canvas>
+      <span class="tag">Vooraf reserveren</span>
+      <h2>Uw vlucht staat vast. <span class="serif">Uw rit ook.</span></h2>
+      <p>Geef uw vluchtnummer en ophaaladres door, dan krijgt u een vaste prijs terug en volgen wij uw vlucht.</p>
+      <div class="cta-acties">
+        <a class="btn btn-goud" href="../#reserveren">Airport taxi reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+        <a class="btn btn-lijn" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>020 210 1637</a>
+        <a class="btn btn-lijn" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20airport%20taxi%20reserveren." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>WhatsApp</a>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="voet">
+      <div>
+        <a class="merk" href="../"><img src="../img/logo/fixed-ride-logo-licht.svg" alt="" width="54" height="38">Fixed <span class="serif">Ride</span></a>
+        <p>Luchthavenvervoer vanuit Amsterdam naar Nederland, België en Duitsland. Vooraf vastgelegd, vast van prijs.</p>
+      </div>
+      <div><h4>Luchthavens</h4><ul><li><a href="#luchthavens">Schiphol</a></li><li><a href="#luchthavens">Brussel Zaventem</a></li><li><a href="#luchthavens">Düsseldorf</a></li><li><a href="#luchthavens">Frankfurt</a></li></ul></div>
+      <div><h4>Fixed Ride</h4><ul><li><a href="../#werkwijze">Werkwijze</a></li><li><a href="../#vloot">Vloot &amp; prijzen</a></li><li><a href="#vragen">Vragen</a></li><li><a href="../over-ons/">Over ons</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+31202101637">020 210 1637</a></li><li><a href="https://wa.me/31202101637">WhatsApp</a></li><li><a href="../over-ons/#verloren-voorwerpen">Verloren voorwerpen</a></li></ul></div>
+    </div>
+    <div class="voet-onder"><span>© 2026 Fixed Ride</span><span>Bemiddelaar in taxiritten, gereden door gelicentieerde chauffeurs</span></div>
+  </div>
+</footer>
+
+<script src="../js/sfeer.js" defer></script>
+<script src="../js/toestemming.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Hoe ver van tevoren moet ik een airport taxi reserveren?", "acceptedAnswer": { "@type": "Answer", "text": "Bij voorkeur minimaal vierentwintig uur van tevoren, zeker bij vroege vertrektijden. Op kortere termijn kunt u bellen of appen, dan kijken wij direct wat mogelijk is." } },
+    { "@type": "Question", "name": "Wat gebeurt er als mijn vlucht vertraging heeft?", "acceptedAnswer": { "@type": "Answer", "text": "Wij volgen uw vlucht. De chauffeur past de ophaaltijd automatisch aan. Wachttijd door vertraging van de vlucht zit bij de vaste prijs inbegrepen." } },
+    { "@type": "Question", "name": "Staat de prijs naar de luchthaven echt vast?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. U ontvangt de prijs bij de bevestiging en dat is ook wat u betaalt. Er loopt geen meter door." } },
+    { "@type": "Question", "name": "Word ik opgewacht bij aankomst?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, bij de luchthaven wordt u opgewacht met een naambord. Vooraf ontvangt u naam, telefoonnummer, auto en kenteken van uw chauffeur." } },
+    { "@type": "Question", "name": "Rijden jullie ook naar luchthavens in België en Duitsland?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Brussel Zaventem, Charleroi, Antwerpen, Düsseldorf, Weeze, Keulen Bonn en Frankfurt rijden wij rechtstreeks vanuit Amsterdam, met een vaste prijs voor de hele rit." } }
+  ]
+}
+</script>
+</body>
+</html>

@@ -15,8 +15,8 @@
      =================================================================== */
   const ADS_ID = "AW-18533695969";
   const CONVERSIES = {
-    whatsapp: "AW-NOG-INVULLEN/LABEL-WHATSAPP",
-    bellen:   "AW-NOG-INVULLEN/LABEL-BELLEN"
+    whatsapp: "AW-18533695969/MHBdCK_pn6gdEOGDx4VF",
+    bellen:   "AW-18533695969/mQ37CLLpn6gdEOGDx4VF"
   };
   const PRIVACY_URL = ""; /* straks: "/privacy/" */
   /* =================================================================== */

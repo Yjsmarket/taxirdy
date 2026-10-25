@@ -54,3 +54,23 @@ en Frankfurt.
 Zodra de klant die prijzen aanlevert (enkel en retour, per voertuigklasse),
 kunnen ze in de luchthavenkaarten en in de tarieventabel. Niets invullen
 zonder opgave van de klant.
+
+## Stadsritten en positionering (26-10-2026)
+
+Aanleiding: klikken uit Google Ads leverden geen belletjes op. Op de
+homepage stond "vooraf" 17 keer en "stadsritten" nul keer, waardoor de
+site las alsof alleen vooraf plannen mogelijk was.
+
+Gedaan:
+- `/stadsritten/` als landingspagina voor zoekwoorden rond "taxi amsterdam"
+- homepage breder gemaakt: titel, omschrijving, hero-labels, hero-tekst,
+  punten en footer noemen nu ook losse ritten en een rit voor vandaag
+- de vaste mobiele balk met Bellen en WhatsApp staat nu op alle pagina's,
+  stond eerst alleen op de homepage
+
+Nog in te vullen zodra de klant de bedragen geeft:
+- vaste prijzen in de routetabel op `/stadsritten/` (nu "Op aanvraag")
+- Skoda Superb, de Comfort-klasse, heeft nog geen prijs en geen foto
+  (`img/fleet-superb.jpg` ontbreekt). Dat is de instapauto en dus juist
+  de auto voor een gewone stadsrit.
+- de elf luchthaventarieven uit de vorige notitie

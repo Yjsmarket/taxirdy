@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tours &amp; dagtochten met privéchauffeur | Vanuit Amsterdam | Fixed Ride</title>
+<meta name="description" content="Dagtochten en rondritten met eigen chauffeur vanuit Amsterdam. Keukenhof, Zaanse Schans, Giethoorn, Kinderdijk of een rondrit door de stad. Vaste prijs, eigen tempo, zelf samen te stellen.">
+<meta name="theme-color" content="#0A120F">
+<link rel="icon" href="../img/logo/fixed-ride-badge.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/logo/fixed-ride-badge.svg">
+<link rel="canonical" href="https://fixed-ride.nl/tours/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/app.css?v=1">
+<style>
+  .hero h1 { font-size: clamp(36px, 4.8vw, 62px); }
+
+  /* ---------- Tours ---------- */
+  .tours { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .tour { display: flex; flex-direction: column; gap: 11px; padding: 26px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); transition: transform .3s, box-shadow .3s; }
+  .tour:hover { transform: translateY(-3px); box-shadow: 0 24px 50px rgba(10, 18, 15, 0.08); }
+  .tour-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .tour-duur { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: var(--pill); background: var(--creme); border: 1px solid var(--lijn); font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8C6F35; }
+  .tour-seizoen { font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tekst-zacht); }
+  .tour h3 { font-size: 22px; }
+  .tour p { font-size: 14.5px; color: var(--tekst-zacht); }
+  .tour-voet { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--lijn); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .tour-prijs { font-family: var(--f-serif); font-style: italic; font-size: 19px; color: var(--tekst-zacht); }
+  .tour-knop { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; color: #8C6F35; white-space: nowrap; }
+  .tour-knop .i { width: 15px; height: 15px; }
+
+  /* ---------- Zelf samenstellen ---------- */
+  .zelf { display: grid; grid-template-columns: 1fr 0.9fr; gap: 48px; align-items: center; padding: 44px; border-radius: var(--r-xl); background: var(--ink); color: var(--op-donker); }
+  .zelf h2 { font-size: clamp(30px, 3.4vw, 44px); color: var(--wit); margin: 16px 0 16px; }
+  .zelf h2 .serif { color: var(--goud); }
+  .zelf p { font-size: 16px; color: var(--zacht-donker); margin-bottom: 22px; max-width: 52ch; }
+  .zelf .mono { color: var(--goud); }
+  .zelf ul { list-style: none; display: grid; gap: 11px; }
+  .zelf li { display: flex; gap: 11px; align-items: flex-start; font-size: 15px; }
+  .zelf li .i { width: 17px; height: 17px; margin-top: 3px; color: var(--goud); }
+
+  /* ---------- Zo werkt een dag ---------- */
+  .dag { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .dag article { padding: 26px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); }
+  .dag .mono { color: #8C6F35; }
+  .dag h3 { font-size: 19px; margin: 10px 0 8px; }
+  .dag p { font-size: 14px; color: var(--tekst-zacht); }
+
+  @media (max-width: 1080px) {
+    .tours { grid-template-columns: 1fr 1fr; }
+    .zelf { grid-template-columns: 1fr; gap: 30px; padding: 32px; }
+    .dag { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero-logo { height: 62px; }
+    /* Twee tours naast elkaar, geen blok per scroll. */
+    .tours { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .tour { padding: 16px; }
+    .tour h3 { font-size: 16px; }
+    .tour p, .tour-seizoen { display: none; }
+    .tour-voet { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .tour-prijs { font-size: 17px; }
+    .zelf { padding: 24px; }
+    .dag { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .dag article { padding: 18px; }
+    .dag h3 { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.9 19.5L3 21z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l1-1.6-2.1-1-1 .9a4.2 4.2 0 0 1-2.3-2.3l.9-1-1-2.1L9 8.8z"/></symbol>
+  <symbol id="i-pijl" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-klok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+  <symbol id="i-mens" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3h-2M3 16h2m4 0h6"/><circle cx="7" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></symbol>
+</svg>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero-page">
+    <section class="hero" aria-labelledby="t-tours">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.78],[0.28,0.58],[0.58,0.98],[1.05,0.70]],[[0.36,-0.05],[0.52,0.32],[0.72,0.20],[0.98,0.58]],[[-0.05,0.26],[0.30,0.42],[0.48,0.06],[0.82,-0.05]],[[0.62,1.05],[0.72,0.68],[0.92,0.52],[1.05,0.28]]]' aria-hidden="true"></canvas>
+      <div class="wrap">
+        <header class="nav">
+          <a class="merk" href="../" aria-label="Fixed Ride, naar de homepage">Fixed <span class="serif">Ride</span></a>
+          <nav class="nav-links" aria-label="Hoofdmenu">
+            <a href="../stadsritten/">Stadsritten</a><a href="../airport-taxi/">Airport taxi</a><a href="./" aria-current="page">Tours</a><a href="../over-ons/">Over ons</a>
+          </nav>
+          <div class="nav-acties">
+            <a class="btn btn-bel" href="tel:+31202101637" aria-label="Bel 020 210 1637"><svg class="i"><use href="#i-tel"/></svg><span>020 210 1637</span></a>
+            <a class="rond rond-wa" href="https://wa.me/31202101637" aria-label="WhatsApp"><svg class="i wa"><use href="#i-wa"/></svg></a>
+            <a class="btn btn-goud" href="../#reserveren">Reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+          </div>
+        </header>
+
+        <div class="hero-grid">
+          <div class="hero-tekst">
+            <img class="hero-logo" src="../img/logo/fixed-ride-logo-animatie.svg" alt="" width="149" height="104">
+            <div class="tags">
+              <span class="tag">Eigen chauffeur</span>
+              <span class="tag">Uw eigen tempo</span>
+              <span class="tag">Vaste prijs</span>
+            </div>
+            <h1 id="t-tours">Nederland zien <span class="serif">zonder gedoe met reizen.</span></h1>
+            <p class="hero-sub">Een dag op pad met een <b>eigen chauffeur</b>. Geen treinen zoeken, geen parkeerplaats zoeken, geen groep waar u op moet wachten. U stapt in bij uw hotel of voordeur en bepaalt zelf hoe lang u ergens blijft.</p>
+            <div class="hero-acties">
+              <a class="btn btn-goud" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20dagtocht%20met%20chauffeur%20bespreken." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Bespreek uw dag</a>
+              <a class="btn btn-lijn" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>Bel direct</a>
+            </div>
+            <ul class="punten">
+              <li><svg class="i"><use href="#i-check"/></svg>Opgehaald bij hotel of thuis</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Tot 8 personen samen</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Zelf de route bepalen</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Chauffeur blijft de hele dag</li>
+            </ul>
+          </div>
+
+          <div class="hero-beeld">
+            <div class="hero-foto"><img src="../img/fleet-bus.jpg" alt="Mercedes V-Klasse voor dagtochten vanuit Amsterdam"><span class="foto-tag">Mercedes V-Klasse · tot 8 personen</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ TOURS ============ -->
+  <section id="bestemmingen">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Bestemmingen</span>
+          <h2>Dagtochten die wij <span class="serif">vaak rijden.</span></h2>
+        </div>
+        <p>Dit zijn de bekendste. Alles is aan te passen: langer blijven, iets overslaan of twee bestemmingen combineren.</p>
+      </div>
+
+      <!-- PRIJZEN: zodra de klant bedragen aanlevert, vervang "Op aanvraag".
+           Niets invullen zonder opgave van de klant. -->
+      <div class="tours">
+        <article class="tour rv">
+          <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>2 tot 3 uur</span><span class="tour-seizoen">Hele jaar</span></div>
+          <h3>Rondrit Amsterdam</h3>
+          <p>Langs de grachtengordel, de Jordaan, het Museumplein en de Zuidas. Uitstappen waar u een foto wilt maken, en door wanneer u er klaar voor bent.</p>
+          <div class="tour-voet"><span class="tour-prijs">Op aanvraag</span><a class="tour-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20rondrit%20door%20Amsterdam%20bespreken." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </article>
+
+        <article class="tour rv">
+          <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Halve dag</span><span class="tour-seizoen">Voorjaar</span></div>
+          <h3>Keukenhof</h3>
+          <p>De bloementuinen in Lisse, geopend in het voorjaar. Wij brengen u tot aan de ingang en staan er weer als u klaar bent, dus u hoeft niet op een bus te wachten.</p>
+          <div class="tour-voet"><span class="tour-prijs">Op aanvraag</span><a class="tour-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20rit%20naar%20de%20Keukenhof%20bespreken." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </article>
+
+        <article class="tour rv">
+          <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Halve dag</span><span class="tour-seizoen">Hele jaar</span></div>
+          <h3>Zaanse Schans</h3>
+          <p>De molens aan de Zaan, op een half uur rijden van Amsterdam. Vaak gecombineerd met Volendam en Marken tot een volle dag.</p>
+          <div class="tour-voet"><span class="tour-prijs">Op aanvraag</span><a class="tour-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20rit%20naar%20de%20Zaanse%20Schans%20bespreken." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </article>
+
+        <article class="tour rv">
+          <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Hele dag</span><span class="tour-seizoen">Hele jaar</span></div>
+          <h3>Giethoorn</h3>
+          <p>Het dorp zonder autowegen, met grachtjes en bruggetjes. Een rit van ongeveer anderhalf uur heen, dus een dag waarop u rustig de tijd heeft.</p>
+          <div class="tour-voet"><span class="tour-prijs">Op aanvraag</span><a class="tour-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20dagtocht%20naar%20Giethoorn%20bespreken." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </article>
+
+        <article class="tour rv">
+          <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Halve dag</span><span class="tour-seizoen">Hele jaar</span></div>
+          <h3>Kinderdijk</h3>
+          <p>Negentien molens op werelderfgoedlijst, bij Rotterdam. Goed te combineren met een rondrit door Rotterdam of een stop in Delft.</p>
+          <div class="tour-voet"><span class="tour-prijs">Op aanvraag</span><a class="tour-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20rit%20naar%20Kinderdijk%20bespreken." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </article>
+
+        <article class="tour rv">
+          <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Halve dag</span><span class="tour-seizoen">Hele jaar</span></div>
+          <h3>Volendam &amp; Marken</h3>
+          <p>Twee oude vissersdorpen aan het water, dicht bij elkaar. Een korte rit vanuit Amsterdam en daarom populair als eerste uitstapje.</p>
+          <div class="tour-voet"><span class="tour-prijs">Op aanvraag</span><a class="tour-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20rit%20naar%20Volendam%20en%20Marken%20bespreken." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </article>
+
+        <article class="tour rv">
+          <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Hele dag</span><span class="tour-seizoen">Hele jaar</span></div>
+          <h3>Den Haag &amp; Scheveningen</h3>
+          <p>Het regeringscentrum, het Mauritshuis en daarna het strand. Een dag met stad en zee door elkaar, zonder dat u hoeft over te stappen.</p>
+          <div class="tour-voet"><span class="tour-prijs">Op aanvraag</span><a class="tour-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20dagtocht%20naar%20Den%20Haag%20bespreken." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </article>
+
+        <article class="tour rv">
+          <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Hele dag</span><span class="tour-seizoen">Hele jaar</span></div>
+          <h3>Rotterdam</h3>
+          <p>Moderne architectuur, de Markthal en de haven. Een heel ander Nederland dan Amsterdam, op een klein uur rijden.</p>
+          <div class="tour-voet"><span class="tour-prijs">Op aanvraag</span><a class="tour-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20dagtocht%20naar%20Rotterdam%20bespreken." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </article>
+
+        <article class="tour rv">
+          <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Hele dag</span><span class="tour-seizoen">Hele jaar</span></div>
+          <h3>Brugge of Antwerpen</h3>
+          <p>Over de grens voor een dag België. Langer onderweg, maar u rijdt in één keer door en hoeft niets over te stappen.</p>
+          <div class="tour-voet"><span class="tour-prijs">Op aanvraag</span><a class="tour-knop" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20dagtocht%20naar%20Belgie%20bespreken." target="_blank" rel="noopener">Prijs vragen <svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ZELF SAMENSTELLEN ============ -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="zelf rv">
+        <div>
+          <span class="mono">Uw eigen route</span>
+          <h2>Liever iets heel anders? <span class="serif">Stel uw dag zelf samen.</span></h2>
+          <p>U hoeft niet te kiezen uit een lijstje. Vertel ons waar u heen wilt, hoe laat u wilt vertrekken en hoe lang u wilt blijven, dan maken wij er een dag van en noemen u vooraf een vaste prijs.</p>
+          <a class="btn btn-goud" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20zelf%20een%20dagtocht%20samenstellen." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Vertel ons uw plan</a>
+        </div>
+        <ul>
+          <li><svg class="i"><use href="#i-check"/></svg>Meerdere bestemmingen op één dag</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Beginnen en eindigen waar u wilt</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Chauffeur wacht terwijl u rondkijkt</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Ook met een groep tot acht personen</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Per uur afrekenen kan ook</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ZO WERKT EEN DAG ============ -->
+  <section class="vloot" id="hoe">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Hoe een dag verloopt</span>
+          <h2>Uw chauffeur blijft, <span class="serif">de hele dag.</span></h2>
+        </div>
+        <p>Geen rondleiding met een microfoon, maar iemand die rijdt, wacht en meedenkt.</p>
+      </div>
+
+      <div class="dag">
+        <article class="rv" style="background:var(--ink-2);border-color:var(--ink-line)">
+          <span class="mono">Vooraf</span>
+          <h3 style="color:var(--wit)">U vertelt uw plan</h3>
+          <p style="color:var(--zacht-donker)">Waar u heen wilt, met hoeveel personen en hoe laat. U krijgt een vaste prijs voor de hele dag terug.</p>
+        </article>
+        <article class="rv" style="background:var(--ink-2);border-color:var(--ink-line)">
+          <span class="mono">Ophalen</span>
+          <h3 style="color:var(--wit)">Voor de deur</h3>
+          <p style="color:var(--zacht-donker)">Bij uw hotel, appartement of thuis. Geen verzamelpunt waar u naartoe moet lopen.</p>
+        </article>
+        <article class="rv" style="background:var(--ink-2);border-color:var(--ink-line)">
+          <span class="mono">Onderweg</span>
+          <h3 style="color:var(--wit)">Uw tempo</h3>
+          <p style="color:var(--zacht-donker)">Langer blijven of eerder door kan gewoon. De chauffeur wacht en rijdt verder wanneer u wilt.</p>
+        </article>
+        <article class="rv" style="background:var(--ink-2);border-color:var(--ink-line)">
+          <span class="mono">Terug</span>
+          <h3 style="color:var(--wit)">Weer thuisgebracht</h3>
+          <p style="color:var(--zacht-donker)">Aan het einde van de dag brengt dezelfde chauffeur u terug naar waar u bent opgehaald.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VRAGEN ============ -->
+  <section id="vragen" style="padding-top:0">
+    <div class="wrap">
+      <div class="rf">
+        <div class="rv">
+          <span class="mono">Veelgestelde vragen</span>
+          <h2 style="font-size:clamp(32px,3.6vw,48px);margin-top:16px">Over uw <span class="serif" style="color:#8C6F35">dagtocht.</span></h2>
+        </div>
+        <div class="faq rv">
+          <details open><summary>Is de chauffeur ook een gids?</summary><p>Onze chauffeurs kennen de weg en de omgeving en vertellen graag wat, maar het zijn geen opgeleide gidsen. Wilt u een echte rondleiding bij een bestemming, dan kunt u die ter plaatse boeken.</p></details>
+          <details><summary>Wat kost een dagtocht?</summary><p>Dat hangt af van de bestemming, het aantal uren en hoeveel personen er mee gaan. U krijgt vooraf een vaste prijs voor de hele dag, zodat u niet achteraf wordt verrast.</p></details>
+          <details><summary>Zijn entreekaartjes inbegrepen?</summary><p>Nee, entreegeld voor bijvoorbeeld de Keukenhof of een museum regelt u zelf. Wij rekenen alleen het vervoer en de wachttijd van de chauffeur.</p></details>
+          <details><summary>Kunnen wij onderweg de route aanpassen?</summary><p>Ja. Wilt u ergens langer blijven of juist iets overslaan, zeg het tegen uw chauffeur. Loopt de dag daardoor flink uit, dan overleggen wij even over de extra tijd.</p></details>
+          <details><summary>Met hoeveel personen kunnen wij mee?</summary><p>Tot vier personen rijdt u in een sedan, tot acht personen in de V-Klasse. Bent u met meer, laat het weten, dan regelen wij een tweede auto.</p></details>
+          <details><summary>Hoe ver van tevoren moet ik boeken?</summary><p>Voor een dagtocht raden wij aan om ruim vooruit te plannen, zeker in het voorjaar en in de zomer. Dan weten wij zeker dat er een auto en chauffeur voor u vrij zijn.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <div class="cta-page">
+    <section class="cta">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.75],[0.30,0.55],[0.60,1.0],[1.05,0.65]],[[-0.05,0.20],[0.35,0.45],[0.65,-0.1],[1.05,0.30]]]' aria-hidden="true"></canvas>
+      <span class="tag">Dagtochten</span>
+      <h2>Vertel waar u heen wilt. <span class="serif">Wij rijden.</span></h2>
+      <p>Een bekende bestemming of uw eigen route. U krijgt vooraf een vaste prijs voor de hele dag.</p>
+      <div class="cta-acties">
+        <a class="btn btn-goud" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20dagtocht%20met%20chauffeur%20bespreken." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Bespreek uw dag</a>
+        <a class="btn btn-lijn" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>020 210 1637</a>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="voet">
+      <div>
+        <a class="merk" href="../"><img src="../img/logo/fixed-ride-logo-licht.svg" alt="" width="54" height="38">Fixed <span class="serif">Ride</span></a>
+        <p>Taxi en privéchauffeur in Amsterdam. Stadsritten, luchthavenvervoer, zakelijk vervoer en tours.</p>
+      </div>
+      <div><h4>Diensten</h4><ul><li><a href="../stadsritten/">Stadsritten</a></li><li><a href="../airport-taxi/">Luchthaven</a></li><li><a href="./">Tours</a></li><li><a href="../#diensten">Zakelijk</a></li></ul></div>
+      <div><h4>Fixed Ride</h4><ul><li><a href="../#werkwijze">Werkwijze</a></li><li><a href="../#vloot">Vloot &amp; prijzen</a></li><li><a href="#vragen">Vragen</a></li><li><a href="../over-ons/">Over ons</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+31202101637">020 210 1637</a></li><li><a href="https://wa.me/31202101637">WhatsApp</a></li><li><a href="../over-ons/#verloren-voorwerpen">Verloren voorwerpen</a></li></ul></div>
+    </div>
+    <div class="voet-onder"><span>© 2026 Fixed Ride</span><span>Bemiddelaar in taxiritten, gereden door gelicentieerde chauffeurs</span></div>
+  </div>
+</footer>
+
+<nav class="mbalk" aria-label="Snel contact">
+  <a href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>Bel</a>
+  <a href="https://wa.me/31202101637"><svg class="i wa"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a href="../#reserveren" class="hoofd">Reserveren</a>
+</nav>
+
+<script src="../js/sfeer.js" defer></script>
+<script src="../js/toestemming.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is de chauffeur ook een gids?", "acceptedAnswer": { "@type": "Answer", "text": "Onze chauffeurs kennen de weg en de omgeving en vertellen graag wat, maar het zijn geen opgeleide gidsen. Een echte rondleiding kunt u ter plaatse boeken." } },
+    { "@type": "Question", "name": "Wat kost een dagtocht met chauffeur?", "acceptedAnswer": { "@type": "Answer", "text": "Dat hangt af van de bestemming, het aantal uren en het aantal personen. U krijgt vooraf een vaste prijs voor de hele dag." } },
+    { "@type": "Question", "name": "Zijn entreekaartjes inbegrepen?", "acceptedAnswer": { "@type": "Answer", "text": "Nee, entreegeld regelt u zelf. Wij rekenen alleen het vervoer en de wachttijd van de chauffeur." } },
+    { "@type": "Question", "name": "Met hoeveel personen kunnen wij mee op dagtocht?", "acceptedAnswer": { "@type": "Answer", "text": "Tot vier personen in een sedan, tot acht personen in de V-Klasse. Bij meer personen regelen wij een tweede auto." } }
+  ]
+}
+</script>
+</body>
+</html>

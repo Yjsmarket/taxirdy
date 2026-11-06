@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taxi bellen Amsterdam | Direct een taxi, ook nu | Fixed Ride</title>
+<meta name="description" content="Direct een taxi nodig in Amsterdam? Bel 020 210 1637 en wij sturen de dichtstbijzijnde auto. Op de meter, geen piektarieven, gelicentieerde chauffeurs. Dag en nacht bereikbaar.">
+<meta name="theme-color" content="#0A120F">
+<link rel="icon" href="../img/logo/fixed-ride-badge.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/logo/fixed-ride-badge.svg">
+<link rel="canonical" href="https://fixed-ride.nl/taxi-bellen/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/app.css?v=1">
+<style>
+  .hero h1 { font-size: clamp(38px, 5.4vw, 70px); }
+
+  /* ---------- Grote belknop ---------- */
+  .belblok { display: grid; gap: 14px; justify-items: start; }
+  .belnr { display: inline-flex; align-items: center; gap: 16px; padding: 20px 30px; border-radius: var(--pill); background: var(--goud); color: var(--ink); font-family: var(--f-mono); font-size: clamp(26px, 4.2vw, 38px); font-weight: 600; letter-spacing: -0.01em; transition: box-shadow .3s, transform .2s; }
+  .belnr:hover { box-shadow: 0 0 50px rgba(212, 185, 127, 0.45); transform: translateY(-2px); }
+  .belnr .i { width: 30px; height: 30px; stroke-width: 1.9; }
+  .belnu { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 600; color: var(--goud); }
+  .belnu i { width: 9px; height: 9px; border-radius: 50%; background: var(--goud); animation: ping 1.8s ease-out infinite; }
+
+  /* ---------- Drie stappen ---------- */
+  .snel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .snel article { padding: 28px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); }
+  .snel .nr { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--creme); border: 1px solid var(--lijn); font-family: var(--f-serif); font-size: 21px; color: #8C6F35; margin-bottom: 16px; }
+  .snel h3 { font-size: 21px; margin-bottom: 8px; }
+  .snel p { font-size: 14.5px; color: var(--tekst-zacht); }
+
+  /* ---------- Geruststelling ---------- */
+  .zeker { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .zeker div { padding: 24px; border-radius: var(--r-lg); background: var(--ink-2); border: 1px solid var(--ink-line); }
+  .zeker .i { width: 24px; height: 24px; color: var(--goud); margin-bottom: 14px; }
+  .zeker strong { display: block; font-size: 16px; color: var(--wit); margin-bottom: 6px; }
+  .zeker span { font-size: 14px; color: var(--zacht-donker); line-height: 1.5; }
+
+  /* ---------- Wijken ---------- */
+  .wijken { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wijk { padding: 9px 15px; border-radius: var(--pill); background: var(--wit); border: 1px solid var(--lijn); font-size: 14px; font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) { .belnu i { animation: none; } }
+  @media (max-width: 1080px) {
+    .snel { grid-template-columns: 1fr; }
+    .zeker { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero-logo { height: 62px; }
+    .belnr { width: 100%; justify-content: center; padding: 18px 20px; gap: 12px; }
+    .snel article { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.9 19.5L3 21z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l1-1.6-2.1-1-1 .9a4.2 4.2 0 0 1-2.3-2.3l.9-1-1-2.1L9 8.8z"/></symbol>
+  <symbol id="i-pijl" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-klok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M18 6.5A7 7 0 1 0 18 17.5M4 10h10M4 14h10"/></symbol>
+  <symbol id="i-schild" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3h-2M3 16h2m4 0h6"/><circle cx="7" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></symbol>
+</svg>
+
+<main id="top">
+
+  <!-- ============ HERO, alles gericht op bellen ============ -->
+  <div class="hero-page">
+    <section class="hero" aria-labelledby="t-bel">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.78],[0.28,0.58],[0.58,0.98],[1.05,0.70]],[[0.36,-0.05],[0.52,0.32],[0.72,0.20],[0.98,0.58]],[[-0.05,0.26],[0.30,0.42],[0.48,0.06],[0.82,-0.05]]]' aria-hidden="true"></canvas>
+      <div class="wrap">
+        <header class="nav">
+          <a class="merk" href="../" aria-label="Fixed Ride, naar de homepage">Fixed <span class="serif">Ride</span></a>
+          <nav class="nav-links" aria-label="Hoofdmenu">
+            <a href="../stadsritten/">Stadsritten</a><a href="../airport-taxi/">Airport taxi</a><a href="../tours/">Tours</a><a href="../over-ons/">Over ons</a>
+          </nav>
+          <div class="nav-acties">
+            <a class="rond rond-wa" href="https://wa.me/31202101637" aria-label="WhatsApp"><svg class="i wa"><use href="#i-wa"/></svg></a>
+            <a class="btn btn-goud" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>020 210 1637</a>
+          </div>
+        </header>
+
+        <div class="hero-grid">
+          <div class="hero-tekst">
+            <span class="belnu"><i></i>Dag en nacht bereikbaar</span>
+            <h1 id="t-bel">Nu een taxi nodig? <span class="serif">Bel, wij rijden.</span></h1>
+            <p class="hero-sub">Eén telefoontje en wij sturen de dichtstbijzijnde auto uit ons netwerk. <b>Op de meter</b>, zonder toeslag omdat het druk is. Liever vooraf een vaste prijs? Dat kan ook, zeg het erbij.</p>
+
+            <div class="belblok">
+              <a class="belnr" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>020 210 1637</a>
+              <a class="btn btn-lijn" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20heb%20nu%20een%20taxi%20nodig." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Liever appen? Stuur een bericht</a>
+            </div>
+
+            <ul class="punten">
+              <li><svg class="i"><use href="#i-check"/></svg>Geen piektarieven</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Pinnen of contant</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Gelicentieerde chauffeurs</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Tot 8 personen mogelijk</li>
+            </ul>
+          </div>
+
+          <div class="hero-beeld">
+            <div class="hero-foto"><img src="../img/fleet-sedan.jpg" alt="Taxi van Fixed Ride in Amsterdam"><span class="foto-tag">Comfortabel en verzorgd</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ DRIE STAPPEN ============ -->
+  <section id="hoe">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Zo snel gaat het</span>
+          <h2>Bellen, instappen, <span class="serif">klaar.</span></h2>
+        </div>
+        <p>Geen app installeren, geen account aanmaken, geen wachtrij. U krijgt meteen iemand aan de lijn.</p>
+      </div>
+
+      <div class="snel">
+        <article class="rv">
+          <span class="nr">1</span>
+          <h3>U belt ons</h3>
+          <p>Zeg waar u staat en waar u heen wilt. Met hoeveel personen u bent en of u bagage heeft, dan weten wij welke auto we sturen.</p>
+        </article>
+        <article class="rv">
+          <span class="nr">2</span>
+          <h3>Wij regelen de auto</h3>
+          <p>Wij kijken welke chauffeur uit ons netwerk het dichtst bij u is en hoe lang die erover doet. Dat hoort u meteen, zodat u weet waar u aan toe bent.</p>
+        </article>
+        <article class="rv">
+          <span class="nr">3</span>
+          <h3>U stapt in</h3>
+          <p>De chauffeur komt naar het adres dat u doorgaf. Afrekenen doet u in de auto, pinnen of contant, net wat u wilt.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GERUSTSTELLING ============ -->
+  <section class="vloot" id="zeker">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Waar u op kunt rekenen</span>
+          <h2>Een gewone rit, <span class="serif">goed geregeld.</span></h2>
+        </div>
+        <p>Ook als u ons voor het eerst belt en de rit maar tien minuten duurt.</p>
+      </div>
+
+      <div class="zeker">
+        <div class="rv">
+          <svg class="i"><use href="#i-euro"/></svg>
+          <strong>Geen piektarieven</strong>
+          <span>Regen, vrijdagavond of een evenement dat afloopt. Het tarief verandert daar bij ons niet door.</span>
+        </div>
+        <div class="rv">
+          <svg class="i"><use href="#i-schild"/></svg>
+          <strong>Altijd met vergunning</strong>
+          <span>Elke rit wordt gereden door een gelicentieerde chauffeur, in verzekerd vervoer.</span>
+        </div>
+        <div class="rv">
+          <svg class="i"><use href="#i-auto"/></svg>
+          <strong>De juiste auto</strong>
+          <span>Alleen of met z'n tweeën een sedan. Met een groep of veel bagage sturen wij een bus.</span>
+        </div>
+        <div class="rv">
+          <svg class="i"><use href="#i-klok"/></svg>
+          <strong>Ook 's nachts</strong>
+          <span>Dag en nacht bereikbaar, ook in het weekend en op feestdagen.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WIJKEN ============ -->
+  <section id="wijken" style="padding-top:0">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Werkgebied</span>
+          <h2>Wij rijden in <span class="serif">heel Amsterdam.</span></h2>
+        </div>
+        <p>En in de omliggende gemeenten. Staat uw plaats er niet bij? Bel gerust, dan kijken we wat er mogelijk is.</p>
+      </div>
+      <div class="wijken rv">
+        <span class="wijk">Centrum</span><span class="wijk">Jordaan</span><span class="wijk">De Pijp</span>
+        <span class="wijk">Oud-Zuid</span><span class="wijk">Zuidas</span><span class="wijk">Oost</span>
+        <span class="wijk">Noord</span><span class="wijk">West</span><span class="wijk">Nieuw-West</span>
+        <span class="wijk">Zuidoost</span><span class="wijk">IJburg</span><span class="wijk">Amstelveen</span>
+        <span class="wijk">Diemen</span><span class="wijk">Duivendrecht</span><span class="wijk">Badhoevedorp</span>
+        <span class="wijk">Hoofddorp</span><span class="wijk">Zaandam</span><span class="wijk">Schiphol</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VRAGEN, kort gehouden ============ -->
+  <section id="vragen" style="padding-top:0">
+    <div class="wrap">
+      <div class="rf">
+        <div class="rv">
+          <span class="mono">Kort antwoord</span>
+          <h2 style="font-size:clamp(32px,3.6vw,48px);margin-top:16px">Voor u <span class="serif" style="color:#8C6F35">belt.</span></h2>
+        </div>
+        <div class="faq rv">
+          <details open><summary>Hoe snel kan er een auto zijn?</summary><p>Dat hangt af van waar u staat en hoe druk het is. Bel ons, dan hoort u direct hoe lang het ongeveer duurt. Wij beloven liever een eerlijke tijd dan een mooie.</p></details>
+          <details><summary>Wat kost een rit?</summary><p>Op de meter rijdt u tegen het officiële taxitarief. Wilt u van tevoren weten wat het kost, vraag dan een vaste prijs, dan ligt het bedrag vast voordat u instapt.</p></details>
+          <details><summary>Kan ik pinnen in de auto?</summary><p>Ja, pinnen kan en contant mag ook. Voor zakelijke klanten is afrekenen op factuur bespreekbaar.</p></details>
+          <details><summary>Met hoeveel personen kunnen wij mee?</summary><p>In een gewone auto rijden vier personen comfortabel mee. Bent u met meer, zeg het bij het bellen, dan sturen wij een bus voor maximaal acht personen.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <div class="cta-page">
+    <section class="cta">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.75],[0.30,0.55],[0.60,1.0],[1.05,0.65]],[[-0.05,0.20],[0.35,0.45],[0.65,-0.1],[1.05,0.30]]]' aria-hidden="true"></canvas>
+      <span class="tag">Direct een taxi</span>
+      <h2>Bel ons. <span class="serif">Wij regelen het nu.</span></h2>
+      <p>Dag en nacht bereikbaar, in heel Amsterdam en omstreken.</p>
+      <div class="cta-acties">
+        <a class="btn btn-goud" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>020 210 1637</a>
+        <a class="btn btn-lijn" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20heb%20nu%20een%20taxi%20nodig." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-lijn" href="../stadsritten/">Liever vooraf regelen</a>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="voet">
+      <div>
+        <a class="merk" href="../"><img src="../img/logo/fixed-ride-logo-licht.svg" alt="" width="54" height="38">Fixed <span class="serif">Ride</span></a>
+        <p>Taxi en privéchauffeur in Amsterdam. Stadsritten, luchthavenvervoer, zakelijk vervoer en tours.</p>
+      </div>
+      <div><h4>Diensten</h4><ul><li><a href="../stadsritten/">Stadsritten</a></li><li><a href="../airport-taxi/">Luchthaven</a></li><li><a href="../tours/">Tours</a></li><li><a href="../#diensten">Zakelijk</a></li></ul></div>
+      <div><h4>Fixed Ride</h4><ul><li><a href="../#werkwijze">Werkwijze</a></li><li><a href="../#vloot">Vloot &amp; prijzen</a></li><li><a href="#vragen">Vragen</a></li><li><a href="../over-ons/">Over ons</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+31202101637">020 210 1637</a></li><li><a href="https://wa.me/31202101637">WhatsApp</a></li><li><a href="../over-ons/#verloren-voorwerpen">Verloren voorwerpen</a></li></ul></div>
+    </div>
+    <div class="voet-onder"><span>© 2026 Fixed Ride</span><span>Bemiddelaar in taxiritten, gereden door gelicentieerde chauffeurs</span></div>
+  </div>
+</footer>
+
+<nav class="mbalk" aria-label="Snel contact">
+  <a href="https://wa.me/31202101637"><svg class="i wa"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a href="../stadsritten/">Vooraf</a>
+  <a href="tel:+31202101637" class="hoofd">Bel nu</a>
+</nav>
+
+<script src="../js/sfeer.js" defer></script>
+<script src="../js/toestemming.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Hoe snel kan er een taxi zijn in Amsterdam?", "acceptedAnswer": { "@type": "Answer", "text": "Dat hangt af van uw locatie en de drukte. Bel ons, dan hoort u direct hoe lang het ongeveer duurt." } },
+    { "@type": "Question", "name": "Wat kost een taxirit in Amsterdam?", "acceptedAnswer": { "@type": "Answer", "text": "Op de meter rijdt u tegen het officiele taxitarief. Wilt u vooraf weten wat het kost, dan spreken wij een vaste prijs af voordat u instapt." } },
+    { "@type": "Question", "name": "Kan ik pinnen in de taxi?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, pinnen kan in de auto en contant mag ook. Voor zakelijke klanten is afrekenen op factuur bespreekbaar." } },
+    { "@type": "Question", "name": "Met hoeveel personen kunnen wij mee?", "acceptedAnswer": { "@type": "Answer", "text": "In een gewone auto rijden vier personen mee. Bent u met meer, dan sturen wij een bus voor maximaal acht personen." } }
+  ]
+}
+</script>
+</body>
+</html>

@@ -502,6 +502,34 @@
   .wa-cta { margin-top: 14px; }
   .kop .wa-cta { justify-self: start; }
 
+  /* ================= Hamburgermenu ================= */
+  .menu-knop { display: none; width: 44px; height: 44px; flex: none; align-items: center; justify-content: center; flex-direction: column; gap: 5px; border-radius: 50%; border: 1px solid var(--ink-line); background: var(--ink-3); cursor: pointer; padding: 0; }
+  .menu-knop span { display: block; width: 17px; height: 1.6px; border-radius: 2px; background: var(--wit); transition: transform .28s ease, opacity .2s ease; }
+  .menu-knop.open span:nth-child(1) { transform: translateY(6.6px) rotate(45deg); }
+  .menu-knop.open span:nth-child(2) { opacity: 0; }
+  .menu-knop.open span:nth-child(3) { transform: translateY(-6.6px) rotate(-45deg); }
+
+  .menu-paneel { position: fixed; inset: 0; z-index: 120; display: flex; align-items: flex-start; justify-content: center; padding: 80px 14px calc(20px + env(safe-area-inset-bottom)); overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; background: rgba(10, 18, 15, 0.86); backdrop-filter: blur(10px); opacity: 0; visibility: hidden; transition: opacity .26s ease, visibility .26s ease; }
+  .menu-paneel.open { opacity: 1; visibility: visible; }
+  .menu-binnen { width: 100%; max-width: 440px; padding: 14px; border-radius: 26px; background: var(--ink-2); border: 1px solid var(--ink-line); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45); transform: translateY(-12px); transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+  .menu-paneel.open .menu-binnen { transform: none; }
+  .menu-links { display: grid; }
+  .menu-links a { display: flex; align-items: center; justify-content: space-between; padding: 13px 12px; border-radius: 16px; font-size: 17px; font-weight: 600; color: var(--wit); transition: background .2s; }
+  .menu-links a + a { border-top: 1px solid var(--ink-line); }
+  .menu-links a:hover { background: var(--ink-3); }
+  .menu-links a[aria-current="page"] { color: var(--goud); }
+  .menu-links a[aria-current="page"]::after { content: "•"; color: var(--goud); }
+  .menu-acties { display: grid; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--ink-line); }
+  .menu-acties .btn { width: 100%; justify-content: center; }
+  html.menu-op, html.menu-op body { overflow: hidden; }
+
+  @media (max-width: 1080px) {
+    .menu-knop { display: inline-flex; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .menu-paneel, .menu-binnen, .menu-knop span { transition: none; }
+  }
+
   /* ---------- Toestemmingsbalk ---------- */
   .ck { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; padding: 12px; transform: translateY(120%); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
   .ck.ck-op { transform: none; }

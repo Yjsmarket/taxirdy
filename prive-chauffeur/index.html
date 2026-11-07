@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privéchauffeur huren in Amsterdam | Per uur of per dag | Fixed Ride</title>
+<meta name="description" content="Een eigen chauffeur die de hele dag bij u blijft. Per uur, per dagdeel of per dag te reserveren in Amsterdam en omgeving. Vaste chauffeur, vaste prijs, vooraf geregeld.">
+<meta name="theme-color" content="#0A120F">
+<link rel="icon" href="../img/logo/fixed-ride-badge.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/logo/fixed-ride-badge.svg">
+<link rel="canonical" href="https://fixed-ride.nl/prive-chauffeur/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/app.css?v=1">
+<style>
+  .hero h1 { font-size: clamp(34px, 4.4vw, 58px); }
+
+  /* ---------- Momenten ---------- */
+  .mom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .mom article { display: flex; flex-direction: column; gap: 10px; padding: 26px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); transition: transform .3s, box-shadow .3s; }
+  .mom article:hover { transform: translateY(-3px); box-shadow: 0 24px 50px rgba(10, 18, 15, 0.08); }
+  .mom .i-rond { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--creme); border: 1px solid var(--lijn); }
+  .mom .i-rond .i { width: 18px; height: 18px; color: #8C6F35; }
+  .mom h3 { font-size: 20px; }
+  .mom p { font-size: 14.5px; color: var(--tekst-zacht); }
+
+  /* ---------- Afrekenen ---------- */
+  .uren { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .uur { display: flex; flex-direction: column; gap: 9px; padding: 26px; border-radius: var(--r-lg); background: var(--ink-2); border: 1px solid var(--ink-line); }
+  .uur .mono { color: var(--goud); }
+  .uur h3 { font-size: 21px; color: var(--wit); margin-top: 4px; }
+  .uur p { font-size: 14px; color: var(--zacht-donker); }
+  .uur .bedrag { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--ink-line); font-family: var(--f-serif); font-style: italic; font-size: 20px; color: var(--goud); }
+
+  /* ---------- Verwachting ---------- */
+  .verw { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .verw > div { padding: 32px; border-radius: var(--r-lg); border: 1px solid var(--lijn); background: var(--wit); }
+  .verw h3 { font-size: 22px; margin: 12px 0 18px; }
+  .verw ul { list-style: none; display: grid; gap: 12px; }
+  .verw li { display: flex; gap: 11px; align-items: flex-start; font-size: 15px; color: var(--tekst-zacht); }
+  .verw li .i { width: 17px; height: 17px; margin-top: 3px; flex: none; color: #8C6F35; }
+  .verw .nee li .i { color: var(--tekst-zacht); opacity: .55; }
+
+  /* ---------- Werkwijze ---------- */
+  .stap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .stap article { padding: 26px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); }
+  .stap .mono { color: #8C6F35; }
+  .stap h3 { font-size: 19px; margin: 10px 0 8px; }
+  .stap p { font-size: 14px; color: var(--tekst-zacht); }
+
+  @media (max-width: 1080px) {
+    .mom { grid-template-columns: 1fr 1fr; }
+    .uren { grid-template-columns: 1fr 1fr; }
+    .stap { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero-logo { height: 62px; }
+    /* Twee naast elkaar, nooit een blok per scroll. */
+    .mom { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mom article { padding: 16px; }
+    .mom h3 { font-size: 16px; }
+    .mom p { display: none; }
+    .uren { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .uur { padding: 18px; }
+    .uur h3 { font-size: 17px; }
+    .uur p { display: none; }
+    .uur .bedrag { font-size: 17px; }
+    .verw { grid-template-columns: 1fr; }
+    .verw > div { padding: 22px; }
+    .stap { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stap article { padding: 18px; }
+    .stap h3 { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.9 19.5L3 21z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l1-1.6-2.1-1-1 .9a4.2 4.2 0 0 1-2.3-2.3l.9-1-1-2.1L9 8.8z"/></symbol>
+  <symbol id="i-pijl" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-kruis" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-klok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-koffer" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></symbol>
+  <symbol id="i-mens" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-glas" viewBox="0 0 24 24"><path d="M6 4h12l-5 7v7h3M9 18h3"/></symbol>
+  <symbol id="i-hart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9.3A3.7 3.7 0 0 1 12 8a3.7 3.7 0 0 1 7 2.7C19 15.6 12 20 12 20z"/></symbol>
+  <symbol id="i-tas" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3h-2M3 16h2m4 0h6"/><circle cx="7" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></symbol>
+</svg>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero-page">
+    <section class="hero" aria-labelledby="t-pc">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.72],[0.26,0.52],[0.60,0.94],[1.05,0.66]],[[0.30,-0.05],[0.48,0.30],[0.70,0.18],[0.98,0.54]],[[-0.05,0.30],[0.28,0.46],[0.52,0.08],[0.86,-0.05]],[[0.58,1.05],[0.70,0.66],[0.90,0.50],[1.05,0.24]]]' aria-hidden="true"></canvas>
+      <div class="wrap">
+        <header class="nav">
+          <a class="merk" href="../" aria-label="Fixed Ride, naar de homepage">Fixed <span class="serif">Ride</span></a>
+          <nav class="nav-links" aria-label="Hoofdmenu">
+            <a href="../stadsritten/">Stadsritten</a><a href="../airport-taxi/">Airport taxi</a><a href="./" aria-current="page">Privéchauffeur</a><a href="../tours/">Tours</a><a href="../over-ons/">Over ons</a>
+          </nav>
+          <div class="nav-acties">
+            <a class="btn btn-bel" href="tel:+31202101637" aria-label="Bel 020 210 1637"><svg class="i"><use href="#i-tel"/></svg><span>020 210 1637</span></a>
+            <a class="rond rond-wa" href="https://wa.me/31202101637" aria-label="WhatsApp"><svg class="i wa"><use href="#i-wa"/></svg></a>
+            <a class="btn btn-goud" href="../#reserveren">Reserveren <span class="pijl"><svg class="i" style="width:15px;height:15px"><use href="#i-pijl"/></svg></span></a>
+          </div>
+        </header>
+
+        <div class="hero-grid">
+          <div class="hero-tekst">
+            <img class="hero-logo" src="../img/logo/fixed-ride-logo-animatie.svg" alt="" width="149" height="104">
+            <div class="tags">
+              <span class="tag">Per uur of per dag</span>
+              <span class="tag">Dezelfde chauffeur</span>
+              <span class="tag">Vooraf vastgelegd</span>
+            </div>
+            <h1 id="t-pc">Een chauffeur die <span class="serif">blijft, niet één rit.</span></h1>
+            <p class="hero-sub">Bij een losse taxirit stapt u in en uit. Bij een <b>privéchauffeur</b> houdt u dezelfde auto en dezelfde chauffeur voor een paar uur, een dagdeel of een hele dag. Hij wacht terwijl u binnen bent, parkeert zelf en staat klaar als u weer naar buiten loopt.</p>
+            <div class="hero-acties">
+              <a class="btn btn-goud" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20priv%C3%A9chauffeur%20reserveren." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Chauffeur reserveren</a>
+              <a class="btn btn-lijn" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>Bel direct</a>
+            </div>
+            <ul class="punten">
+              <li><svg class="i"><use href="#i-check"/></svg>Vanaf een paar uur te boeken</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Onbeperkt stops onderweg</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Wachttijd zit in de prijs</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Ook meerdere dagen achter elkaar</li>
+            </ul>
+          </div>
+
+          <div class="hero-beeld">
+            <div class="hero-foto"><img src="../img/fleet-premium.jpg" alt="Auto met privéchauffeur in Amsterdam"><span class="foto-tag">Eigen chauffeur · per uur of per dag</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ MOMENTEN ============ -->
+  <section id="momenten">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Wanneer dit beter werkt</span>
+          <h2>Dagen met <span class="serif">meer dan één stop.</span></h2>
+        </div>
+        <p>Zodra u op een dag een paar keer moet rijden, bent u met een vaste chauffeur sneller en goedkoper uit dan met losse ritten.</p>
+      </div>
+
+      <div class="mom">
+        <article class="rv">
+          <div class="i-rond"><svg class="i"><use href="#i-koffer"/></svg></div>
+          <h3>Zakelijke dag</h3>
+          <p>Drie of vier afspraken op verschillende adressen. U werkt onderweg door en hoeft tussendoor nergens een taxi te zoeken.</p>
+        </article>
+        <article class="rv">
+          <div class="i-rond"><svg class="i"><use href="#i-mens"/></svg></div>
+          <h3>Gasten begeleiden</h3>
+          <p>Een klant of collega uit het buitenland die u van de luchthaven haalt en de hele dag bij u houdt, van kantoor tot diner tot hotel.</p>
+        </article>
+        <article class="rv">
+          <div class="i-rond"><svg class="i"><use href="#i-glas"/></svg></div>
+          <h3>Diner of avond uit</h3>
+          <p>Naar een restaurant, daarna nog ergens heen en aan het einde van de avond weer thuis. Niemand hoeft op te letten wat hij drinkt.</p>
+        </article>
+        <article class="rv">
+          <div class="i-rond"><svg class="i"><use href="#i-hart"/></svg></div>
+          <h3>Bruiloft of ceremonie</h3>
+          <p>Van huis naar de locatie, tussendoor familie ophalen en aan het einde van de dag weer terug. Dezelfde auto, de hele dag.</p>
+        </article>
+        <article class="rv">
+          <div class="i-rond"><svg class="i"><use href="#i-klok"/></svg></div>
+          <h3>Ziekenhuis of behandeling</h3>
+          <p>U weet niet precies hoe lang het duurt. De chauffeur wacht gewoon tot u klaar bent in plaats van dat u opnieuw moet bellen.</p>
+        </article>
+        <article class="rv">
+          <div class="i-rond"><svg class="i"><use href="#i-tas"/></svg></div>
+          <h3>Winkelen en bezoeken</h3>
+          <p>Meerdere adressen op één middag, met de boodschappen of de koffers die in de auto blijven liggen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AFREKENEN ============ -->
+  <section class="vloot" id="tarief">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Hoe u afrekent</span>
+          <h2>Per uur, <span class="serif">of per dag in één bedrag.</span></h2>
+        </div>
+        <p>U kiest vooraf welke vorm past. Bij een dagdeel of een hele dag weet u het totaalbedrag voordat de chauffeur voorrijdt.</p>
+      </div>
+
+      <!-- PRIJZEN: zodra de klant uurtarieven en dagprijzen aanlevert, vervang "Op aanvraag".
+           Niets invullen zonder opgave van de klant. -->
+      <div class="uren">
+        <article class="uur rv">
+          <span class="mono">Per uur</span>
+          <h3>Losse uren</h3>
+          <p>Voor een paar uur op een middag of avond. Meestal met een minimum aantal uren, dat hoort u vooraf.</p>
+          <span class="bedrag">Op aanvraag</span>
+        </article>
+        <article class="uur rv">
+          <span class="mono">Dagdeel</span>
+          <h3>Ongeveer 4 uur</h3>
+          <p>Een ochtend of een middag. Handig bij een reeks afspraken of een halve dag op pad.</p>
+          <span class="bedrag">Op aanvraag</span>
+        </article>
+        <article class="uur rv">
+          <span class="mono">Hele dag</span>
+          <h3>Ongeveer 8 uur</h3>
+          <p>De chauffeur begint en eindigt waar u wilt en blijft er tussendoor. Eén bedrag voor de hele dag.</p>
+          <span class="bedrag">Op aanvraag</span>
+        </article>
+        <article class="uur rv">
+          <span class="mono">Meerdaags</span>
+          <h3>Meerdere dagen</h3>
+          <p>Voor een beurs, een bezoek van een paar dagen of een reis door het land. In overleg vastgelegd.</p>
+          <span class="bedrag">Op aanvraag</span>
+        </article>
+      </div>
+
+      <p style="margin-top:18px;font-size:13.5px;color:var(--zacht-donker)">Rijdt u één keer van A naar B? Dan bent u goedkoper uit met een <a href="../stadsritten/" style="color:var(--goud);font-weight:600;text-decoration:underline">losse stadsrit</a> of een <a href="../airport-taxi/" style="color:var(--goud);font-weight:600;text-decoration:underline">luchthavenrit</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ WAT U KUNT VERWACHTEN ============ -->
+  <section id="verwachting" style="padding-top:0">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Duidelijk vooraf</span>
+          <h2>Wat uw chauffeur <span class="serif">wel en niet doet.</span></h2>
+        </div>
+        <p>Liever eerlijk dan mooie woorden. Dit mag u verwachten, en dit moet u ergens anders regelen.</p>
+      </div>
+
+      <div class="verw">
+        <div class="rv">
+          <span class="mono">Hoort erbij</span>
+          <h3>Dit doet de chauffeur</h3>
+          <ul>
+            <li><svg class="i"><use href="#i-check"/></svg>Hij blijft de hele afgesproken periode voor u beschikbaar</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Hij wacht in de buurt en rijdt voor zodra u belt of naar buiten komt</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Hij regelt zelf het parkeren, u hoeft nergens heen te lopen</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Hij helpt met koffers, boodschappen en in- en uitstappen</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Hij houdt het gesprek zo rustig of zo stil als u wilt</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Hij houdt uw planning in de gaten en meldt het als u krap zit</li>
+          </ul>
+        </div>
+        <div class="nee rv">
+          <span class="mono">Hoort er niet bij</span>
+          <h3>Dit regelt u zelf</h3>
+          <ul>
+            <li><svg class="i"><use href="#i-kruis"/></svg>Entreegeld, parkeergeld op privéterrein en tolwegen worden doorberekend</li>
+            <li><svg class="i"><use href="#i-kruis"/></svg>Hij is geen opgeleide gids en geeft geen rondleiding</li>
+            <li><svg class="i"><use href="#i-kruis"/></svg>Hij is geen beveiliger en geen persoonlijk assistent</li>
+            <li><svg class="i"><use href="#i-kruis"/></svg>Boodschappen doen of pakketjes bezorgen zonder dat u meerijdt doen wij niet</li>
+            <li><svg class="i"><use href="#i-kruis"/></svg>Loopt de dag flink uit, dan overleggen wij over de extra uren</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WERKWIJZE ============ -->
+  <section id="werkwijze" style="padding-top:0">
+    <div class="wrap">
+      <div class="kop rv">
+        <div>
+          <span class="mono">Zo regelt u het</span>
+          <h2>Van aanvraag <span class="serif">tot voorgereden.</span></h2>
+        </div>
+        <p>Wij bemiddelen in de rit en zetten er een gelicentieerd bedrijf met een vaste chauffeur op.</p>
+      </div>
+
+      <div class="stap">
+        <article class="rv">
+          <span class="mono">Stap 1</span>
+          <h3>U geeft de dag door</h3>
+          <p>Datum, begintijd, hoeveel uur ongeveer, hoeveel personen en waar u start. Een ruwe planning is genoeg.</p>
+        </article>
+        <article class="rv">
+          <span class="mono">Stap 2</span>
+          <h3>Wij leggen de prijs vast</h3>
+          <p>U krijgt het bedrag voor die uren of die dag terug, plus wat er gebeurt als het uitloopt. Geen meter die doortikt.</p>
+        </article>
+        <article class="rv">
+          <span class="mono">Stap 3</span>
+          <h3>Chauffeur toegewezen</h3>
+          <p>Eén chauffeur voor die hele periode. U krijgt zijn naam en nummer voordat de dag begint.</p>
+        </article>
+        <article class="rv">
+          <span class="mono">Stap 4</span>
+          <h3>Hij staat er</h3>
+          <p>Op tijd op het afgesproken adres, en daarna de hele periode binnen een paar minuten beschikbaar.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VRAGEN ============ -->
+  <section id="vragen" style="padding-top:0">
+    <div class="wrap">
+      <div class="rf">
+        <div class="rv">
+          <span class="mono">Veelgestelde vragen</span>
+          <h2 style="font-size:clamp(32px,3.6vw,48px);margin-top:16px">Over een <span class="serif" style="color:#8C6F35">privéchauffeur.</span></h2>
+        </div>
+        <div class="faq rv">
+          <details open><summary>Wat is het verschil met een gewone taxirit?</summary><p>Bij een taxirit betaalt u voor het stuk van A naar B en is de chauffeur daarna weg. Bij een privéchauffeur boekt u tijd in plaats van afstand: dezelfde auto en dezelfde chauffeur blijven voor u beschikbaar, ook terwijl u binnen bent.</p></details>
+          <details><summary>Hoeveel uur moet ik minimaal boeken?</summary><p>Er geldt een minimum aantal uren, dat afhangt van het moment en de bestemming. U hoort het exacte minimum zodra u uw dag doorgeeft, nog voordat u iets vastlegt.</p></details>
+          <details><summary>Wat als het later wordt dan afgesproken?</summary><p>Een halfuur uitloop lossen wij meestal zonder gedoe op. Wordt het echt langer, dan belt de chauffeur even zodat u weet wat de extra uren kosten voordat ze gereden worden.</p></details>
+          <details><summary>Houd ik dezelfde chauffeur?</summary><p>Ja, binnen de geboekte periode is het één chauffeur. Boekt u meerdere dagen, dan proberen wij dezelfde persoon in te zetten, maar dat kunnen wij bij ziekte of rusttijden niet altijd garanderen. Wij zeggen het dan vooraf.</p></details>
+          <details><summary>Welke auto krijg ik?</summary><p>Tot drie passagiers rijdt u in een sedan, tot acht personen in de Mercedes V-Klasse. Heeft u een voorkeur, geef die door bij de aanvraag, dan kijken wij of die auto vrij is.</p></details>
+          <details><summary>Kan het ook op factuur voor mijn bedrijf?</summary><p>Ja, zakelijk afrekenen kan. Geef bij de aanvraag de bedrijfsnaam en het factuuradres door, dan regelen wij het zo.</p></details>
+          <details><summary>Hoe ver vooruit moet ik reserveren?</summary><p>Hoe eerder hoe beter, want een chauffeur die een hele dag voor u vrij wordt gehouden is niet op het laatste moment te regelen. Voor dezelfde dag kunt u bellen, dan horen wij wat er nog mogelijk is.</p></details>
+          <details><summary>Rijdt u ook buiten Amsterdam?</summary><p>Ja. Wij rijden door heel Nederland en ook naar België en Duitsland. Bij ritten over de grens leggen wij de prijs altijd vooraf vast.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <div class="cta-page">
+    <section class="cta">
+      <canvas class="wegen" data-wegen='[[[-0.05,0.75],[0.30,0.55],[0.60,1.0],[1.05,0.65]],[[-0.05,0.20],[0.35,0.45],[0.65,-0.1],[1.05,0.30]]]' aria-hidden="true"></canvas>
+      <span class="tag">Privéchauffeur</span>
+      <h2>Vertel ons uw dag. <span class="serif">Wij zetten er een chauffeur op.</span></h2>
+      <p>Een paar uur of een hele dag. U krijgt vooraf één bedrag en de naam van uw chauffeur.</p>
+      <div class="cta-acties">
+        <a class="btn btn-goud" href="https://wa.me/31202101637?text=Goedendag%20Fixed%20Ride%2C%20ik%20wil%20graag%20een%20priv%C3%A9chauffeur%20reserveren." target="_blank" rel="noopener"><svg class="i wa"><use href="#i-wa"/></svg>Chauffeur reserveren</a>
+        <a class="btn btn-lijn" href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>020 210 1637</a>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="voet">
+      <div>
+        <a class="merk" href="../"><img src="../img/logo/fixed-ride-logo-licht.svg" alt="" width="54" height="38">Fixed <span class="serif">Ride</span></a>
+        <p>Taxi en privéchauffeur in Amsterdam. Stadsritten, luchthavenvervoer, zakelijk vervoer en tours.</p>
+      </div>
+      <div><h4>Diensten</h4><ul><li><a href="../stadsritten/">Stadsritten</a></li><li><a href="../airport-taxi/">Luchthaven</a></li><li><a href="./">Privéchauffeur</a></li><li><a href="../tours/">Tours</a></li></ul></div>
+      <div><h4>Fixed Ride</h4><ul><li><a href="../#werkwijze">Werkwijze</a></li><li><a href="../#vloot">Vloot &amp; prijzen</a></li><li><a href="#vragen">Vragen</a></li><li><a href="../over-ons/">Over ons</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+31202101637">020 210 1637</a></li><li><a href="https://wa.me/31202101637">WhatsApp</a></li><li><a href="../over-ons/#verloren-voorwerpen">Verloren voorwerpen</a></li></ul></div>
+    </div>
+    <div class="voet-onder"><span>© 2026 Fixed Ride</span><span>Bemiddelaar in taxiritten, gereden door gelicentieerde chauffeurs</span></div>
+  </div>
+</footer>
+
+<nav class="mbalk" aria-label="Snel contact">
+  <a href="tel:+31202101637"><svg class="i"><use href="#i-tel"/></svg>Bel</a>
+  <a href="https://wa.me/31202101637"><svg class="i wa"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a href="../#reserveren" class="hoofd">Reserveren</a>
+</nav>
+
+<script src="../js/sfeer.js" defer></script>
+<script src="../js/toestemming.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Wat is het verschil tussen een privéchauffeur en een gewone taxirit?", "acceptedAnswer": { "@type": "Answer", "text": "Bij een taxirit betaalt u voor de afstand van A naar B en is de chauffeur daarna weg. Bij een privéchauffeur boekt u tijd: dezelfde auto en chauffeur blijven voor u beschikbaar, ook terwijl u binnen bent." } },
+    { "@type": "Question", "name": "Hoeveel uur moet ik minimaal een privéchauffeur boeken?", "acceptedAnswer": { "@type": "Answer", "text": "Er geldt een minimum aantal uren, afhankelijk van het moment en de bestemming. U hoort het exacte minimum bij uw aanvraag, voordat u iets vastlegt." } },
+    { "@type": "Question", "name": "Houd ik dezelfde chauffeur de hele dag?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, binnen de geboekte periode is het één chauffeur. Bij meerdere dagen proberen wij dezelfde persoon in te zetten, maar dat kan niet altijd worden gegarandeerd." } },
+    { "@type": "Question", "name": "Kan een privéchauffeur op factuur worden afgerekend?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Geef bij de aanvraag de bedrijfsnaam en het factuuradres door, dan wordt de rit zakelijk afgerekend." } }
+  ]
+}
+</script>
+</body>
+</html>

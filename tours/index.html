@@ -20,8 +20,11 @@
 
   /* ---------- Tours ---------- */
   .tours { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .tour { display: flex; flex-direction: column; gap: 11px; padding: 26px; border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); transition: transform .3s, box-shadow .3s; }
+  .tour { --p: 26px; display: flex; flex-direction: column; gap: 11px; padding: var(--p); border-radius: var(--r-lg); background: var(--wit); border: 1px solid var(--lijn); transition: transform .3s, box-shadow .3s; overflow: hidden; }
   .tour:hover { transform: translateY(-3px); box-shadow: 0 24px 50px rgba(10, 18, 15, 0.08); }
+  .tour-foto { margin: calc(var(--p) * -1) calc(var(--p) * -1) 3px; aspect-ratio: 16 / 10; overflow: hidden; background: var(--creme); }
+  .tour-foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+  .tour:hover .tour-foto img { transform: scale(1.04); }
   .tour-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .tour-duur { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: var(--pill); background: var(--creme); border: 1px solid var(--lijn); font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8C6F35; }
   .tour-seizoen { font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tekst-zacht); }
@@ -58,7 +61,7 @@
     .hero-logo { height: 62px; }
     /* Twee tours naast elkaar, geen blok per scroll. */
     .tours { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .tour { padding: 16px; }
+    .tour { --p: 16px; }
     .tour h3 { font-size: 16px; }
     .tour p, .tour-seizoen { display: none; }
     .tour-voet { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -147,6 +150,7 @@
            Niets invullen zonder opgave van de klant. -->
       <div class="tours">
         <article class="tour rv">
+          <div class="tour-foto"><img src="../img/tour-amsterdam.jpg" alt="Grachten van Amsterdam tijdens een rondrit met chauffeur" loading="lazy" width="1600" height="900"></div>
           <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>2 tot 3 uur</span><span class="tour-seizoen">Hele jaar</span></div>
           <h3>Rondrit Amsterdam</h3>
           <p>Langs de grachtengordel, de Jordaan, het Museumplein en de Zuidas. Uitstappen waar u een foto wilt maken, en door wanneer u er klaar voor bent.</p>
@@ -154,6 +158,7 @@
         </article>
 
         <article class="tour rv">
+          <div class="tour-foto"><img src="../img/tour-keukenhof.jpg" alt="Bloeiende tulpenvelden bij de Keukenhof in Lisse" loading="lazy" width="1600" height="900"></div>
           <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Halve dag</span><span class="tour-seizoen">Voorjaar</span></div>
           <h3>Keukenhof</h3>
           <p>De bloementuinen in Lisse, geopend in het voorjaar. Wij brengen u tot aan de ingang en staan er weer als u klaar bent, dus u hoeft niet op een bus te wachten.</p>
@@ -161,6 +166,7 @@
         </article>
 
         <article class="tour rv">
+          <div class="tour-foto"><img src="../img/tour-zaanse-schans.jpg" alt="Molens aan de Zaan bij de Zaanse Schans" loading="lazy" width="1600" height="900"></div>
           <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Halve dag</span><span class="tour-seizoen">Hele jaar</span></div>
           <h3>Zaanse Schans</h3>
           <p>De molens aan de Zaan, op een half uur rijden van Amsterdam. Vaak gecombineerd met Volendam en Marken tot een volle dag.</p>
@@ -168,6 +174,7 @@
         </article>
 
         <article class="tour rv">
+          <div class="tour-foto"><img src="../img/tour-giethoorn.jpg" alt="Grachtjes en rieten daken in Giethoorn" loading="lazy" width="1600" height="900"></div>
           <div class="tour-top"><span class="tour-duur"><svg class="i" style="width:13px;height:13px"><use href="#i-klok"/></svg>Hele dag</span><span class="tour-seizoen">Hele jaar</span></div>
           <h3>Giethoorn</h3>
           <p>Het dorp zonder autowegen, met grachtjes en bruggetjes. Een rit van ongeveer anderhalf uur heen, dus een dag waarop u rustig de tijd heeft.</p>

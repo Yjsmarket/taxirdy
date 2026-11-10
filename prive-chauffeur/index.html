@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/app.css?v=2">
+<link rel="stylesheet" href="../css/app.css?v=3">
 <style>
   .hero h1 { font-size: clamp(34px, 4.4vw, 58px); }
 
@@ -73,6 +73,15 @@
     .stap { grid-template-columns: 1fr 1fr; gap: 10px; }
     .stap article { padding: 18px; }
     .stap h3 { font-size: 16px; }
+  }
+
+  /* ---------- Interieur ---------- */
+  .interieur { margin: 0 0 14px; position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 21 / 9; background: var(--creme); }
+  .interieur img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .interieur figcaption { position: absolute; left: 18px; bottom: 16px; right: 18px; color: var(--wit); font-size: 14px; font-weight: 600; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7); }
+  @media (max-width: 640px) {
+    .interieur { aspect-ratio: 16 / 10; }
+    .interieur figcaption { left: 12px; bottom: 12px; right: 12px; font-size: 12.5px; }
   }
 </style>
 </head>
@@ -242,6 +251,8 @@
         </div>
         <p>Liever eerlijk dan mooie woorden. Dit mag u verwachten, en dit moet u ergens anders regelen.</p>
       </div>
+
+      <figure class="interieur rv"><img src="../img/interieur-achter.jpg" alt="Achterbank van de auto met leren bekleding" loading="lazy" width="1600" height="900"><figcaption>Achterin heeft u de ruimte om te werken, te bellen of even niets te doen</figcaption></figure>
 
       <div class="verw">
         <div class="rv">

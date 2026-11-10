@@ -502,6 +502,12 @@
   .wa-cta { margin-top: 14px; }
   .kop .wa-cta { justify-self: start; }
 
+  /* Lijnknop op een lichte achtergrond: witte tekst op creme is onleesbaar. */
+  .btn-lijn.op-licht { color: var(--tekst); border-color: var(--lijn); }
+  .btn-lijn.op-licht:hover { background: rgba(10, 18, 15, 0.05); border-color: var(--tekst-zacht); }
+  .btn-lijn.op-licht .i { color: #8C6F35; }
+  .btn-lijn.op-licht .i.wa { color: var(--wa); }
+
   /* ================= Hamburgermenu ================= */
   .menu-knop { display: none; width: 44px; height: 44px; flex: none; align-items: center; justify-content: center; flex-direction: column; gap: 5px; border-radius: 50%; border: 1px solid var(--ink-line); background: var(--ink-3); cursor: pointer; padding: 0; }
   .menu-knop span { display: block; width: 17px; height: 1.6px; border-radius: 2px; background: var(--wit); transition: transform .28s ease, opacity .2s ease; }
